@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/GrzegorzWitkowsk1/Portfolio/static/js/main.695b82c8.js",
-    "index.html": "/GrzegorzWitkowsk1/Portfolio/index.html",
-    "main.695b82c8.js.map": "/GrzegorzWitkowsk1/Portfolio/static/js/main.695b82c8.js.map"
+    "main.js": "/Portfolio/static/js/main.695b82c8.js",
+    "index.html": "/Portfolio/index.html",
+    "main.695b82c8.js.map": "/Portfolio/static/js/main.695b82c8.js.map"
   },
   "entrypoints": [
     "static/js/main.695b82c8.js"
