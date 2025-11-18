@@ -20,10 +20,16 @@ const arrowAnimation = keyframes`
 `;
 
 interface Props {
-  scrollHandler: () => void;
+  aboutScrollHandler: () => void;
+  contactScrollHandler: () => void;
+  myWorkScrollHandler: () => void;
 }
 
-export default function MainSection({ scrollHandler }: Props) {
+export default function MainSection({
+  aboutScrollHandler,
+  contactScrollHandler,
+  myWorkScrollHandler,
+}: Props) {
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down("md"));
 
   return (
@@ -51,7 +57,7 @@ export default function MainSection({ scrollHandler }: Props) {
         }}
       >
         <Typography variant={isMobile ? "h3" : "h2"}>Hi,</Typography>
-        <Typography variant={isMobile ? "h3" : "h2"}>Im</Typography>
+        <Typography variant={isMobile ? "h3" : "h2"}>I,m</Typography>
         <NeonTypography variant={isMobile ? "h3" : "h2"} fontWeight={"bold"}>
           Grzegorz
         </NeonTypography>
@@ -78,8 +84,12 @@ export default function MainSection({ scrollHandler }: Props) {
           gap: { lg: "24px", md: "18px", xs: "12px" },
         }}
       >
-        <ContainedStyledButton>View My Work</ContainedStyledButton>
-        <OutlinedStyledButton>Get In Touch</OutlinedStyledButton>
+        <ContainedStyledButton onClick={myWorkScrollHandler}>
+          View My Work
+        </ContainedStyledButton>
+        <OutlinedStyledButton onClick={contactScrollHandler}>
+          Get In Touch
+        </OutlinedStyledButton>
       </Box>
       <Box
         sx={{ display: "flex", gap: { lg: "24px", md: "18px", xs: "12px" } }}
@@ -108,7 +118,7 @@ export default function MainSection({ scrollHandler }: Props) {
         </a>
       </Box>
       <StyledIconButton
-        onClick={scrollHandler}
+        onClick={aboutScrollHandler}
         sx={{
           position: "absolute",
           bottom: 15,

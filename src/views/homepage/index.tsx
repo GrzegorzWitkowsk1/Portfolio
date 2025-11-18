@@ -8,9 +8,19 @@ import Contact from "./components/contact";
 
 export default function Homepage() {
   const aboutMeRef = useRef<HTMLElement | null>(null);
+  const myWorkRef = useRef<HTMLElement | null>(null);
+  const contactRef = useRef<HTMLElement | null>(null);
 
   function scrollToAbout() {
     aboutMeRef.current?.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function scrollToMyWork() {
+    myWorkRef.current?.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function scrollToContact() {
+    contactRef.current?.scrollIntoView({ behavior: "smooth" });
   }
 
   useEffect(() => {
@@ -43,11 +53,15 @@ export default function Homepage() {
         overflow: "auto",
       }}
     >
-      <MainSection scrollHandler={scrollToAbout} />
+      <MainSection
+        aboutScrollHandler={scrollToAbout}
+        contactScrollHandler={scrollToContact}
+        myWorkScrollHandler={scrollToMyWork}
+      />
       <AboutMe ref={aboutMeRef} />
-      <Projects />
+      <Projects ref={myWorkRef} />
       <WorkExperience />
-      <Contact />
+      <Contact ref={contactRef} />
     </Box>
   );
 }

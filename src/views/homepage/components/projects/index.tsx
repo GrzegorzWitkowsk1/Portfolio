@@ -2,6 +2,7 @@ import { Typography, useTheme } from "@mui/material";
 import Box from "@mui/material/Box";
 import { ProjectType } from "./types";
 import ProjectContainer from "./components/project-container";
+import { RefObject } from "react";
 
 const projects: ProjectType[] = [
   {
@@ -50,11 +51,16 @@ const projects: ProjectType[] = [
   },
 ];
 
-export default function Projects() {
+interface Props {
+  ref: RefObject<HTMLElement | null>;
+}
+
+export default function Projects({ ref }: Props) {
   const theme = useTheme();
 
   return (
     <Box
+      ref={ref}
       sx={{
         display: "flex",
         flexDirection: "column",

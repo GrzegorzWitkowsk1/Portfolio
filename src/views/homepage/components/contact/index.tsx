@@ -8,6 +8,7 @@ import {
   MailOutline,
 } from "@mui/icons-material";
 import { ContainedStyledButton } from "../../../../components/contained-button";
+import { RefObject } from "react";
 
 const ContactBox = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -34,11 +35,16 @@ const ContactBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-export default function Projects() {
+interface Props {
+  ref: RefObject<HTMLElement | null>;
+}
+
+export default function Projects({ ref }: Props) {
   const theme = useTheme();
 
   return (
     <Box
+      ref={ref}
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -151,12 +157,17 @@ export default function Projects() {
           </a>
         </Box>
       </Box>
-      <ContainedStyledButton
-        sx={{ display: "flex", gap: "8px", alignItems: "center" }}
+      <a
+        style={{ textDecoration: "none" }}
+        href={"mailto:grzegorz.witkowski999@gmail.com"}
       >
-        <EmailOutlined />
-        <Typography>Send me an email</Typography>
-      </ContainedStyledButton>
+        <ContainedStyledButton
+          sx={{ display: "flex", gap: "8px", alignItems: "center" }}
+        >
+          <EmailOutlined />
+          <Typography>Send me an email</Typography>
+        </ContainedStyledButton>
+      </a>
 
       <Divider flexItem />
       <Typography
