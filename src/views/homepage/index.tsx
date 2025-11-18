@@ -44,6 +44,13 @@ export default function Homepage() {
     };
   }, []);
 
+  useEffect(() => {
+    const metaThemeColor = document.querySelector("meta[name=theme-color]");
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute("content", "#1C1628");
+    }
+  }, []);
+
   return (
     <Box
       sx={{
