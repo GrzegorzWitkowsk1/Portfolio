@@ -5,6 +5,7 @@ import {
   styled,
   Tooltip,
   Typography,
+  useTheme,
 } from "@mui/material";
 import { ProjectType } from "../../types";
 import { ContainedStyledButton } from "../../../../../../components/contained-button";
@@ -44,6 +45,8 @@ const TechnologyBox = styled(Box)(({ theme }) => ({
 }));
 
 export default function ProjectContainer(props: Props) {
+  const theme = useTheme();
+
   return (
     <StyledCard>
       <CardMedia
@@ -63,7 +66,7 @@ export default function ProjectContainer(props: Props) {
         <Typography variant="h5" color="white">
           {props.project.title}
         </Typography>
-        <Typography variant="body1" color="grayText">
+        <Typography variant="body1" color={theme.palette.grey[600]}>
           {props.project.description}
         </Typography>
         <Box

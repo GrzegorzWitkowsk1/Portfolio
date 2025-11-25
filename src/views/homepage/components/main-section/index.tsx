@@ -10,7 +10,7 @@ import {
   LinkedIn,
   MailOutline,
 } from "@mui/icons-material";
-import { keyframes } from "@mui/material/styles";
+import { keyframes, useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
 
 const arrowAnimation = keyframes`
@@ -30,7 +30,8 @@ export default function MainSection({
   contactScrollHandler,
   myWorkScrollHandler,
 }: Props) {
-  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("md"));
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <Box
@@ -65,7 +66,7 @@ export default function MainSection({
       <Typography
         textAlign={"center"}
         variant={isMobile ? "h6" : "h5"}
-        color="grayText"
+        color={theme.palette.grey[600]}
       >
         Frontend Developer with passion
       </Typography>
@@ -73,7 +74,7 @@ export default function MainSection({
         variant={isMobile ? "body2" : "body1"}
         textAlign={"center"}
         sx={{ width: { lg: "35%", md: "60%", xs: "80%" } }}
-        color="grayText"
+        color={theme.palette.grey[600]}
       >
         Crafting beautiful, functional, responsive web experiences with React JS
         and Typescript. I like simple solutions and make things good-looking.

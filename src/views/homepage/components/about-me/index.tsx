@@ -6,6 +6,7 @@ import {
   PaletteOutlined,
   RocketLaunchOutlined,
 } from "@mui/icons-material";
+
 import { IconContainer } from "../../../../components/icon-container";
 import { StyledContainer } from "../../../../components/styled-container";
 
@@ -56,7 +57,11 @@ export default function AboutMe({ ref }: Props) {
       <Typography variant="h3" color="white">
         About <span style={{ color: theme.palette.primary.main }}>me</span>
       </Typography>
-      <Typography textAlign={"center"} variant="h6" color="grayText">
+      <Typography
+        textAlign={"center"}
+        variant="h6"
+        color={theme.palette.grey[600]}
+      >
         Passionate developer with a love for creating exceptional digital
         experiences
       </Typography>

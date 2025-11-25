@@ -1,4 +1,5 @@
 import Box from "@mui/material/Box";
+
 import MainSection from "./components/main-section";
 import AboutMe from "./components/about-me";
 import { useEffect, useRef } from "react";

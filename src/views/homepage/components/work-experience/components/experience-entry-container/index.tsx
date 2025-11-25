@@ -1,11 +1,12 @@
 import Box from "@mui/material/Box";
-import { WorkExperienceEntryType } from "../../types";
 import { Typography, useTheme } from "@mui/material";
 import {
   CalendarMonthOutlined,
   PlayArrow,
   WorkOutline,
 } from "@mui/icons-material";
+
+import { WorkExperienceEntryType } from "../../types";
 
 interface Props {
   experienceEntry: WorkExperienceEntryType;
@@ -59,7 +60,7 @@ export default function ExperienceEntryContainer(props: Props) {
         </Box>
         <Box sx={{ display: "flex", gap: "12px", alignItems: "center" }}>
           <CalendarMonthOutlined />
-          <Typography color="grayText">
+          <Typography color={theme.palette.grey[600]}>
             {props.experienceEntry.dateEnd
               ? `${props.experienceEntry.dateStart} - ${props.experienceEntry.dateEnd}`
               : props.experienceEntry.dateStart}
@@ -69,7 +70,7 @@ export default function ExperienceEntryContainer(props: Props) {
       <Typography sx={{ fontSize: "16px" }} color="primary">
         {props.experienceEntry.companyName}
       </Typography>
-      <Typography variant="body1" color="grayText">
+      <Typography variant="body1" color={theme.palette.grey[600]}>
         {props.experienceEntry.description}
       </Typography>
       {props.experienceEntry.responsibilites.map((res) => (

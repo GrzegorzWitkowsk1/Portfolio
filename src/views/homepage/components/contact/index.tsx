@@ -1,5 +1,4 @@
 import { Box, Divider, styled, Typography, useTheme } from "@mui/material";
-import { IconContainer } from "../../../../components/icon-container";
 import {
   EmailOutlined,
   FilePresentOutlined,
@@ -7,8 +6,10 @@ import {
   LinkedIn,
   MailOutline,
 } from "@mui/icons-material";
-import { ContainedStyledButton } from "../../../../components/contained-button";
 import { RefObject } from "react";
+
+import { IconContainer } from "../../../../components/icon-container";
+import { ContainedStyledButton } from "../../../../components/contained-button";
 
 const ContactBox = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -59,7 +60,11 @@ export default function Projects({ ref }: Props) {
       <Typography textAlign={"center"} variant="h3" color="white">
         Get In <span style={{ color: theme.palette.primary.main }}>Touch</span>
       </Typography>
-      <Typography textAlign={"center"} variant="h6" color="grayText">
+      <Typography
+        textAlign={"center"}
+        variant="h6"
+        color={theme.palette.grey[600]}
+      >
         I'm always open to new opportunities and collaborations. Feel free to
         reach out!
       </Typography>
@@ -91,7 +96,9 @@ export default function Projects({ ref }: Props) {
               <Typography variant="h6" color="white">
                 Github
               </Typography>
-              <Typography color="grayText">@GrzegorzWitkowsk1</Typography>
+              <Typography color={theme.palette.grey[600]}>
+                @GrzegorzWitkowsk1
+              </Typography>
             </Box>
           </ContactBox>
           <ContactBox
@@ -109,7 +116,9 @@ export default function Projects({ ref }: Props) {
               <Typography variant="h6" color="white">
                 LinkedIn
               </Typography>
-              <Typography color="grayText">/in/Grzegorz Witkowski</Typography>
+              <Typography color={theme.palette.grey[600]}>
+                /in/Grzegorz Witkowski
+              </Typography>
             </Box>
           </ContactBox>
         </Box>
@@ -132,7 +141,7 @@ export default function Projects({ ref }: Props) {
               <Typography variant="h6" color="white">
                 Portfolio
               </Typography>
-              <Typography color="grayText">
+              <Typography color={theme.palette.grey[600]}>
                 Portfolio React application
               </Typography>
             </Box>
@@ -149,7 +158,7 @@ export default function Projects({ ref }: Props) {
                 <Typography variant="h6" color="white">
                   Email
                 </Typography>
-                <Typography color="grayText">
+                <Typography color={theme.palette.grey[600]}>
                   grzegorz.witkowski999@gmail.com
                 </Typography>
               </Box>
@@ -171,7 +180,7 @@ export default function Projects({ ref }: Props) {
 
       <Divider flexItem />
       <Typography
-        color="grayText"
+        color={theme.palette.grey[600]}
         sx={{
           mt: { lg: "30px", md: "30px", xs: "15px" },
         }}
