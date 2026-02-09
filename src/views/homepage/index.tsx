@@ -6,70 +6,72 @@ import { useEffect, useRef } from "react";
 import Projects from "./components/projects";
 import WorkExperience from "./components/work-experience";
 import Contact from "./components/contact";
+import Footer from "./components/footer";
 
 export default function Homepage() {
-  const aboutMeRef = useRef<HTMLElement | null>(null);
-  const myWorkRef = useRef<HTMLElement | null>(null);
-  const contactRef = useRef<HTMLElement | null>(null);
+	const aboutMeRef = useRef<HTMLElement | null>(null);
+	const myWorkRef = useRef<HTMLElement | null>(null);
+	const contactRef = useRef<HTMLElement | null>(null);
 
-  function scrollToAbout() {
-    aboutMeRef.current?.scrollIntoView({ behavior: "smooth" });
-  }
+	function scrollToAbout() {
+		aboutMeRef.current?.scrollIntoView({ behavior: "smooth" });
+	}
 
-  function scrollToMyWork() {
-    myWorkRef.current?.scrollIntoView({ behavior: "smooth" });
-  }
+	function scrollToMyWork() {
+		myWorkRef.current?.scrollIntoView({ behavior: "smooth" });
+	}
 
-  function scrollToContact() {
-    contactRef.current?.scrollIntoView({ behavior: "smooth" });
-  }
+	function scrollToContact() {
+		contactRef.current?.scrollIntoView({ behavior: "smooth" });
+	}
 
-  useEffect(() => {
-    const defaultTitle = "Hire me! ✍️";
-    const hiddenTitle = "Come back! 👋";
+	useEffect(() => {
+		const defaultTitle = "Hire me! ✍️";
+		const hiddenTitle = "Come back! 👋";
 
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        document.title = hiddenTitle;
-      } else {
-        document.title = defaultTitle;
-      }
-    };
+		const handleVisibilityChange = () => {
+			if (document.hidden) {
+				document.title = hiddenTitle;
+			} else {
+				document.title = defaultTitle;
+			}
+		};
 
-    document.addEventListener("visibilitychange", handleVisibilityChange);
+		document.addEventListener("visibilitychange", handleVisibilityChange);
 
-    document.title = defaultTitle;
+		document.title = defaultTitle;
 
-    return () => {
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
-    };
-  }, []);
+		return () => {
+			document.removeEventListener("visibilitychange", handleVisibilityChange);
+		};
+	}, []);
 
-  useEffect(() => {
-    const metaThemeColor = document.querySelector("meta[name=theme-color]");
-    if (metaThemeColor) {
-      metaThemeColor.setAttribute("content", "#1C1628");
-    }
-  }, []);
+	useEffect(() => {
+		const metaThemeColor = document.querySelector("meta[name=theme-color]");
+		if (metaThemeColor) {
+			metaThemeColor.setAttribute("content", "#1C1628");
+		}
+	}, []);
 
-  return (
-    <Box
-      sx={{
-        backgroundColor: "black",
-        display: "flex",
-        flexDirection: "column",
-        overflow: "auto",
-      }}
-    >
-      <MainSection
-        aboutScrollHandler={scrollToAbout}
-        contactScrollHandler={scrollToContact}
-        myWorkScrollHandler={scrollToMyWork}
-      />
-      <AboutMe ref={aboutMeRef} />
-      <Projects ref={myWorkRef} />
-      <WorkExperience />
-      <Contact ref={contactRef} />
-    </Box>
-  );
+	return (
+		<Box
+			sx={{
+				backgroundColor: "black",
+				display: "flex",
+				flexDirection: "column",
+				overflow: "auto",
+			}}
+		>
+			<MainSection
+				aboutScrollHandler={scrollToAbout}
+				contactScrollHandler={scrollToContact}
+				myWorkScrollHandler={scrollToMyWork}
+			/>
+			<AboutMe ref={aboutMeRef} />
+			<Projects ref={myWorkRef} />
+			<WorkExperience />
+			<Contact ref={contactRef} />
+			<Footer />
+		</Box>
+	);
 }

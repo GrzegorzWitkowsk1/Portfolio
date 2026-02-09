@@ -5,10 +5,10 @@ import { ContainedStyledButton } from "../../../../components/contained-button";
 import { OutlinedStyledButton } from "../../../../components/outlined-button";
 import { StyledIconButton } from "../../../../components/icon-button";
 import {
-  ArrowDownward,
-  GitHub,
-  LinkedIn,
-  MailOutline,
+	ArrowDownward,
+	GitHub,
+	LinkedIn,
+	MailOutline,
 } from "@mui/icons-material";
 import { keyframes, useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
@@ -20,114 +20,113 @@ const arrowAnimation = keyframes`
 `;
 
 interface Props {
-  aboutScrollHandler: () => void;
-  contactScrollHandler: () => void;
-  myWorkScrollHandler: () => void;
+	aboutScrollHandler: () => void;
+	contactScrollHandler: () => void;
+	myWorkScrollHandler: () => void;
 }
 
 export default function MainSection({
-  aboutScrollHandler,
-  contactScrollHandler,
-  myWorkScrollHandler,
+	aboutScrollHandler,
+	contactScrollHandler,
+	myWorkScrollHandler,
 }: Props) {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        gap: { lg: "32px", md: "24px", xs: "12px" },
-        justifyContent: "center",
-        alignItems: "center",
-        minHeight: "100vh",
-        px: { lg: 0, md: 0, xs: "16px" },
-        background:
-          "radial-gradient(circle at center, rgba(123, 63, 255, 0.15) 0%, rgba(10, 10, 20, 1) 50%)",
-        backgroundColor: "#0a0a14",
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: "14px",
-          color: "white",
-        }}
-      >
-        <Typography variant={isMobile ? "h3" : "h2"}>Hi,</Typography>
-        <Typography variant={isMobile ? "h3" : "h2"}>I,m</Typography>
-        <NeonTypography variant={isMobile ? "h3" : "h2"} fontWeight={"bold"}>
-          Grzegorz
-        </NeonTypography>
-      </Box>
-      <Typography
-        textAlign={"center"}
-        variant={isMobile ? "h6" : "h5"}
-        color={theme.palette.grey[600]}
-      >
-        Frontend Developer with passion
-      </Typography>
-      <Typography
-        variant={isMobile ? "body2" : "body1"}
-        textAlign={"center"}
-        sx={{ width: { lg: "35%", md: "60%", xs: "80%" } }}
-        color={theme.palette.grey[600]}
-      >
-        Crafting beautiful, functional, responsive web experiences with React JS
-        and Typescript. I like simple solutions and make things good-looking.
-      </Typography>
-      <Box
-        sx={{
-          display: "flex",
-          gap: { lg: "24px", md: "18px", xs: "12px" },
-        }}
-      >
-        <ContainedStyledButton onClick={myWorkScrollHandler}>
-          View My Work
-        </ContainedStyledButton>
-        <OutlinedStyledButton onClick={contactScrollHandler}>
-          Get In Touch
-        </OutlinedStyledButton>
-      </Box>
-      <Box
-        sx={{ display: "flex", gap: { lg: "24px", md: "18px", xs: "12px" } }}
-      >
-        <StyledIconButton
-          onClick={() =>
-            window.open("https://github.com/GrzegorzWitkowsk1", "_blank")
-          }
-        >
-          <GitHub />
-        </StyledIconButton>
-        <StyledIconButton
-          onClick={() => {
-            window.open(
-              "https://www.linkedin.com/in/grzegorz-witkowski-b0b11a234",
-              "_blank"
-            );
-          }}
-        >
-          <LinkedIn />
-        </StyledIconButton>
-        <a href="mailto:grzegorz.witkowski999@gmail.com">
-          <StyledIconButton>
-            <MailOutline />
-          </StyledIconButton>
-        </a>
-      </Box>
-      <StyledIconButton
-        onClick={aboutScrollHandler}
-        sx={{
-          position: "absolute",
-          bottom: 15,
-          animation: `${arrowAnimation} 1s ease-in-out infinite`,
-        }}
-      >
-        <ArrowDownward />
-      </StyledIconButton>
-    </Box>
-  );
+	return (
+		<Box
+			sx={{
+				display: "flex",
+				flexDirection: "column",
+				gap: { lg: "32px", md: "24px", xs: "12px" },
+				justifyContent: "center",
+				alignItems: "center",
+				px: { lg: "20%", md: "10%", xs: "2.5%" },
+				minHeight: "100vh",
+				background:
+					"radial-gradient(circle at center, rgba(123, 63, 255, 0.15) 0%, rgba(10, 10, 20, 1) 50%)",
+				backgroundColor: "#0a0a14",
+			}}
+		>
+			<Box
+				sx={{
+					display: "flex",
+					flexWrap: "wrap",
+					justifyContent: "center",
+					gap: "14px",
+					color: "white",
+				}}
+			>
+				<Typography variant={isMobile ? "h3" : "h2"}>Hi,</Typography>
+				<Typography variant={isMobile ? "h3" : "h2"}>I,m</Typography>
+				<NeonTypography variant={isMobile ? "h3" : "h2"} fontWeight={"bold"}>
+					Grzegorz
+				</NeonTypography>
+			</Box>
+			<Typography
+				textAlign={"center"}
+				variant={isMobile ? "h6" : "h5"}
+				color={theme.palette.grey[600]}
+			>
+				Frontend Developer with passion
+			</Typography>
+			<Typography
+				variant={isMobile ? "body2" : "body1"}
+				textAlign={"center"}
+				color={theme.palette.grey[600]}
+			>
+				Crafting beautiful, functional, responsive web experiences with React JS
+				and Typescript. I like simple solutions and make things good-looking.
+			</Typography>
+			<Box
+				sx={{
+					display: "flex",
+					gap: { lg: "24px", md: "18px", xs: "12px" },
+				}}
+			>
+				<ContainedStyledButton onClick={myWorkScrollHandler}>
+					View My Work
+				</ContainedStyledButton>
+				<OutlinedStyledButton onClick={contactScrollHandler}>
+					Get In Touch
+				</OutlinedStyledButton>
+			</Box>
+			<Box
+				sx={{ display: "flex", gap: { lg: "24px", md: "18px", xs: "12px" } }}
+			>
+				<StyledIconButton
+					onClick={() =>
+						window.open("https://github.com/GrzegorzWitkowsk1", "_blank")
+					}
+				>
+					<GitHub />
+				</StyledIconButton>
+				<StyledIconButton
+					onClick={() => {
+						window.open(
+							"https://www.linkedin.com/in/grzegorz-witkowski-b0b11a234",
+							"_blank",
+						);
+					}}
+				>
+					<LinkedIn />
+				</StyledIconButton>
+				<a href="mailto:grzegorz.witkowski999@gmail.com">
+					<StyledIconButton>
+						<MailOutline />
+					</StyledIconButton>
+				</a>
+			</Box>
+			<StyledIconButton
+				onClick={aboutScrollHandler}
+				sx={{
+					position: "absolute",
+					bottom: 15,
+					animation: `${arrowAnimation} 1s ease-in-out infinite`,
+				}}
+			>
+				<ArrowDownward />
+			</StyledIconButton>
+		</Box>
+	);
 }
