@@ -1,7 +1,8 @@
-import { useTheme } from "@mui/material";
-import Box from "@mui/material/Box";
+import { useInView } from "react-intersection-observer";
 import Typography from "@mui/material/Typography";
+import { Slide, useTheme } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import Box from "@mui/material/Box";
 import {
 	Timeline,
 	TimelineConnector,
@@ -12,11 +13,16 @@ import {
 } from "@mui/lab";
 
 import ExperienceEntryContainer from "./components/experience-entry-container";
-import { workExperience } from "../../../../consts";
+
+import { workExperience } from "consts";
 
 export default function WorkExperience() {
 	const theme = useTheme();
 	const { t } = useTranslation();
+	const { ref: inViewRef, inView } = useInView({
+		threshold: 0.3,
+		triggerOnce: true,
+	});
 
 	return (
 		<Box
@@ -46,6 +52,7 @@ export default function WorkExperience() {
 				</span>
 			</Typography>
 			<Timeline
+				ref={inViewRef}
 				sx={{
 					"& ::before": {
 						flex: {
@@ -58,20 +65,22 @@ export default function WorkExperience() {
 					gap: "16px",
 				}}
 			>
-				{workExperience.map((i) => (
-					<TimelineItem>
-						<TimelineSeparator>
-							<TimelineDot color="primary" />
-							<TimelineConnector
-								sx={{
-									backgroundColor: theme.palette.primary.dark,
-								}}
-							/>
-						</TimelineSeparator>
-						<TimelineContent>
-							<ExperienceEntryContainer experienceEntry={i} />
-						</TimelineContent>
-					</TimelineItem>
+				{workExperience.map((i, index) => (
+					<Slide direction="right" in={inView} timeout={500 * (index + 1)}>
+						<TimelineItem>
+							<TimelineSeparator>
+								<TimelineDot color="primary" />
+								<TimelineConnector
+									sx={{
+										backgroundColor: theme.palette.primary.dark,
+									}}
+								/>
+							</TimelineSeparator>
+							<TimelineContent>
+								<ExperienceEntryContainer experienceEntry={i} />
+							</TimelineContent>
+						</TimelineItem>
+					</Slide>
 				))}
 			</Timeline>
 		</Box>

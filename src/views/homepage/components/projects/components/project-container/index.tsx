@@ -1,21 +1,25 @@
+import { useInView } from "react-intersection-observer";
+import { GitHub, OpenInNew } from "@mui/icons-material";
+import { useTranslation } from "react-i18next";
 import {
 	Box,
 	Card,
 	CardMedia,
+	Fade,
 	styled,
 	Tooltip,
 	Typography,
 	useTheme,
 } from "@mui/material";
+
+import { ContainedStyledButton } from "components/contained-button";
+import { OutlinedStyledButton } from "components/outlined-button";
 import { ProjectType } from "../../types";
-import { ContainedStyledButton } from "../../../../../../components/contained-button";
-import { OutlinedStyledButton } from "../../../../../../components/outlined-button";
-import { GitHub, OpenInNew } from "@mui/icons-material";
-import i18n from "../../../../../../locales";
-import { useTranslation } from "react-i18next";
+import i18n from "locales";
 
 interface Props {
 	project: ProjectType;
+	index: number;
 }
 
 const StyledCard = styled(Card)(({ theme }) => ({
@@ -49,83 +53,94 @@ const TechnologyBox = styled(Box)(({ theme }) => ({
 export default function ProjectContainer(props: Props) {
 	const theme = useTheme();
 	const { t } = useTranslation();
+	const { ref: inViewRef, inView } = useInView({
+		threshold: 0.3,
+		triggerOnce: true,
+	});
 
 	return (
-		<StyledCard>
-			<CardMedia
-				sx={{ height: "200px", backgroundColor: "white" }}
-				image={props.project.image}
-			/>
-			<Box
-				sx={{
-					display: "flex",
-					flexDirection: "column",
-					height: "100%",
-					justifyContent: "space-around",
-					p: "16px",
-					gap: "4px",
-				}}
-			>
-				<Typography variant="h5" color="white">
-					{props.project.title}
-				</Typography>
-				<Typography variant="body1" color={theme.palette.grey[600]}>
-					{props.project.description[i18n.language]}
-				</Typography>
+		<Fade in={inView} timeout={1000 * (props.index + 1)}>
+			<StyledCard ref={inViewRef}>
+				<CardMedia
+					sx={{ height: "200px", backgroundColor: "white" }}
+					image={props.project.image}
+				/>
 				<Box
 					sx={{
 						display: "flex",
-						flexDirection: "row",
-						flexWrap: "wrap",
-						gap: "10px",
-						alignItems: "center",
+						flexDirection: "column",
+						height: "100%",
+						justifyContent: "space-around",
+						p: "16px",
+						gap: "4px",
 					}}
 				>
-					{props.project.technologies.map((t) => (
-						<TechnologyBox key={t}>{t}</TechnologyBox>
-					))}
-				</Box>
-				<Box
-					sx={{ display: "flex", gap: "10px", mt: "8px", alignItems: "center" }}
-				>
-					<Tooltip
-						disableHoverListener={!!props.project.codeUrl}
-						title={t("projects.unavailable")}
+					<Typography variant="h5" color="white">
+						{props.project.title}
+					</Typography>
+					<Typography variant="body1" color={theme.palette.grey[600]}>
+						{props.project.description[i18n.language]}
+					</Typography>
+					<Box
+						sx={{
+							display: "flex",
+							flexDirection: "row",
+							flexWrap: "wrap",
+							gap: "10px",
+							alignItems: "center",
+						}}
 					>
-						<div>
-							<OutlinedStyledButton
-								sx={{
-									display: "flex",
-									gap: "8px",
-									alignItems: "center",
-								}}
-								disabled={!props.project.codeUrl}
-							>
-								<GitHub />
-								<Typography>{t("projects.code")}</Typography>
-							</OutlinedStyledButton>
-						</div>
-					</Tooltip>
-					<Tooltip
-						disableHoverListener={!!props.project.demoUrl}
-						title={t("projects.unavailable")}
+						{props.project.technologies.map((t) => (
+							<TechnologyBox key={t}>{t}</TechnologyBox>
+						))}
+					</Box>
+					<Box
+						sx={{
+							display: "flex",
+							gap: "10px",
+							mt: "8px",
+							alignItems: "center",
+						}}
 					>
-						<div>
-							<ContainedStyledButton
-								sx={{
-									display: "flex",
-									gap: "8px",
-									alignItems: "center",
-								}}
-								disabled={!props.project.demoUrl}
-							>
-								<OpenInNew />
-								<Typography>{t("projects.live")}</Typography>
-							</ContainedStyledButton>
-						</div>
-					</Tooltip>
+						<Tooltip
+							disableHoverListener={!!props.project.codeUrl}
+							title={t("projects.unavailable")}
+						>
+							<div>
+								<OutlinedStyledButton
+									sx={{
+										display: "flex",
+										gap: "8px",
+										alignItems: "center",
+									}}
+									disabled={!props.project.codeUrl}
+								>
+									<GitHub />
+									<Typography>{t("projects.code")}</Typography>
+								</OutlinedStyledButton>
+							</div>
+						</Tooltip>
+						<Tooltip
+							disableHoverListener={!!props.project.demoUrl}
+							title={t("projects.unavailable")}
+						>
+							<div>
+								<ContainedStyledButton
+									sx={{
+										display: "flex",
+										gap: "8px",
+										alignItems: "center",
+									}}
+									disabled={!props.project.demoUrl}
+								>
+									<OpenInNew />
+									<Typography>{t("projects.live")}</Typography>
+								</ContainedStyledButton>
+							</div>
+						</Tooltip>
+					</Box>
 				</Box>
-			</Box>
-		</StyledCard>
+			</StyledCard>
+		</Fade>
 	);
 }

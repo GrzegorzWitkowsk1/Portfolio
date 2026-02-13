@@ -1,9 +1,10 @@
 import Box from "@mui/material/Box";
-import { NeonTypography } from "../../../../components/neon-typography";
+import Fade from "@mui/material/Fade";
+import { NeonTypography } from "components/neon-typography";
 import Typography from "@mui/material/Typography";
-import { ContainedStyledButton } from "../../../../components/contained-button";
-import { OutlinedStyledButton } from "../../../../components/outlined-button";
-import { StyledIconButton } from "../../../../components/icon-button";
+import { ContainedStyledButton } from "components/contained-button";
+import { OutlinedStyledButton } from "components/outlined-button";
+import { StyledIconButton } from "components/icon-button";
 import {
 	ArrowDownward,
 	GitHub,
@@ -50,86 +51,106 @@ export default function MainSection({
 				backgroundColor: "#0a0a14",
 			}}
 		>
-			<Box
-				sx={{
-					display: "flex",
-					flexWrap: "wrap",
-					justifyContent: "center",
-					gap: "14px",
-					color: "white",
-				}}
-			>
-				<Typography variant={isMobile ? "h3" : "h2"}>{t("main.hi")}</Typography>
-				<Typography variant={isMobile ? "h3" : "h2"}>
-					{t("main.iAm")}
-				</Typography>
-				<NeonTypography variant={isMobile ? "h3" : "h2"} fontWeight={"bold"}>
-					Grzegorz
-				</NeonTypography>
-			</Box>
-			<Typography
-				textAlign={"center"}
-				variant={isMobile ? "h6" : "h5"}
-				color={theme.palette.grey[600]}
-			>
-				{t("main.role")}
-			</Typography>
-			<Typography
-				variant={isMobile ? "body2" : "body1"}
-				textAlign={"center"}
-				color={theme.palette.grey[600]}
-			>
-				{t("main.desc")}
-			</Typography>
-			<Box
-				sx={{
-					display: "flex",
-					gap: { lg: "24px", md: "18px", xs: "12px" },
-				}}
-			>
-				<ContainedStyledButton onClick={myWorkScrollHandler}>
-					{t("main.myWorkButton")}
-				</ContainedStyledButton>
-				<OutlinedStyledButton onClick={contactScrollHandler}>
-					{t("main.getInTouchButton")}
-				</OutlinedStyledButton>
-			</Box>
-			<Box
-				sx={{ display: "flex", gap: { lg: "24px", md: "18px", xs: "12px" } }}
-			>
-				<StyledIconButton
-					onClick={() =>
-						window.open("https://github.com/GrzegorzWitkowsk1", "_blank")
-					}
-				>
-					<GitHub />
-				</StyledIconButton>
-				<StyledIconButton
-					onClick={() => {
-						window.open(
-							"https://www.linkedin.com/in/grzegorz-witkowski-b0b11a234",
-							"_blank",
-						);
+			<Fade in={true} timeout={3000}>
+				<Box
+					sx={{
+						display: "flex",
+						flexDirection: "column",
+						gap: { lg: "32px", md: "24px", xs: "12px" },
+						justifyContent: "center",
+						alignItems: "center",
 					}}
 				>
-					<LinkedIn />
-				</StyledIconButton>
-				<a href="mailto:grzegorz.witkowski999@gmail.com">
-					<StyledIconButton>
-						<MailOutline />
+					<Box
+						sx={{
+							display: "flex",
+							flexWrap: "wrap",
+							justifyContent: "center",
+							gap: "14px",
+							color: "white",
+						}}
+					>
+						<Typography variant={isMobile ? "h3" : "h2"}>
+							{t("main.hi")}
+						</Typography>
+						<Typography variant={isMobile ? "h3" : "h2"}>
+							{t("main.iAm")}
+						</Typography>
+						<NeonTypography
+							variant={isMobile ? "h3" : "h2"}
+							fontWeight={"bold"}
+						>
+							Grzegorz
+						</NeonTypography>
+					</Box>
+					<Typography
+						textAlign={"center"}
+						variant={isMobile ? "h6" : "h5"}
+						color={theme.palette.grey[600]}
+					>
+						{t("main.role")}
+					</Typography>
+					<Typography
+						variant={isMobile ? "body2" : "body1"}
+						textAlign={"center"}
+						color={theme.palette.grey[600]}
+					>
+						{t("main.desc")}
+					</Typography>
+					<Box
+						sx={{
+							display: "flex",
+							gap: { lg: "24px", md: "18px", xs: "12px" },
+						}}
+					>
+						<ContainedStyledButton onClick={myWorkScrollHandler}>
+							{t("main.myWorkButton")}
+						</ContainedStyledButton>
+						<OutlinedStyledButton onClick={contactScrollHandler}>
+							{t("main.getInTouchButton")}
+						</OutlinedStyledButton>
+					</Box>
+					<Box
+						sx={{
+							display: "flex",
+							gap: { lg: "24px", md: "18px", xs: "12px" },
+						}}
+					>
+						<StyledIconButton
+							onClick={() =>
+								window.open("https://github.com/GrzegorzWitkowsk1", "_blank")
+							}
+						>
+							<GitHub />
+						</StyledIconButton>
+						<StyledIconButton
+							onClick={() => {
+								window.open(
+									"https://www.linkedin.com/in/grzegorz-witkowski-b0b11a234",
+									"_blank",
+								);
+							}}
+						>
+							<LinkedIn />
+						</StyledIconButton>
+						<a href="mailto:grzegorz.witkowski999@gmail.com">
+							<StyledIconButton>
+								<MailOutline />
+							</StyledIconButton>
+						</a>
+					</Box>
+					<StyledIconButton
+						onClick={aboutScrollHandler}
+						sx={{
+							position: "absolute",
+							bottom: 15,
+							animation: `${arrowAnimation} 1s ease-in-out infinite`,
+						}}
+					>
+						<ArrowDownward />
 					</StyledIconButton>
-				</a>
-			</Box>
-			<StyledIconButton
-				onClick={aboutScrollHandler}
-				sx={{
-					position: "absolute",
-					bottom: 15,
-					animation: `${arrowAnimation} 1s ease-in-out infinite`,
-				}}
-			>
-				<ArrowDownward />
-			</StyledIconButton>
+				</Box>
+			</Fade>
 		</Box>
 	);
 }

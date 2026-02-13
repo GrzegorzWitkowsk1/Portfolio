@@ -1,22 +1,23 @@
-import { RefObject } from "react";
 import { Typography, useTheme } from "@mui/material";
+import { useTranslation } from "react-i18next";
+import { RefObject } from "react";
 import Box from "@mui/material/Box";
 
 import ProjectContainer from "./components/project-container";
-import { projects } from "../../../../consts";
-import { useTranslation } from "react-i18next";
+
+import { projects } from "consts";
 
 interface Props {
-	ref: RefObject<HTMLElement | null>;
+	containerRef: RefObject<HTMLElement | null>;
 }
 
-export default function Projects({ ref }: Props) {
+export default function Projects({ containerRef }: Props) {
 	const theme = useTheme();
 	const { t } = useTranslation();
 
 	return (
 		<Box
-			ref={ref}
+			ref={containerRef}
 			sx={{
 				display: "flex",
 				flexDirection: "column",
@@ -50,8 +51,8 @@ export default function Projects({ ref }: Props) {
 					gap: "16px",
 				}}
 			>
-				{projects.map((p) => (
-					<ProjectContainer project={p} />
+				{projects.map((p, index) => (
+					<ProjectContainer index={index} project={p} />
 				))}
 			</Box>
 		</Box>

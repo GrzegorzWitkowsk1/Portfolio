@@ -1,16 +1,17 @@
+import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 
-import MainSection from "./components/main-section";
-import AboutMe from "./components/about-me";
-import { useEffect, useRef } from "react";
-import Projects from "./components/projects";
 import WorkExperience from "./components/work-experience";
+import MainSection from "./components/main-section";
+import Projects from "./components/projects";
+import AboutMe from "./components/about-me";
 import Contact from "./components/contact";
+import { useEffect, useRef } from "react";
 import Footer from "./components/footer";
-import LanguagePopover from "../../components/language-popover";
-import { useTranslation } from "react-i18next";
-import en from "../../locales/en-EN.json";
-import pl from "../../locales/pl-PL.json";
+
+import LanguagePopover from "components/language-popover";
+import en from "locales/en-EN.json";
+import pl from "locales/pl-PL.json";
 
 export default function Homepage() {
 	const aboutMeRef = useRef<HTMLElement | null>(null);
@@ -78,7 +79,7 @@ export default function Homepage() {
 					myWorkScrollHandler={scrollToMyWork}
 				/>
 				<AboutMe ref={aboutMeRef} />
-				<Projects ref={myWorkRef} />
+				<Projects containerRef={myWorkRef} />
 				<WorkExperience />
 				<Contact ref={contactRef} />
 				<Footer />

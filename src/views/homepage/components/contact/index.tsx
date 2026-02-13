@@ -1,4 +1,6 @@
-import { Box, Divider, styled, Typography, useTheme } from "@mui/material";
+import { Box, styled, Typography, useTheme } from "@mui/material";
+import { useTranslation } from "react-i18next";
+import { RefObject } from "react";
 import {
 	EmailOutlined,
 	FilePresentOutlined,
@@ -6,11 +8,9 @@ import {
 	LinkedIn,
 	MailOutline,
 } from "@mui/icons-material";
-import { RefObject } from "react";
 
-import { IconContainer } from "../../../../components/icon-container";
-import { ContainedStyledButton } from "../../../../components/contained-button";
-import { useTranslation } from "react-i18next";
+import { IconContainer } from "components/icon-container";
+import { ContainedStyledButton } from "components/contained-button";
 
 const ContactBox = styled(Box)(({ theme }) => ({
 	display: "flex",

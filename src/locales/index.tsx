@@ -1,7 +1,7 @@
 import { initReactI18next } from "react-i18next";
 import i18n from "i18next";
 
-import { settings } from "../consts";
+import { settings } from "consts";
 
 import pl from "./pl-PL.json";
 import en from "./en-EN.json";

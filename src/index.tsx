@@ -1,8 +1,9 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import "./locales";
+import React from "react";
+
+import { ThemeConfig } from "config/theme/theme-config";
 import Homepage from "./views/homepage";
-import { ThemeConfig } from "./config/theme/theme-config";
+import "./locales";
 
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement,

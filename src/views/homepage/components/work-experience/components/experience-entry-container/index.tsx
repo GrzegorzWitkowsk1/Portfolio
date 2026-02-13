@@ -1,5 +1,6 @@
-import Box from "@mui/material/Box";
 import { Typography, useTheme } from "@mui/material";
+import { useTranslation } from "react-i18next";
+import Box from "@mui/material/Box";
 import {
 	CalendarMonthOutlined,
 	PlayArrow,
@@ -7,8 +8,7 @@ import {
 } from "@mui/icons-material";
 
 import { WorkExperienceEntryType } from "../../types";
-import i18n from "../../../../../../locales";
-import { useTranslation } from "react-i18next";
+import i18n from "locales";
 
 interface Props {
 	experienceEntry: WorkExperienceEntryType;

@@ -1,9 +1,9 @@
 import { SpeedDial, SpeedDialAction } from "@mui/material";
 import { useEffect, useState } from "react";
-import { locales } from "../../consts";
+import { locales } from "consts";
 import { useTranslation } from "react-i18next";
-import { ReactComponent as PlIcon } from "../../assets/flags/pl-PL.svg";
-import { ReactComponent as EnIcon } from "../../assets/flags/en-EN.svg";
+import { ReactComponent as PlIcon } from "assets/flags/pl-PL.svg";
+import { ReactComponent as EnIcon } from "assets/flags/en-EN.svg";
 
 export default function LanguagePopover() {
 	const [open, setOpen] = useState(false);

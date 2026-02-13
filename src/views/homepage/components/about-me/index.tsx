@@ -1,4 +1,4 @@
-import { Typography, useTheme } from "@mui/material";
+import { Fade, Typography, useTheme } from "@mui/material";
 import Box from "@mui/material/Box";
 import { ReactNode, RefObject } from "react";
 import {
@@ -6,9 +6,10 @@ import {
 	PaletteOutlined,
 	RocketLaunchOutlined,
 } from "@mui/icons-material";
+import { useInView } from "react-intersection-observer";
 
-import { IconContainer } from "../../../../components/icon-container";
-import { StyledContainer } from "../../../../components/styled-container";
+import { IconContainer } from "components/icon-container";
+import { StyledContainer } from "components/styled-container";
 import { useTranslation } from "react-i18next";
 
 interface Props {
@@ -40,6 +41,10 @@ const HoveringCardsContent: {
 export default function AboutMe({ ref }: Props) {
 	const theme = useTheme();
 	const { t } = useTranslation();
+	const { ref: inViewRef, inView } = useInView({
+		threshold: 0.3,
+		triggerOnce: true,
+	});
 
 	return (
 		<Box
@@ -70,6 +75,7 @@ export default function AboutMe({ ref }: Props) {
 				{t("aboutMe.aboutMeInfo")}
 			</Typography>
 			<Box
+				ref={inViewRef}
 				sx={{
 					display: "flex",
 					flexDirection: "column",
@@ -84,21 +90,25 @@ export default function AboutMe({ ref }: Props) {
 						flexDirection: { lg: "row", md: "row", xs: "column" },
 					}}
 				>
-					{HoveringCardsContent.map((c) => (
-						<StyledContainer>
-							<IconContainer>{c.icon}</IconContainer>
-							<Typography variant="h6" color="white">
-								{t(`aboutMe.hoveringCards.${c.title}`)}
-							</Typography>
-							<Typography variant="body1" color={theme.palette.grey[600]}>
-								{t(`aboutMe.hoveringCards.${c.content}`)}
-							</Typography>
-						</StyledContainer>
+					{HoveringCardsContent.map((c, index) => (
+						<Fade in={inView} timeout={1000 * (index + 1)} key={index}>
+							<StyledContainer>
+								<IconContainer>{c.icon}</IconContainer>
+								<Typography variant="h6" color="white">
+									{t(`aboutMe.hoveringCards.${c.title}`)}
+								</Typography>
+								<Typography variant="body1" color={theme.palette.grey[600]}>
+									{t(`aboutMe.hoveringCards.${c.content}`)}
+								</Typography>
+							</StyledContainer>
+						</Fade>
 					))}
 				</Box>
-				<StyledContainer disableHover>
-					<Typography color={"white"}>{t("aboutMe.aboutMeDesc")}</Typography>
-				</StyledContainer>
+				<Fade in={inView} timeout={HoveringCardsContent.length * 1000 + 500}>
+					<StyledContainer disableHover>
+						<Typography color={"white"}>{t("aboutMe.aboutMeDesc")}</Typography>
+					</StyledContainer>
+				</Fade>
 			</Box>
 		</Box>
 	);
