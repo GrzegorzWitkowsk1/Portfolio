@@ -1,6 +1,7 @@
 import { useTheme } from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { useTranslation } from "react-i18next";
 import {
 	Timeline,
 	TimelineConnector,
@@ -15,6 +16,7 @@ import { workExperience } from "../../../../consts";
 
 export default function WorkExperience() {
 	const theme = useTheme();
+	const { t } = useTranslation();
 
 	return (
 		<Box
@@ -38,8 +40,10 @@ export default function WorkExperience() {
 				variant="h3"
 				color="white"
 			>
-				Work{" "}
-				<span style={{ color: theme.palette.primary.main }}>Experience</span>
+				{t("experience.work")}{" "}
+				<span style={{ color: theme.palette.primary.main }}>
+					{t("experience.experience")}
+				</span>
 			</Typography>
 			<Timeline
 				sx={{

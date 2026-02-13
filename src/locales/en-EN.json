@@ -8,6 +8,8 @@
 		"getInTouchButton": "Get in touch"
 	},
 	"experience": {
+		"work": "Work",
+		"experience": "Experience",
 		"current": "Current",
 		"internship": "Internships"
 	},
