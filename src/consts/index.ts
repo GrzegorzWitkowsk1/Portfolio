@@ -158,6 +158,7 @@ export const projects: ProjectType[] = [
 	},
 	{
 		title: "Statistics App",
+		codeUrl: "https://github.com/GrzegorzWitkowsk1/LUXO-statistics-app",
 		description: {
 			"en-EN":
 				"Simple React JS app to fetch data with Axios and show it as multiple charts with React Apex Charts.",
