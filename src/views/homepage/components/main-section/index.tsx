@@ -12,6 +12,7 @@ import {
 } from "@mui/icons-material";
 import { keyframes, useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const arrowAnimation = keyframes`
   0%   { transform: translateY(0); opacity: 1; }
@@ -31,6 +32,7 @@ export default function MainSection({
 	myWorkScrollHandler,
 }: Props) {
 	const theme = useTheme();
+	const { t } = useTranslation();
 	const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
 	return (
@@ -57,8 +59,10 @@ export default function MainSection({
 					color: "white",
 				}}
 			>
-				<Typography variant={isMobile ? "h3" : "h2"}>Hi,</Typography>
-				<Typography variant={isMobile ? "h3" : "h2"}>I,m</Typography>
+				<Typography variant={isMobile ? "h3" : "h2"}>{t("main.hi")}</Typography>
+				<Typography variant={isMobile ? "h3" : "h2"}>
+					{t("main.iAm")}
+				</Typography>
 				<NeonTypography variant={isMobile ? "h3" : "h2"} fontWeight={"bold"}>
 					Grzegorz
 				</NeonTypography>
@@ -68,15 +72,14 @@ export default function MainSection({
 				variant={isMobile ? "h6" : "h5"}
 				color={theme.palette.grey[600]}
 			>
-				Frontend Developer with passion
+				{t("main.role")}
 			</Typography>
 			<Typography
 				variant={isMobile ? "body2" : "body1"}
 				textAlign={"center"}
 				color={theme.palette.grey[600]}
 			>
-				Crafting beautiful, functional, responsive web experiences with React JS
-				and Typescript. I like simple solutions and make things good-looking.
+				{t("main.desc")}
 			</Typography>
 			<Box
 				sx={{
@@ -85,10 +88,10 @@ export default function MainSection({
 				}}
 			>
 				<ContainedStyledButton onClick={myWorkScrollHandler}>
-					View My Work
+					{t("main.myWorkButton")}
 				</ContainedStyledButton>
 				<OutlinedStyledButton onClick={contactScrollHandler}>
-					Get In Touch
+					{t("main.getInTouchButton")}
 				</OutlinedStyledButton>
 			</Box>
 			<Box

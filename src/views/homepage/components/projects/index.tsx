@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 
 import ProjectContainer from "./components/project-container";
 import { projects } from "../../../../consts";
+import { useTranslation } from "react-i18next";
 
 interface Props {
 	ref: RefObject<HTMLElement | null>;
@@ -11,6 +12,7 @@ interface Props {
 
 export default function Projects({ ref }: Props) {
 	const theme = useTheme();
+	const { t } = useTranslation();
 
 	return (
 		<Box
@@ -28,15 +30,17 @@ export default function Projects({ ref }: Props) {
 			}}
 		>
 			<Typography textAlign={"center"} variant="h3" color="white">
-				Featured{" "}
-				<span style={{ color: theme.palette.primary.main }}>Projects</span>
+				{t("projects.featured")}{" "}
+				<span style={{ color: theme.palette.primary.main }}>
+					{t("projects.projects")}
+				</span>
 			</Typography>
 			<Typography
 				textAlign={"center"}
 				variant="h6"
 				color={theme.palette.grey[600]}
 			>
-				A selection of projects that showcase my skills and experience
+				{t("projects.projectsDesc")}
 			</Typography>
 			<Box
 				sx={{

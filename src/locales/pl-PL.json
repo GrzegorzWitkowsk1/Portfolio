@@ -1,0 +1,45 @@
+{
+	"main": {
+		"hi": "Cześć,",
+		"iAm": "Jestem",
+		"role": "Front-end developer z pasją",
+		"desc": "Tworzę zoptymalizowane i dopracowane wizualnie aplikacje webowe z wykorzystaniem React, TypeScript i innych frameworków",
+		"myWorkButton": "Sprawdź projekty",
+		"getInTouchButton": "Skontaktuj się ze mną"
+	},
+	"experience": {
+		"current": "Obecnie",
+		"internship": "Kilka okresów praktyk"
+	},
+	"aboutMe": {
+		"about": "O",
+		"me": "mnie",
+		"aboutMeInfo": "Pasjonat programowania z zamiłowaniem do tworzenia wyjątkowych doświadczeń cyfrowych",
+		"aboutMeDesc": "Jestem front-end developerem z pasją do tworzenia pięknych, funkcjonalnych aplikacji webowych. Dzięki doświadczeniu w nowoczesnych frameworkach JavaScript i wyczuciu designu, tworzę płynne doświadczenia użytkownika, które reprezentują logike biznesową. Kiedy nie koduję,uczę się nowych technologii, nadrabiam informacje technologiczne i spędzam czas na czytaniu książek i samorozwoju.",
+		"hoveringCards": {
+			"development": "Rozwój",
+			"developmentDesc": "Tworzenie skalowalnych aplikacji z wykorzystaniem React, TypeScript, Material UI i innych nowoczesnych frameworków",
+			"design": "Projektowanie",
+			"desingDesc": "Tworzenie intuicyjnych interfejsów użytkownika z dbałością o szczegóły i doświadczenie użytkownika",
+			"innovation": "Innowacja",
+			"innovationDesc": "Ciągle uczę się nowych technologii i wdrażam najlepsze praktyki"
+		}
+	},
+	"contact": {
+		"getIn": "Skontaktuj się",
+		"touch": "ze mną",
+		"contactInfo": "Zawsze jestem otwarty na nowe możliwości i współpracę. Zapraszam do kontaktu!",
+		"sendMeAnEmail": "Wyślij e-mail"
+	},
+	"footer": {
+		"copyright": "© {{year}} Grzegorz Witkowski. Wszelkie prawa zastrzeżone."
+	},
+	"projects": {
+		"featured": "Wybrane",
+		"projects": "Projekty",
+		"projectsDesc": "Wybór moich ostatnich prac, prezentujący różnorodne projekty, które demonstrują moje umiejętności i doświadczenie we front-end. Każdy projekt podkreśla moją zdolność do tworzenia wizualnie atrakcyjnych i przyjaznych dla użytkownika aplikacji webowych z wykorzystaniem nowoczesnych technologii.",
+		"code": "Kod źródłowy",
+		"live": "Demo",
+		"unavailable": "Niedostępne ze względu na politykę wewnętrzną firmy"
+	}
+}

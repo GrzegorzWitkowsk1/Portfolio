@@ -1,7 +1,9 @@
 import { Box, Divider, Typography, useTheme } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
 	const theme = useTheme();
+	const { t } = useTranslation();
 	const currentYear = new Date().getFullYear();
 
 	return (
@@ -22,8 +24,7 @@ export default function Footer() {
 				}}
 				textAlign={"center"}
 			>
-				{`© ${currentYear} Grzegorz Witkowski. Built with React, Typescript and Material UI
-`}
+				{t("footer.copyright", { year: currentYear })}
 			</Typography>
 		</Box>
 	);

@@ -9,6 +9,7 @@ import {
 
 import { IconContainer } from "../../../../components/icon-container";
 import { StyledContainer } from "../../../../components/styled-container";
+import { useTranslation } from "react-i18next";
 
 interface Props {
 	ref: RefObject<HTMLElement | null>;
@@ -21,25 +22,24 @@ const HoveringCardsContent: {
 }[] = [
 	{
 		icon: <Code />,
-		content:
-			"Building scalable applications with React, TypeScript, Material UI, and other modern frameworks",
-		title: "Development",
+		content: "developmentDesc",
+		title: "development",
 	},
 	{
 		icon: <PaletteOutlined />,
-		content:
-			"Creating intuitive user interfaces with attention to detail and user experience",
-		title: "Design",
+		content: "desingDesc",
+		title: "design",
 	},
 	{
 		icon: <RocketLaunchOutlined />,
-		content: "Always learning new technologies and implementing best practices",
-		title: "Innovation",
+		content: "innovationDesc",
+		title: "innovation",
 	},
 ];
 
 export default function AboutMe({ ref }: Props) {
 	const theme = useTheme();
+	const { t } = useTranslation();
 
 	return (
 		<Box
@@ -57,15 +57,17 @@ export default function AboutMe({ ref }: Props) {
 			}}
 		>
 			<Typography variant="h3" color="white">
-				About <span style={{ color: theme.palette.primary.main }}>me</span>
+				{t("aboutMe.about")}{" "}
+				<span style={{ color: theme.palette.primary.main }}>
+					{t("aboutMe.me")}
+				</span>
 			</Typography>
 			<Typography
 				textAlign={"center"}
 				variant="h6"
 				color={theme.palette.grey[600]}
 			>
-				Passionate developer with a love for creating exceptional digital
-				experiences
+				{t("aboutMe.aboutMeInfo")}
 			</Typography>
 			<Box
 				sx={{
@@ -86,23 +88,16 @@ export default function AboutMe({ ref }: Props) {
 						<StyledContainer>
 							<IconContainer>{c.icon}</IconContainer>
 							<Typography variant="h6" color="white">
-								{c.title}
+								{t(`aboutMe.hoveringCards.${c.title}`)}
 							</Typography>
 							<Typography variant="body1" color={theme.palette.grey[600]}>
-								{c.content}
+								{t(`aboutMe.hoveringCards.${c.content}`)}
 							</Typography>
 						</StyledContainer>
 					))}
 				</Box>
 				<StyledContainer disableHover>
-					<Typography color={"white"}>
-						I'm a full-stack developer with a passion for building beautiful,
-						functional web applications. With expertise in modern JavaScript
-						frameworks and a keen eye for design, I create seamless user
-						experiences that bring ideas to life. When I'm not coding, you'll
-						learning new technologies, updating informations about current and
-						spending quality time.
-					</Typography>
+					<Typography color={"white"}>{t("aboutMe.aboutMeDesc")}</Typography>
 				</StyledContainer>
 			</Box>
 		</Box>

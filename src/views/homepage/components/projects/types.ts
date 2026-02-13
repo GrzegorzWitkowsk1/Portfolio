@@ -1,9 +1,11 @@
 export type ProjectType = {
-  title: string;
-  description: string;
-  technologies: string[];
-  codeUrl?: string;
-  image?: string;
-  liveDemoUrl?: string;
-  demoUrl?: string;
+	title: string;
+	description: {
+		[key: string]: string;
+	};
+	technologies: string[];
+	codeUrl?: string;
+	image?: string;
+	liveDemoUrl?: string;
+	demoUrl?: string;
 };

@@ -10,6 +10,7 @@ import { RefObject } from "react";
 
 import { IconContainer } from "../../../../components/icon-container";
 import { ContainedStyledButton } from "../../../../components/contained-button";
+import { useTranslation } from "react-i18next";
 
 const ContactBox = styled(Box)(({ theme }) => ({
 	display: "flex",
@@ -42,6 +43,7 @@ interface Props {
 
 export default function Projects({ ref }: Props) {
 	const theme = useTheme();
+	const { t } = useTranslation();
 
 	return (
 		<Box
@@ -58,15 +60,17 @@ export default function Projects({ ref }: Props) {
 			}}
 		>
 			<Typography textAlign={"center"} variant="h3" color="white">
-				Get In <span style={{ color: theme.palette.primary.main }}>Touch</span>
+				{t("contact.getIn")}{" "}
+				<span style={{ color: theme.palette.primary.main }}>
+					{t("contact.touch")}
+				</span>
 			</Typography>
 			<Typography
 				textAlign={"center"}
 				variant="h6"
 				color={theme.palette.grey[600]}
 			>
-				I'm always open to new opportunities and collaborations. Feel free to
-				reach out!
+				{t("contact.contactInfo")}
 			</Typography>
 			<Box
 				sx={{
@@ -177,7 +181,7 @@ export default function Projects({ ref }: Props) {
 					sx={{ display: "flex", gap: "8px", alignItems: "center" }}
 				>
 					<EmailOutlined />
-					<Typography>Send me an email</Typography>
+					<Typography>{t("contact.sendMeAnEmail")}</Typography>
 				</ContainedStyledButton>
 			</a>
 		</Box>

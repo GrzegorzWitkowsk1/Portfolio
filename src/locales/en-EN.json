@@ -1,0 +1,45 @@
+{
+	"main": {
+		"hi": "Hi,",
+		"iAm": "I am",
+		"role": "Front-end developer with passion",
+		"desc": "Crafting seamless and visually stunning web experiences with React, TypeScript and other frameworks",
+		"myWorkButton": "View my work",
+		"getInTouchButton": "Get in touch"
+	},
+	"experience": {
+		"current": "Current",
+		"internship": "Internships"
+	},
+	"aboutMe": {
+		"about": "About",
+		"me": "me",
+		"aboutMeInfo": "Passionate developer with a love for creating exceptional digital experiences",
+		"aboutMeDesc": "I'm a full-stack developer with a passion for building beautiful, functional web applications. With expertise in modern JavaScript frameworks and a keen eye for design, I create seamless user experiences that bring ideas to life. When I'm not coding, you'll be learning new technologies, updating informations about current and spending quality time.",
+		"hoveringCards": {
+			"development": "Development",
+			"developmentDesc": "Building scalable applications with React, TypeScript, Material UI, and other modern frameworks",
+			"design": "Design",
+			"desingDesc": "Creating intuitive user interfaces with attention to detail and user experience",
+			"innovation": "Innovation",
+			"innovationDesc": "Always learning new technologies and implementing best practices"
+		}
+	},
+	"contact": {
+		"getIn": "Get in",
+		"touch": "touch",
+		"contactInfo": "I'm always open to new opportunities and collaborations. Feel free to reach out!",
+		"sendMeAnEmail": " Send me an email"
+	},
+	"footer": {
+		"copyright": "© {{year}} Grzegorz Witkowski. All rights reserved."
+	},
+	"projects": {
+		"featured": "Featured",
+		"projects": "Projects",
+		"projectsDesc": "A selection of my recent work, showcasing a range of projects that demonstrate my skills and expertise in front-end development. Each project highlights my ability to create visually appealing and user-friendly web applications using modern technologies.",
+		"code": "Code",
+		"live": "Live demo",
+		"unavailable": "Unavailable according to company policy"
+	}
+}
