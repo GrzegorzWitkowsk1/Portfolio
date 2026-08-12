@@ -4,12 +4,42 @@ import filbrukBackground from "assets/images/project-filbruk-background.png";
 
 export const workExperience: WorkExperienceEntryType[] = [
   {
+    companyName: "Power Technology P.S.A.",
+    dateStart: "06.2026",
+    dateEnd: "",
+    isCurrent: true,
+    wasInternship: false,
+    specialization: "Senior Frontend Developer",
+    translations: {
+      "pl-PL": {
+        description:
+          "Utrzymywanie i rozwijanie aplikacji React. Wdrażanie nowych funkcjonalności i poprawek.",
+        responsibilites: [
+          "Przyspieszenia rozwoju produktu poprzez dostarczanie nowych widoków i funkcji interfejsu użytkownika z wykorzystaniem React i TypeScript.",
+          "Poprawienie łatwości utrzymania aplikacji dzięki systematycznej refaktoryzacji kodu i redukcji długu technicznego.",
+          "Wprowadzenie React Query, aby usprawnić zarządzanie stanem serwera, buforowanie i synchronizację danych API.",
+          "Wspomaganie dziennej pracy narzędziami związanymi ze sztuczną inteligencją (opencode, codex, github copilot), aby zwiększyć produktywność w zakresie implementacji, refaktoryzacji, debugowania i analizy kodu."
+        ],
+      },
+      "en-EN": {
+        description:
+          "Maintaining and developing react App. Providing new features and bug fixes.",
+        responsibilites: [
+          "Contributed to accelerating product development by delivering new UI views and features using React and TypeScript.",
+          "Improved application maintainability through systematic code refactoring and reduction of technical debt.",
+          "Introduced React Query to improve server-state management, caching, and API data synchronization.",
+          "Integrated AI-assisted development into the daily workflow to improve productivity across implementation, refactoring, debugging, and code analysis."
+        ],
+      },
+    },
+  },
+  {
     companyName: "Motorro Sp. z.o.o",
     dateStart: "08.2021",
     dateEnd: "",
     isCurrent: true,
     wasInternship: false,
-    specialization: "Frontend Developer",
+    specialization: "Mid/Senior Frontend Developer",
     translations: {
       "pl-PL": {
         description:
@@ -39,7 +69,7 @@ export const workExperience: WorkExperienceEntryType[] = [
     dateEnd: "",
     isCurrent: true,
     wasInternship: false,
-    specialization: "Frontend Developer",
+    specialization: "Mid/Senior Frontend Developer",
     translations: {
       "pl-PL": {
         description: "Utrzymywanie i rozwijanie aplikacji React JS.",
