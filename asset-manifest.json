@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.js": "/Portfolio/static/js/main.70113b36.js",
+    "main.js": "/Portfolio/static/js/main.033faa93.js",
+    "static/media/banner_linkedIn.png": "/Portfolio/static/media/banner_linkedIn.8c8d394277948725cff3.png",
     "static/media/project-filbruk-background.png": "/Portfolio/static/media/project-filbruk-background.9297379ca27b3cac834e.png",
     "static/media/en-EN.svg": "/Portfolio/static/media/en-EN.50bbb94ac2cc518c90b9010d6f05bd06.svg",
     "index.html": "/Portfolio/index.html",
     "static/media/pl-PL.svg": "/Portfolio/static/media/pl-PL.65476fc3b4b755126b9919d8344279c8.svg",
-    "main.70113b36.js.map": "/Portfolio/static/js/main.70113b36.js.map"
+    "main.033faa93.js.map": "/Portfolio/static/js/main.033faa93.js.map"
   },
   "entrypoints": [
-    "static/js/main.70113b36.js"
+    "static/js/main.033faa93.js"
   ]
 }
