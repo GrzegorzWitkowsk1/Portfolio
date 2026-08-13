@@ -163,9 +163,9 @@ export const projects: ProjectType[] = [
 			"Websockets",
 			"Refactor",
 		],
-    imageObjectFit: "scale-down",
-    imageObjectPosition: "left 5% top 20%",
-    imageAlt:"motorro_app_background_image",
+		imageObjectFit: "scale-down",
+		imageObjectPosition: "left 5% top 20%",
+		imageAlt: "motorro_app_background_image",
 		demoUrl: "https://app.motorro.eu/",
 	},
 	{
@@ -178,8 +178,8 @@ export const projects: ProjectType[] = [
 		},
 		image:
 			"https://lodz.travel/files/public/_processed_/a/b/csm_Restauracja_Farina_Bianco_Restaurant_Lodz_Lodz_polska_poland_convention_bureau_mice__2__341ef4e7cb.jpg",
-    imageAlt: "rezerwik_app_background_image",
-    imageObjectPosition: 'center 30%',
+		imageAlt: "rezerwik_app_background_image",
+		imageObjectPosition: "center 30%",
 		technologies: [
 			"React JS",
 			"Typescript",
@@ -199,8 +199,8 @@ export const projects: ProjectType[] = [
 		},
 		image:
 			"https://media2.dev.to/dynamic/image/width=1600,height=900,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fg0jbggprefkbd0bzrcwy.png",
-    imageAlt:"extensions_background_image",
-    imageObjectPosition: 'left 0% top 75%',
+		imageAlt: "extensions_background_image",
+		imageObjectPosition: "left 0% top 75%",
 		technologies: [
 			"HTML",
 			"JavaScript",
@@ -220,8 +220,8 @@ export const projects: ProjectType[] = [
 		},
 		image:
 			"https://www.adobe.com/express/learn/blog/media_17c8ed72cda121b0f9dfc50d289cba4d71cf8c199.png?width=1200&format=pjpg&optimize=medium",
-    imageAlt:"statistics_app_background_image",
-    imageObjectPosition: 'center 65%',
+		imageAlt: "statistics_app_background_image",
+		imageObjectPosition: "center 65%",
 		technologies: [
 			"React JS",
 			"Typescript",
@@ -238,8 +238,8 @@ export const projects: ProjectType[] = [
 				"Aplikacja portfolio dla firmy. Prezentacja informacji o firmie, usług i danych kontaktowych.",
 		},
 		image: filbrukBackground,
-    imageAlt:"filbruk_app_background_image",
-    imageObjectPosition: 'left 6% top 5%',
+		imageAlt: "filbruk_app_background_image",
+		imageObjectPosition: "left 6% top 5%",
 		technologies: [
 			"React JS",
 			"Vite",
@@ -258,8 +258,8 @@ export const projects: ProjectType[] = [
 				"Moja osobista aplikacja portfolio. Prezentacja mojego doświadczenia zawodowego, projektów i danych kontaktowych.",
 		},
 		image: portfolioBackground,
-    imageObjectFit: "fill",
-    imageAlt:"portfolio_app_background_image",
+		imageObjectFit: "fill",
+		imageAlt: "portfolio_app_background_image",
 		technologies: [
 			"React JS",
 			"TypeScript",

@@ -72,8 +72,7 @@ export default function ProjectContainer(props: Props) {
 							height: "300px",
 							backgroundColor: "white",
 							objectFit: props.project.imageObjectFit ?? "cover",
-							objectPosition:
-								props.project.imageObjectPosition ?? "center",
+							objectPosition: props.project.imageObjectPosition ?? "center",
 							transition: "transform 400ms ease",
 						}}
 						image={props.project.image}
