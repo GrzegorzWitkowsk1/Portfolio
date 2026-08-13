@@ -1,4 +1,3 @@
-import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 
 import WorkExperience from "./components/work-experience";
@@ -10,19 +9,12 @@ import { useEffect, useRef } from "react";
 import Footer from "./components/footer";
 
 import LanguagePopover from "components/language-popover";
-import en from "locales/en-EN.json";
-import pl from "locales/pl-PL.json";
 
 export default function Homepage() {
 	const aboutMeRef = useRef<HTMLElement | null>(null);
 	const myWorkRef = useRef<HTMLElement | null>(null);
 	const contactRef = useRef<HTMLElement | null>(null);
 
-	const { i18n } = useTranslation();
-	i18n.addResourceBundle("en-EN", "translation", en);
-	i18n.addResourceBundle("pl-PL", "translation", pl);
-
-	console.log(i18n.language);
 	function scrollToAbout() {
 		aboutMeRef.current?.scrollIntoView({ behavior: "smooth" });
 	}

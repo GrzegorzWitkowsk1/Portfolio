@@ -1,5 +1,5 @@
 import { SpeedDial, SpeedDialAction } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { locales } from "consts";
 import { useTranslation } from "react-i18next";
 import { ReactComponent as PlIcon } from "assets/flags/pl-PL.svg";
@@ -30,10 +30,6 @@ export default function LanguagePopover() {
 	function handleCloseMenu() {
 		setOpen(false);
 	}
-
-	useEffect(() => {
-		console.log(i18n.language);
-	}, [i18n.language]);
 
 	return (
 		<SpeedDial
