@@ -145,6 +145,39 @@ export const projects: ProjectType[] = [
 		],
 	},
 	{
+		title: "MovieMark",
+		description: {
+			"en-EN":
+				'MovieMark is a personal movie and TV series tracking web app. It lets you browse content from TMDB, mark films and shows as watched, keep a "want to watch" list, and track your episodes season by season — all in a fast, modern, fully internationalized interface.Built as a Turborepo monorepo and managed with Bun.',
+			"pl-PL":
+				'MovieMark to osobista aplikacja internetowa do śledzenia filmów i seriali. Pozwala przeglądać treści z TMDB, oznaczać filmy i programy jako obejrzane, prowadzić listę "chcę obejrzeć" i śledzić odcinki sezon po sezonie — wszystko w szybkim, nowoczesnym, w pełni dostosowanym interfejsie. Aplikacja zbudowana w oparciu o Turborepo i zarządzana za pomocą Bun.',
+		},
+		image:
+			"https://www.plex.tv/wp-content/uploads/2025/03/Watch-Free-Hero-2048x1152-1.png",
+		technologies: [
+			"React 19",
+			"Typescript 6",
+			"Material UI",
+			"Fastify",
+			"MongoDB",
+			"Mongoose",
+			"Zod",
+			"React hook form",
+			"Vitest + MSW",
+			"RTL",
+			"playwright",
+			"React Query",
+			"TMDB API",
+			"Bun",
+			"Turborepo",
+			"Mongo Atlas",
+			"Render",
+			"Cloudflare Pages",
+		],
+		codeUrl: "https://github.com/GrzegorzWitkowsk1/moviemark",
+		demoUrl: "https://moviemark.grzegorz-witkowski.workers.dev",
+	},
+	{
 		title: "Chrome and firefox extensions",
 		description: {
 			"en-EN":

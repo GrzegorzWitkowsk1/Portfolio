@@ -6,6 +6,5 @@ export type ProjectType = {
 	technologies: string[];
 	codeUrl?: string;
 	image?: string;
-	liveDemoUrl?: string;
 	demoUrl?: string;
 };
