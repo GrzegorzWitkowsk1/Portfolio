@@ -224,46 +224,6 @@ export const projects: ProjectType[] = [
 		demoUrl: "https://moviemark.grzegorz-witkowski.workers.dev",
 	},
 	{
-		title: "Chrome and firefox extensions",
-		description: {
-			"en-EN":
-				"Few different extensions in pure javascript. Extensions was created to get informations from website, make different redirects or automative activities casually performed by user.",
-			"pl-PL":
-				"Kilka różnych rozszerzeń w czystym javascript. Rozszerzenia zostały stworzone do pobierania informacji ze stron, wykonywania różnych przekierowań lub automatyzacji czynności wykonywanych przez użytkownika.",
-		},
-		image:
-			"https://media2.dev.to/dynamic/image/width=1600,height=900,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fg0jbggprefkbd0bzrcwy.png",
-		imageAlt: "extensions_background_image",
-		imageObjectPosition: "left 0% top 75%",
-		technologies: [
-			"HTML",
-			"JavaScript",
-			"Manifest V2/V3",
-			"Chrome API",
-			"Firefox API",
-			"Browsers development panels",
-		],
-	},
-	{
-		title: "Statistics App",
-		description: {
-			"en-EN":
-				"Simple React JS app to fetch data with Axios and show it as multiple charts with React Apex Charts.",
-			"pl-PL":
-				"Prosta aplikacja React JS do pobierania danych przy pomocy Axios oraz wyświetlania ich w postaci różnych wykresów z użyciem React apex charts.",
-		},
-		image:
-			"https://www.adobe.com/express/learn/blog/media_17c8ed72cda121b0f9dfc50d289cba4d71cf8c199.png?width=1200&format=pjpg&optimize=medium",
-		imageAlt: "statistics_app_background_image",
-		imageObjectPosition: "center 65%",
-		technologies: [
-			"React JS",
-			"Typescript",
-			"Material UI",
-			"React Apex Charts",
-		],
-	},
-	{
 		title: "Filbruk - Business app",
 		description: {
 			"en-EN":
@@ -304,6 +264,46 @@ export const projects: ProjectType[] = [
 		],
 		demoUrl: "https://grzegorzwitkowsk1.github.io/Portfolio/",
 		codeUrl: "https://github.com/GrzegorzWitkowsk1/Portfolio",
+	},
+	{
+		title: "Chrome and firefox extensions",
+		description: {
+			"en-EN":
+				"Few different extensions in pure javascript. Extensions was created to get informations from website, make different redirects or automative activities casually performed by user.",
+			"pl-PL":
+				"Kilka różnych rozszerzeń w czystym javascript. Rozszerzenia zostały stworzone do pobierania informacji ze stron, wykonywania różnych przekierowań lub automatyzacji czynności wykonywanych przez użytkownika.",
+		},
+		image:
+			"https://media2.dev.to/dynamic/image/width=1600,height=900,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fg0jbggprefkbd0bzrcwy.png",
+		imageAlt: "extensions_background_image",
+		imageObjectPosition: "left 0% top 75%",
+		technologies: [
+			"HTML",
+			"JavaScript",
+			"Manifest V2/V3",
+			"Chrome API",
+			"Firefox API",
+			"Browsers development panels",
+		],
+	},
+	{
+		title: "Statistics App",
+		description: {
+			"en-EN":
+				"Simple React JS app to fetch data with Axios and show it as multiple charts with React Apex Charts.",
+			"pl-PL":
+				"Prosta aplikacja React JS do pobierania danych przy pomocy Axios oraz wyświetlania ich w postaci różnych wykresów z użyciem React apex charts.",
+		},
+		image:
+			"https://www.adobe.com/express/learn/blog/media_17c8ed72cda121b0f9dfc50d289cba4d71cf8c199.png?width=1200&format=pjpg&optimize=medium",
+		imageAlt: "statistics_app_background_image",
+		imageObjectPosition: "center 65%",
+		technologies: [
+			"React JS",
+			"Typescript",
+			"Material UI",
+			"React Apex Charts",
+		],
 	},
 ];
 
