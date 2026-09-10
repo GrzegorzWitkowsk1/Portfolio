@@ -155,7 +155,7 @@ export default function Projects({ ref }: Props) {
 					</ContactBox>
 					<a
 						style={{ textDecoration: "none" }}
-						href={"mailto:grzegorz.witkowski999@gmail.com"}
+						href="mailto:grzegorz.witkowski999@gmail.com"
 					>
 						<ContactBox>
 							<IconContainer>

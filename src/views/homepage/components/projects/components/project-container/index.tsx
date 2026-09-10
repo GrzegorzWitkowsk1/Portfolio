@@ -39,6 +39,9 @@ const StyledCard = styled(Card)(({ theme }) => ({
   `,
 		border: `1px solid ${theme.palette.primary.main}`,
 	},
+	"&:hover .project-card-media": {
+		transform: "scale(1.05)",
+	},
 }));
 
 const TechnologyBox = styled(Box)(({ theme }) => ({
@@ -46,7 +49,7 @@ const TechnologyBox = styled(Box)(({ theme }) => ({
 	border: `1px solid ${theme.palette.primary.main}`,
 	backgroundColor: theme.palette.primary.light,
 	color: theme.palette.primary.main,
-	padding: "2px 4px",
+	padding: "2px 8px",
 	fontSize: "14px",
 }));
 
@@ -61,10 +64,20 @@ export default function ProjectContainer(props: Props) {
 	return (
 		<Fade in={inView} timeout={1000 * (props.index + 1)}>
 			<StyledCard ref={inViewRef}>
-				<CardMedia
-					sx={{ height: "200px", backgroundColor: "white" }}
-					image={props.project.image}
-				/>
+				<Box sx={{ overflow: "hidden" }}>
+					<CardMedia
+						component="img"
+						className="project-card-media"
+						sx={{
+							height: "300px",
+							backgroundColor: "white",
+							objectFit: props.project.imageObjectFit ?? "cover",
+							objectPosition: props.project.imageObjectPosition ?? "center",
+							transition: "transform 400ms ease",
+						}}
+						image={props.project.image}
+					/>
+				</Box>
 				<Box
 					sx={{
 						display: "flex",
@@ -107,17 +120,26 @@ export default function ProjectContainer(props: Props) {
 							title={t("projects.unavailable")}
 						>
 							<div>
-								<OutlinedStyledButton
-									sx={{
-										display: "flex",
-										gap: "8px",
-										alignItems: "center",
+								<a
+									style={{
+										textDecoration: "none",
 									}}
-									disabled={!props.project.codeUrl}
+									href={props.project.codeUrl}
+									target="_blank"
+									rel="noopener noreferrer"
 								>
-									<GitHub />
-									<Typography>{t("projects.code")}</Typography>
-								</OutlinedStyledButton>
+									<OutlinedStyledButton
+										sx={{
+											display: "flex",
+											gap: "8px",
+											alignItems: "center",
+										}}
+										disabled={!props.project.codeUrl}
+									>
+										<GitHub />
+										<Typography>{t("projects.code")}</Typography>
+									</OutlinedStyledButton>
+								</a>
 							</div>
 						</Tooltip>
 						<Tooltip
@@ -125,17 +147,26 @@ export default function ProjectContainer(props: Props) {
 							title={t("projects.unavailable")}
 						>
 							<div>
-								<ContainedStyledButton
-									sx={{
-										display: "flex",
-										gap: "8px",
-										alignItems: "center",
+								<a
+									style={{
+										textDecoration: "none",
 									}}
-									disabled={!props.project.demoUrl}
+									href={props.project.demoUrl}
+									target="_blank"
+									rel="noopener noreferrer"
 								>
-									<OpenInNew />
-									<Typography>{t("projects.live")}</Typography>
-								</ContainedStyledButton>
+									<ContainedStyledButton
+										sx={{
+											display: "flex",
+											gap: "8px",
+											alignItems: "center",
+										}}
+										disabled={!props.project.demoUrl}
+									>
+										<OpenInNew />
+										<Typography>{t("projects.live")}</Typography>
+									</ContainedStyledButton>
+								</a>
 							</div>
 						</Tooltip>
 					</Box>

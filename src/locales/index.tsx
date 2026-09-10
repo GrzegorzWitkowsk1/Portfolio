@@ -8,10 +8,10 @@ import en from "./en-EN.json";
 
 const resources = {
 	"pl-PL": {
-		TRANSLATION: pl,
+		translation: pl,
 	},
 	"en-EN": {
-		TRANSLATION: en,
+		translation: en,
 	},
 };
 

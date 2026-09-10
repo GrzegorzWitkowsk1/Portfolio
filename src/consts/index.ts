@@ -1,14 +1,46 @@
 import { ProjectType } from "../views/homepage/components/projects/types";
 import { WorkExperienceEntryType } from "../views/homepage/components/work-experience/types";
+import filbrukBackground from "assets/images/project-filbruk-background.png";
+import portfolioBackground from "assets/images/banner_linkedIn.png";
 
 export const workExperience: WorkExperienceEntryType[] = [
+	{
+		companyName: "Power Technology P.S.A.",
+		dateStart: "06.2026",
+		dateEnd: "",
+		isCurrent: true,
+		wasInternship: false,
+		specialization: "Senior Frontend Developer",
+		translations: {
+			"pl-PL": {
+				description:
+					"Utrzymywanie i rozwijanie aplikacji React. Wdrażanie nowych funkcjonalności i poprawek.",
+				responsibilites: [
+					"Przyspieszenia rozwoju produktu poprzez dostarczanie nowych widoków i funkcji interfejsu użytkownika z wykorzystaniem React i TypeScript.",
+					"Poprawienie łatwości utrzymania aplikacji dzięki systematycznej refaktoryzacji kodu i redukcji długu technicznego.",
+					"Wprowadzenie React Query, aby usprawnić zarządzanie stanem serwera, buforowanie i synchronizację danych API.",
+					"Wspomaganie dziennej pracy narzędziami związanymi ze sztuczną inteligencją (opencode, codex, github copilot), aby zwiększyć produktywność w zakresie implementacji, refaktoryzacji, debugowania i analizy kodu.",
+				],
+			},
+			"en-EN": {
+				description:
+					"Maintaining and developing react App. Providing new features and bug fixes.",
+				responsibilites: [
+					"Contributed to accelerating product development by delivering new UI views and features using React and TypeScript.",
+					"Improved application maintainability through systematic code refactoring and reduction of technical debt.",
+					"Introduced React Query to improve server-state management, caching, and API data synchronization.",
+					"Integrated AI-assisted development into the daily workflow to improve productivity across implementation, refactoring, debugging, and code analysis.",
+				],
+			},
+		},
+	},
 	{
 		companyName: "Motorro Sp. z.o.o",
 		dateStart: "08.2021",
 		dateEnd: "",
 		isCurrent: true,
 		wasInternship: false,
-		specialization: "Frontend Developer",
+		specialization: "Mid/Senior Frontend Developer",
 		translations: {
 			"pl-PL": {
 				description:
@@ -38,7 +70,7 @@ export const workExperience: WorkExperienceEntryType[] = [
 		dateEnd: "",
 		isCurrent: true,
 		wasInternship: false,
-		specialization: "Frontend Developer",
+		specialization: "Mid/Senior Frontend Developer",
 		translations: {
 			"pl-PL": {
 				description: "Utrzymywanie i rozwijanie aplikacji React JS.",
@@ -123,7 +155,18 @@ export const projects: ProjectType[] = [
 		},
 		image:
 			"https://cdn.pracahandlowiec.pl/uploads/image/motorro-logo-e32036fd-e336-46fa-8851-d2534e845247.png",
-		technologies: ["React JS", "Typescript", "Material UI", "React Query"],
+		technologies: [
+			"React JS",
+			"Typescript",
+			"Material UI",
+			"React Query",
+			"Websockets",
+			"Refactor",
+		],
+		imageObjectFit: "scale-down",
+		imageObjectPosition: "left 5% top 20%",
+		imageAlt: "motorro_app_background_image",
+		demoUrl: "https://app.motorro.eu/",
 	},
 	{
 		title: "Rezerwik",
@@ -135,6 +178,8 @@ export const projects: ProjectType[] = [
 		},
 		image:
 			"https://lodz.travel/files/public/_processed_/a/b/csm_Restauracja_Farina_Bianco_Restaurant_Lodz_Lodz_polska_poland_convention_bureau_mice__2__341ef4e7cb.jpg",
+		imageAlt: "rezerwik_app_background_image",
+		imageObjectPosition: "center 30%",
 		technologies: [
 			"React JS",
 			"Typescript",
@@ -154,6 +199,7 @@ export const projects: ProjectType[] = [
 		},
 		image:
 			"https://www.plex.tv/wp-content/uploads/2025/03/Watch-Free-Hero-2048x1152-1.png",
+		imageAlt: "moviemark_app_background_image",
 		technologies: [
 			"React 19",
 			"Typescript 6",
@@ -187,11 +233,19 @@ export const projects: ProjectType[] = [
 		},
 		image:
 			"https://media2.dev.to/dynamic/image/width=1600,height=900,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fg0jbggprefkbd0bzrcwy.png",
-		technologies: ["HTML", "JavaScript"],
+		imageAlt: "extensions_background_image",
+		imageObjectPosition: "left 0% top 75%",
+		technologies: [
+			"HTML",
+			"JavaScript",
+			"Manifest V2/V3",
+			"Chrome API",
+			"Firefox API",
+			"Browsers development panels",
+		],
 	},
 	{
 		title: "Statistics App",
-		codeUrl: "https://github.com/GrzegorzWitkowsk1/LUXO-statistics-app",
 		description: {
 			"en-EN":
 				"Simple React JS app to fetch data with Axios and show it as multiple charts with React Apex Charts.",
@@ -200,12 +254,56 @@ export const projects: ProjectType[] = [
 		},
 		image:
 			"https://www.adobe.com/express/learn/blog/media_17c8ed72cda121b0f9dfc50d289cba4d71cf8c199.png?width=1200&format=pjpg&optimize=medium",
+		imageAlt: "statistics_app_background_image",
+		imageObjectPosition: "center 65%",
 		technologies: [
 			"React JS",
 			"Typescript",
 			"Material UI",
 			"React Apex Charts",
 		],
+	},
+	{
+		title: "Filbruk - Business app",
+		description: {
+			"en-EN":
+				"A business portfolio application. Showcasing company information, services and contact details.",
+			"pl-PL":
+				"Aplikacja portfolio dla firmy. Prezentacja informacji o firmie, usług i danych kontaktowych.",
+		},
+		image: filbrukBackground,
+		imageAlt: "filbruk_app_background_image",
+		imageObjectPosition: "left 6% top 5%",
+		technologies: [
+			"React JS",
+			"Vite",
+			"TailWind CSS",
+			"Lovable",
+			"Cloudflare Pages",
+		],
+		demoUrl: "https://filbruk.pl/",
+	},
+	{
+		title: "Portfolio Application",
+		description: {
+			"en-EN":
+				"My personal portfolio application. Showcasing my work experience, projects and contact details.",
+			"pl-PL":
+				"Moja osobista aplikacja portfolio. Prezentacja mojego doświadczenia zawodowego, projektów i danych kontaktowych.",
+		},
+		image: portfolioBackground,
+		imageObjectFit: "fill",
+		imageAlt: "portfolio_app_background_image",
+		technologies: [
+			"React JS",
+			"TypeScript",
+			"Material UI",
+			"react-i18next",
+			"Create React App",
+			"GitHub Pages",
+		],
+		demoUrl: "https://grzegorzwitkowsk1.github.io/Portfolio/",
+		codeUrl: "https://github.com/GrzegorzWitkowsk1/Portfolio",
 	},
 ];
 
