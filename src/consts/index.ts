@@ -1,11 +1,43 @@
-import { ProjectType } from "../views/homepage/components/projects/types";
-import { WorkExperienceEntryType } from "../views/homepage/components/work-experience/types";
 import filbrukBackground from "assets/images/project-filbruk-background.png";
 import portfolioBackground from "assets/images/banner_linkedIn.png";
+
+export type WorkExperienceEntryType = {
+	companyName: string;
+	sidebarName: string;
+	dateStart: string;
+	isCurrent: boolean;
+	wasInternship: boolean;
+	dateEnd: string;
+	specialization: string;
+	translations: {
+		[key: string]: {
+			description: string;
+			responsibilites: string[];
+		};
+	};
+};
+
+
+export type ProjectType = {
+	title: string;
+	sidebarName: string;
+	description: {
+		[key: string]: string;
+	};
+	technologies: string[];
+	codeUrl?: string;
+	image?: string;
+	imageAlt: string;
+	imageObjectFit?: "cover" | "contain" | "fill" | "none" | "scale-down";
+	imageObjectPosition?: string;
+	demoUrl?: string;
+};
+
 
 export const workExperience: WorkExperienceEntryType[] = [
 	{
 		companyName: "Power Technology P.S.A.",
+		sidebarName:"power-technology.md",
 		dateStart: "06.2026",
 		dateEnd: "",
 		isCurrent: true,
@@ -36,6 +68,7 @@ export const workExperience: WorkExperienceEntryType[] = [
 	},
 	{
 		companyName: "Motorro Sp. z.o.o",
+		sidebarName:"motorro.md",
 		dateStart: "08.2021",
 		dateEnd: "",
 		isCurrent: true,
@@ -66,6 +99,7 @@ export const workExperience: WorkExperienceEntryType[] = [
 	},
 	{
 		companyName: "MCA - WARE MIRON BALCERZAK",
+		sidebarName:"mca-ware.md",
 		dateStart: "09.2024",
 		dateEnd: "",
 		isCurrent: true,
@@ -88,6 +122,7 @@ export const workExperience: WorkExperienceEntryType[] = [
 	},
 	{
 		companyName: "memogadget.com",
+		sidebarName: "memogadget.md",
 		dateStart: "2015",
 		dateEnd: "",
 		isCurrent: false,
@@ -117,6 +152,7 @@ export const workExperience: WorkExperienceEntryType[] = [
 	},
 	{
 		companyName: "Liquid Systems Sp. z.o.o",
+		sidebarName: "liquid-systems.md",
 		dateStart: "",
 		dateEnd: "",
 		isCurrent: false,
@@ -147,6 +183,7 @@ export const workExperience: WorkExperienceEntryType[] = [
 export const projects: ProjectType[] = [
 	{
 		title: "Motorro",
+		sidebarName: "motorro.md",
 		description: {
 			"en-EN":
 				"An app for the automotive industry. Comparing and ordering parts from automotive wholesalers.",
@@ -170,6 +207,7 @@ export const projects: ProjectType[] = [
 	},
 	{
 		title: "Rezerwik",
+		sidebarName: "rezerwik.md",
 		description: {
 			"en-EN":
 				"An app for restaurant and services. Both sides (customer and owner) app for managing reservations and orders.",
@@ -191,6 +229,7 @@ export const projects: ProjectType[] = [
 	},
 	{
 		title: "MovieMark",
+		sidebarName: "moviemark.md",
 		description: {
 			"en-EN":
 				'MovieMark is a personal movie and TV series tracking web app. It lets you browse content from TMDB, mark films and shows as watched, keep a "want to watch" list, and track your episodes season by season — all in a fast, modern, fully internationalized interface.Built as a Turborepo monorepo and managed with Bun.',
@@ -225,6 +264,7 @@ export const projects: ProjectType[] = [
 	},
 	{
 		title: "Filbruk - Business app",
+		sidebarName: "filbruk.md",
 		description: {
 			"en-EN":
 				"A business portfolio application. Showcasing company information, services and contact details.",
@@ -245,6 +285,7 @@ export const projects: ProjectType[] = [
 	},
 	{
 		title: "Portfolio Application",
+		sidebarName: "portfolio.md",
 		description: {
 			"en-EN":
 				"My personal portfolio application. Showcasing my work experience, projects and contact details.",
@@ -267,6 +308,7 @@ export const projects: ProjectType[] = [
 	},
 	{
 		title: "Chrome and firefox extensions",
+		sidebarName: "extensions.md",
 		description: {
 			"en-EN":
 				"Few different extensions in pure javascript. Extensions was created to get informations from website, make different redirects or automative activities casually performed by user.",
@@ -288,6 +330,7 @@ export const projects: ProjectType[] = [
 	},
 	{
 		title: "Statistics App",
+		sidebarName: "statistics-app.md",
 		description: {
 			"en-EN":
 				"Simple React JS app to fetch data with Axios and show it as multiple charts with React Apex Charts.",

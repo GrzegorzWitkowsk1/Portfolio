@@ -1,8 +1,9 @@
 import ReactDOM from "react-dom/client";
 import React from "react";
 
+import "@fontsource-variable/geist-mono";
+import { Layout } from "components/layout";
 import { ThemeConfig } from "config/theme/theme-config";
-import Homepage from "./views/homepage";
 import "./locales";
 
 const root = ReactDOM.createRoot(
@@ -11,7 +12,7 @@ const root = ReactDOM.createRoot(
 root.render(
 	<React.StrictMode>
 		<ThemeConfig>
-			<Homepage />
+			<Layout />
 		</ThemeConfig>
 	</React.StrictMode>,
 );

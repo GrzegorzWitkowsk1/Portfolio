@@ -1,105 +1,222 @@
 import { alpha } from "@mui/material/styles";
 
+export type ThemeMode = "light" | "dark";
+
 function createGradient(color1: string, color2: string): string {
 	return `linear-gradient(to bottom, ${color1}, ${color2})`;
 }
 
-// SETUP COLORS
-
-const PRIMARY = {
-	lighter: "",
-	light: "#4d327d91",
-	main: "#925cf0",
-	dark: "#4d327d",
-	darker: "",
+type Shades = {
+	lighter: string;
+	light: string;
+	main: string;
+	dark: string;
+	darker: string;
 };
 
-const SUCCESS = {
-	lighter: "#E9FCD4",
-	light: "#AAF27F",
-	main: "#54D62C",
-	dark: "#229A16",
-	darker: "#08660D",
+type GreyTone = {
+	0: string;
+	100: string;
+	200: string;
+	300: string;
+	400: string;
+	500: string;
+	600: string;
+	700: string;
+	800: string;
+	900: string;
 };
 
-const WARNING = {
-	lighter: "#FFF7CD",
-	light: "#FFE16A",
+type GreyScale = GreyTone & {
+	500_8: string;
+	500_12: string;
+	500_16: string;
+	500_24: string;
+	500_32: string;
+	500_48: string;
+	500_56: string;
+	500_80: string;
+};
+
+// LIGHT THEME
+
+const PRIMARY_LIGHT: Shades = {
+	lighter: "#E0E8EA",
+	light: "#B8CACE",
+	main: "#004351",
+	dark: "#003844",
+	darker: "#002831",
+};
+
+const SECONDARY_LIGHT: Shades = {
+	lighter: "#F0F2F4",
+	light: "#E8EBEE",
+	main: "#DEE2E7",
+	dark: "#BFC2C7",
+	darker: "#A0A3A6",
+};
+
+const SUCCESS_LIGHT: Shades = {
+	lighter: "#DCEBE1",
+	light: "#B5D5BF",
+	main: "#087228",
+	dark: "#075D21",
+	darker: "#054217",
+};
+
+const WARNING_LIGHT: Shades = {
+	lighter: "#FFF8E1",
+	light: "#FFEEBA",
 	main: "#FFC107",
-	dark: "#B78103",
-	darker: "#7A4F01",
+	dark: "#DBA606",
+	darker: "#997404",
 };
 
-const ERROR = {
-	lighter: "#FFE7D9",
-	light: "#FFA48D",
-	main: "#FF4842",
-	dark: "#B72136",
-	darker: "#7A0C2E",
+const ERROR_LIGHT: Shades = {
+	lighter: "#F7E1E1",
+	light: "#ECB9BA",
+	main: "#BC0407",
+	dark: "#A20306",
+	darker: "#710204",
 };
 
-const GREY = {
+const GREY_LIGHT: GreyTone = {
 	0: "#FFFFFF",
-	100: "#F9FAFB",
-	200: "#F4F6F8",
-	300: "#DFE3E8",
-	400: "#C4CDD5",
-	500: "#919EAB",
-	600: "#637381",
-	700: "#454F5B",
-	800: "#212B36",
-	900: "#161C24",
-	500_8: alpha("#919EAB", 0.08),
-	500_12: alpha("#919EAB", 0.12),
-	500_16: alpha("#919EAB", 0.16),
-	500_24: alpha("#919EAB", 0.24),
-	500_32: alpha("#919EAB", 0.32),
-	500_48: alpha("#919EAB", 0.48),
-	500_56: alpha("#919EAB", 0.56),
-	500_80: alpha("#919EAB", 0.8),
+	100: "#F2F4F7",
+	200: "#DEE2E7",
+	300: "#B6BBC0",
+	400: "#73777C",
+	500: "#505459",
+	600: "#383C41",
+	700: "#202429",
+	800: "#121417",
+	900: "#020203",
 };
 
-const GRADIENTS = {
-	primary: createGradient(PRIMARY.light, PRIMARY.main),
-	success: createGradient(SUCCESS.light, SUCCESS.main),
-	warning: createGradient(WARNING.light, WARNING.main),
-	error: createGradient(ERROR.light, ERROR.main),
+// DARK THEME
+
+const PRIMARY_DARK: Shades = {
+	lighter: "#E8F7F7",
+	light: "#C0E8E8",
+	main: "#1ad1d1",
+	dark: "#038889",
+	darker: "#026465",
 };
 
-const CHART_COLORS = {
-	violet: ["#826AF9", "#9E86FF", "#D0AEFF", "#F7D2FF"],
-	blue: ["#2D99FF", "#83CFFF", "#A5F3FF", "#CCFAFF"],
-	green: ["#2CD9C5", "#60F1C8", "#A4F7CC", "#C0F2DC"],
-	yellow: ["#FFE700", "#FFEF5A", "#FFF7AE", "#FFF3D6"],
-	red: ["#FF6C40", "#FF8F6D", "#FFBD98", "#FFF2D4"],
+const SECONDARY_DARK: Shades = {
+	lighter: "#3B4046",
+	light: "#262A2E",
+	main: "#040507",
+	dark: "#030406",
+	darker: "#020304",
 };
 
-const COMMON = {
-	common: { black: "#000", white: "#fff" },
-	primary: { ...PRIMARY, contrastText: "#212B36" },
-	success: { ...SUCCESS, contrastText: GREY[800] },
-	warning: { ...WARNING, contrastText: GREY[800] },
-	error: { ...ERROR, contrastText: "#fff" },
-	grey: GREY,
-	gradients: GRADIENTS,
-	chart: CHART_COLORS,
-	divider: GREY[500_24],
-	action: {
-		hover: GREY[500_8],
-		selected: GREY[500_16],
-		disabled: GREY[500_80],
-		disabledBackground: GREY[500_24],
-		focus: GREY[500_24],
-		hoverOpacity: 0.08,
-		disabledOpacity: 0.48,
-	},
+const SUCCESS_DARK: Shades = {
+	lighter: "#E9F6ED",
+	light: "#C3E5CD",
+	main: "#0E9837",
+	dark: "#0C802E",
+	darker: "#095E22",
 };
 
-const palette = {
-	...COMMON,
-	text: { primary: GREY[800], secondary: GREY[600], disabled: GREY[500] },
-	background: { paper: "#fff", default: "#fff", neutral: GREY[200] },
-	action: { active: GREY[600], ...COMMON.action },
+const WARNING_DARK: Shades = {
+	lighter: "#FFF8EB",
+	light: "#FFEDC7",
+	main: "#FFB61E",
+	dark: "#DB9D1A",
+	darker: "#9E7113",
 };
+
+const ERROR_DARK: Shades = {
+	lighter: "#FDEBEA",
+	light: "#FBC6C6",
+	main: "#EE1C1A",
+	dark: "#CD1816",
+	darker: "#941110",
+};
+
+const GREY_DARK: GreyTone = {
+	0: "#FFFFFF",
+	100: "#BDC8D4",
+	200: "#7F8893",
+	300: "#5C636E",
+	400: "#404751",
+	500: "#262A31",
+	600: "#171A1F",
+	700: "#060709",
+	800: "#020304",
+	900: "#010202",
+};
+
+const CHART_LIGHT = ["#004351", "#036333", "#835206", "#4722A1", "#C1120A"];
+
+const CHART_DARK = ["#03A2A3", "#078645", "#B3720B", "#6435D4", "#FE2215"];
+
+function createGrey(grey: GreyTone): GreyScale {
+	return {
+		...grey,
+		500_8: alpha(grey[500], 0.08),
+		500_12: alpha(grey[500], 0.12),
+		500_16: alpha(grey[500], 0.16),
+		500_24: alpha(grey[500], 0.24),
+		500_32: alpha(grey[500], 0.32),
+		500_48: alpha(grey[500], 0.48),
+		500_56: alpha(grey[500], 0.56),
+		500_80: alpha(grey[500], 0.8),
+	};
+}
+
+function palette(mode: ThemeMode) {
+	const isLight = mode === "light";
+	const primary = isLight ? PRIMARY_LIGHT : PRIMARY_DARK;
+	const secondary = isLight ? SECONDARY_LIGHT : SECONDARY_DARK;
+	const success = isLight ? SUCCESS_LIGHT : SUCCESS_DARK;
+	const warning = isLight ? WARNING_LIGHT : WARNING_DARK;
+	const error = isLight ? ERROR_LIGHT : ERROR_DARK;
+	const grey = isLight ? createGrey(GREY_LIGHT) : createGrey(GREY_DARK);
+
+	const background = {
+		default: isLight ? "#F2F4F7" : "#010202",
+		paper: isLight ? "#FFFFFF" : "#020304",
+		neutral: isLight ? "#DEE2E7" : "#040507",
+	};
+
+	const text = {
+		primary: isLight ? "#020203" : "#BDC8D4",
+		secondary: isLight ? "#202429" : "#404751",
+		disabled: grey[500],
+	};
+
+	return {
+		mode,
+		common: { black: "#000", white: "#fff" },
+		primary: { ...primary, contrastText: isLight ? "#F7F7F7" : "#010203" },
+		secondary: { ...secondary, contrastText: isLight ? "#050607" : "#BDC8D4" },
+		success: { ...success, contrastText: "#fff" },
+		warning: { ...warning, contrastText: isLight ? "#121417" : "#010202" },
+		error: { ...error, contrastText: "#fff" },
+		grey,
+		gradients: {
+			primary: createGradient(primary.light, primary.main),
+			success: createGradient(success.light, success.main),
+			warning: createGradient(warning.light, warning.main),
+			error: createGradient(error.light, error.main),
+		},
+		chart: isLight ? CHART_LIGHT : CHART_DARK,
+		text,
+		background,
+		action: {
+			active: isLight ? grey[600] : grey[300],
+			hover: grey[500_8],
+			selected: grey[500_16],
+			disabled: grey[500_80],
+			disabledBackground: grey[500_24],
+			focus: grey[500_24],
+			hoverOpacity: 0.08,
+			disabledOpacity: 0.48,
+		},
+		divider: grey[500_24],
+	};
+}
 
 export default palette;
