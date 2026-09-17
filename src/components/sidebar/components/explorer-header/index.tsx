@@ -3,6 +3,7 @@ import { Box, styled, Typography, useTheme } from "@mui/material";
 const ExplorerHeaderRoot = styled(Box)(({ theme }) => ({
 	display: "flex",
 	alignItems: "center",
+	background:'#13171d',
 	justifyContent: "space-between",
 	minHeight: "34px",
 	padding: "0 14px",

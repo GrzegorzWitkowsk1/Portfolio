@@ -3,6 +3,7 @@ import {
 	ButtonBase,
 	Collapse,
 	styled,
+	Theme,
 	Typography,
 	useTheme,
 } from "@mui/material";
@@ -15,7 +16,24 @@ import { ReactNode, useState } from "react";
 import { BranchInfo } from "./components/branch-info";
 import { ExplorerHeader } from "./components/explorer-header";
 import { projects, workExperience } from "consts";
+import { useNavigationStore, Tab, FolderName } from "store/navigation-store";
 import { ArrowDown, ArrowRight, Briefcase, FileBraces, Folder, FolderOpen, Mail, User } from "lucide-react";
+
+function getFileIcon(label: string, theme: Theme): Pick<Tab, "icon" | "id"> {
+	if (label === "about-me.tsx") {
+		return { id: label, icon: <User size={16} color={theme.palette.success.main} /> };
+	}
+	if (label === "new-message.tsx") {
+		return { id: label, icon: <Mail size={16} color={theme.palette.error.main} /> };
+	}
+	if (workExperience.some((e) => e.sidebarName === label)) {
+		return { id: label, icon: <Briefcase size={16} color="#a87eeb" /> };
+	}
+	if (projects.some((p) => p.sidebarName === label)) {
+		return { id: label, icon: <FileBraces size={16} color={theme.palette.warning.main} /> };
+	}
+	return { id: label, icon: <FileBraces size={16} color={theme.palette.text.secondary} /> };
+}
 
 const SidebarRoot = styled(Box)(({ theme }) => ({
 	width: "280px",
@@ -26,7 +44,7 @@ const SidebarRoot = styled(Box)(({ theme }) => ({
 		theme.palette.mode === "dark" ? theme.palette.grey[400] : theme.palette.grey[300]
 	}`,
 	backgroundColor:
-		theme.palette.mode === "light" ? "white" : theme.palette.grey[600],
+		theme.palette.mode === "light" ? "white" : '#13171d',
 }));
 
 const ExplorerBody = styled(Box)(({ theme }) => ({
@@ -108,7 +126,7 @@ function FolderItem({
 
 	return (
 		<Box>
-			<RowBase onClick={() => setOpen((prev) => !prev)}>
+			<RowBase onClick={() => { setOpen((prev) => !prev); onOpenFolder?.(); }}>
 				{open ? (
 					<ArrowDown size={16} color={theme.palette.text.secondary} />
 				) : (
@@ -161,6 +179,19 @@ function FolderItem({
 
 export function Sidebar() {
 	const theme = useTheme();
+	const openFile = useNavigationStore((s) => s.openFile);
+	const setOpenFolder = useNavigationStore((s) => s.setOpenFolder);
+
+	const handleFileClick = (label: string) => {
+		const { id, icon } = getFileIcon(label, theme);
+		openFile({ id, label, icon });
+	};
+
+	const handleFolderClick = (label: string) => {
+		if (label === "projects" || label === "work-experience") {
+			setOpenFolder(label as FolderName);
+		}
+	};
 
 	return (
 		<SidebarRoot>
@@ -170,22 +201,28 @@ export function Sidebar() {
 				<NavItem
 					label={"about-me.tsx"}
 					icon={<User size={16} color={theme.palette.success.main} />}
+					onClick={() => handleFileClick("about-me.tsx")}
 				/>
 				<FolderItem
 					label={"projects"}
-					sublabels={projects.map((project) => project.title)}
-					itemIcon={() => (
+					sublabels={projects.map((project) => project.sidebarName)}
+					itemIcon={(index) => (
 						<FileBraces size={16} color={theme.palette.warning.main} />
 					)}
+					onOpenFolder={() => handleFolderClick("projects")}
+					onOpenFile={handleFileClick}
 				/>
 				<FolderItem
 					label={"work-experience"}
-					sublabels={workExperience.map((entry) => entry.companyName)}
+					sublabels={workExperience.map((entry) => entry.sidebarName)}
 					itemIcon={() => <Briefcase size={16} color="#a87eeb" />}
+					onOpenFolder={() => handleFolderClick("work-experience")}
+					onOpenFile={handleFileClick}
 				/>
 				<NavItem
 					label={"new-message.tsx"}
 					icon={<Mail size={16} color={theme.palette.error.main} />}
+					onClick={() => handleFileClick("new-message.tsx")}
 				/>
 			</ExplorerBody>
 			<SidebarFooterRoot>

@@ -176,7 +176,7 @@ function palette(mode: ThemeMode) {
 	const grey = isLight ? createGrey(GREY_LIGHT) : createGrey(GREY_DARK);
 
 	const background = {
-		default: isLight ? "#F2F4F7" : "#010202",
+		default: isLight ? "#F2F4F7" : "#0f1318",
 		paper: isLight ? "#FFFFFF" : "#020304",
 		neutral: isLight ? "#DEE2E7" : "#040507",
 	};
