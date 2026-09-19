@@ -1,6 +1,7 @@
 import { Box, styled, Typography, useTheme } from "@mui/material";
 import { Clock, MapPin, Target, type LucideIcon } from "lucide-react";
 import polyMyImage from "assets/images/poly-my-image.jpeg";
+import cv from "assets/files/Grzegorz Witkowski - Frontend Developer.pdf";
 import { badgeSx } from "config/badge-style";
 import { AvailabilityDot } from "components/availability-dot";
 import { InfoCard } from "./components/info-card";
@@ -29,18 +30,57 @@ const about = {
 	description:
 		"I'm a frontend developer focused on building fast, accessible and well-structured web applications. I care about clean code, good UX and delivering value through simple, maintainable solutions.",
 	beyondTheCode:
-		"MOCK: Outside of work I enjoy learning about new technologies, refining my tools and workflows, and spending time on side projects that let me experiment with ideas that are hard to test at work.",
-	technologies: ["React", "TypeScript"],
+		"Outside of work you can find me working on my private projects, reading books and watching fight sports - Shortly, enjoying my life.",
+	technologies: [
+		"React",
+		"TypeScript",
+		"Next JS",
+		"Tailwind CSS",
+		"Monorepo",
+		"CI/CD",
+		"Material UI",
+		"React Query",
+		"React Context",
+		"React Router",
+		"Git",
+		"Github",
+		"Github Actions",
+		"Copilot",
+		"Claude",
+		"Opencode",
+		"Jest",
+		"Vitest",
+		"Playwright",
+		"Fastify",
+		"Mongoose",
+		"Manifest v2/v3",
+	],
 	infoCards,
-	links: [
-		{ label: "Github", handle: "/@test", href: "https://github.com" },
+links: [
+		{
+			label: "Github",
+			handle: "/GrzegorzWitkowsk1",
+			href: "https://github.com/GrzegorzWitkowsk1",
+			download: false,
+		},
 		{
 			label: "Linkedin",
-			handle: "/@test",
-			href: "https://www.linkedin.com",
+			handle: "/in/grzegorz-witkowski-b0b11a234",
+			href: "https://www.linkedin.com/in/grzegorz-witkowski-b0b11a234/",
+			download: false,
 		},
-		{ label: "CV", handle: "/@test", href: "#" },
-		{ label: "Link", handle: "/@test", href: "#" },
+		{
+			label: "CV",
+			handle: "Grzegorz Witkowski",
+			href: cv,
+			download: true,
+		},
+		{
+			label: "Email",
+			handle: "grzegorz.witkowski999@gmail.com",
+			href: "mailto:grzegorz.witkowski999@gmail.com",
+			download: false,
+		},
 	],
 };
 
@@ -227,6 +267,7 @@ export function AboutMe() {
 							label={link.label}
 							handle={link.handle}
 							href={link.href}
+							download={link.download}
 						/>
 					))}
 				</Box>

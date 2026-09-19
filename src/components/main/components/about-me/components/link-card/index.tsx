@@ -5,6 +5,7 @@ type LinkCardProps = {
 	label: string;
 	handle: string;
 	href: string;
+	download: boolean;
 };
 
 const CardRoot = styled("a")(({ theme }) => ({
@@ -50,11 +51,18 @@ const HoverArrow = styled(Box)(({ theme }) => ({
 	transition: "opacity 0.2s ease",
 }));
 
-export function LinkCard({ label, handle, href }: LinkCardProps) {
+export function LinkCard({ label, handle, href, download }: LinkCardProps) {
 	const theme = useTheme();
+	const isDownload = Boolean(download);
+	const isExternal = href.startsWith("http");
 
 	return (
-		<CardRoot href={href} target="_blank" rel="noopener noreferrer">
+		<CardRoot
+			href={href}
+			download={isDownload ? true : undefined}
+			target={isExternal && !isDownload ? "_blank" : undefined}
+			rel={isExternal && !isDownload ? "noopener noreferrer" : undefined}
+		>
 			<Typography
 				sx={{
 					fontSize: "15px",
