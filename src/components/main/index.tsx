@@ -1,6 +1,6 @@
 import { Box, styled } from "@mui/material";
 import { useNavigationStore } from "store/navigation-store";
-import { projects } from "consts";
+import { projects, workExperience } from "consts";
 import { BreadcrumbsBar } from "./components/breadcrumbs-bar";
 import { TabBar } from "./components/tab-bar";
 import { FileView } from "./components/file-view";
@@ -8,6 +8,7 @@ import { HomeView } from "./components/home-view";
 import { AboutMe } from "./components/about-me";
 import { NewMessage } from "./components/new-message";
 import { ProjectView } from "./components/project-view";
+import { WorkExperienceView } from "./components/work-experience-view";
 
 const MainRoot = styled(Box, {
 	shouldForwardProp: (prop) => prop !== "withDots",
@@ -46,6 +47,12 @@ export function Main() {
 		? projects.find((p) => activeTab.id === `projects/${p.sidebarName}`)
 		: undefined;
 
+	const workEntry = activeTab
+		? workExperience.find(
+				(w) => activeTab.id === `work-experience/${w.sidebarName}`,
+			)
+		: undefined;
+
 	return (
 		<MainRoot withDots={activeTabId === null}>
 			<TabBar />
@@ -61,6 +68,8 @@ export function Main() {
 						<NewMessage />
 					) : project ? (
 						<ProjectView project={project} />
+					) : workEntry ? (
+						<WorkExperienceView entry={workEntry} />
 					) : (
 						<FileView icon={activeTab.icon} label={activeTab.label} />
 					))
