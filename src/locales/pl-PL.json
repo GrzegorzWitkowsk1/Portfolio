@@ -1,1 +1,109 @@
-{}
+{
+	"common": {
+		"home": "start",
+		"portfolio": "portfolio",
+		"projects": "projekty",
+		"workExperience": "doświadczenie",
+		"itemMore": "+{{count}}"
+	},
+	"header": {
+		"role": "Frontend Developer",
+		"toggleTheme": "przełącz motyw",
+		"toggleNavigation": "przełącz nawigację",
+		"language": "Język"
+	},
+	"sidebar": {
+		"explorer": "eksplorator",
+		"openTerminal": "otwórz terminal",
+		"availableForWork": "dostępny do projektu"
+	},
+	"home": {
+		"itemsCount": "{{count}} elementów",
+		"itemsClickToOpen": "{{count}} elementów · kliknij, aby otworzyć"
+	},
+	"homeFiles": {
+		"aboutMe": "Krótkie wprowadzenie — kim jestem i czym się zajmuję.",
+		"newMessage": "Formularz kontaktowy — wyślij mi wiadomość.",
+		"projects/motorro.md": "Aplikacja dla branży motoryzacyjnej — porównywanie i zamawianie części od dystrybutorów.",
+		"projects/rezerwik.md": "Aplikacja dla restauracji i usług do zarządzania rezerwacjami i zamówieniami.",
+		"projects/moviemark.md": "Osobista aplikacja do śledzenia filmów i seriali zbudowana na TMDB.",
+		"projects/filbruk.md": "Firmowa aplikacja portfolio prezentująca informacje o firmie, usługi i kontakt.",
+		"projects/portfolio.md": "Ta aplikacja portfolio — doświadczenie, projekty i kontakt.",
+		"projects/extensions.md": "Rozszerzenia przeglądarki do scrapowania, przekierowań i automatyzacji.",
+		"projects/statistics-app.md": "Aplikacja React pobierająca dane i renderująca wykresy z ApexCharts.",
+		"work-experience/power-technology.md": "Senior Frontend Developer — utrzymywanie i rozwijanie aplikacji React.",
+		"work-experience/motorro.md": "Mid/Senior Frontend Developer — aplikacja React i rozszerzenia przeglądarki od zera.",
+		"work-experience/mca-ware.md": "Mid/Senior Frontend Developer — aplikacja React JS.",
+		"work-experience/memogadget.md": "Staż Erasmus w firmie e-commerce.",
+		"work-experience/liquid-systems.md": "Technik serwisowy — internet światłowodowy i usługi telewizyjne."
+	},
+	"aboutMe": {
+		"role": "Frontend developer",
+		"availability": "Dostępny do projektu",
+		"description": "Jestem frontend developerem skupionym na tworzeniu szybkich, dostępnych i dobrze zorganizowanych aplikacji webowych. Zależy mi na czystym kodzie, dobrym UX i dostarczaniu wartości przez proste, łatwe w utrzymaniu rozwiązania.",
+		"beyondTheCode": "Poza pracą znajdziesz mnie przy moich prywatnych projektach, czytaniu książek i oglądaniu sportów walki — krótko mówiąc, cieszę się życiem.",
+		"sections": {
+			"technologies": "// TECHNOLOGIE",
+			"beyondTheCode": "// Poza kodem",
+			"links": "// Linki"
+		},
+		"info": {
+			"location": {
+				"title": "LOKALIZACJA",
+				"value": "Lublin, Polska (lub zdalnie)"
+			},
+			"experience": {
+				"title": "DOŚWIADCZENIE",
+				"value": "5+ lat"
+			},
+			"focus": {
+				"title": "SPECJALIZACJA",
+				"value": "Frontend engineering & design systems"
+			}
+		},
+		"links": {
+			"github": "Github",
+			"linkedin": "Linkedin",
+			"cv": "CV",
+			"email": "Email"
+		},
+		"altPhoto": "Moje zdjęcie"
+	},
+	"project": {
+		"code": "Kod",
+		"demo": "Demo",
+		"stack": "// TECHNOLOGIE",
+		"keyFeatures": "// KLUCZOWE FUNKCJE",
+		"previewAlt": "Podgląd — {{title}}",
+		"previousImage": "Poprzedni obraz",
+		"nextImage": "Następny obraz"
+	},
+	"workView": {
+		"currentRole": "Obecna rola",
+		"present": "Obecnie",
+		"internship": "(staż)",
+		"responsibilities": "// OBOWIĄZKI",
+		"achievements": "// OSIĄGNIĘCIA",
+		"stackAreas": "// TECHNOLOGIE I OBSZARY PRACY",
+		"stack": "// TECHNOLOGIE"
+	},
+	"contact": {
+		"title": "Napisz do mnie",
+		"subtitleBefore": "Masz projekt na myśli albo po prostu chcesz się przywitać? Napisz wiadomość poniżej albo skontaktuj się ze mną: ",
+		"subtitleAfter": ".",
+		"name": "Imię",
+		"namePlaceholder": "Twoje imię",
+		"email": "Email",
+		"emailPlaceholder": "Twój email",
+		"message": "Wiadomość",
+		"messagePlaceholder": "Opisz swój projekt i w czym mogę pomóc...",
+		"send": "Wyślij wiadomość",
+		"sending": "Wysyłanie...",
+		"nameRequired": "Imię jest wymagane.",
+		"emailRequired": "Email jest wymagany.",
+		"emailInvalid": "Podaj poprawny adres email.",
+		"messageRequired": "Wiadomość jest wymagana.",
+		"success": "Twoja wiadomość została wysłana. Dziękuję za kontakt!",
+		"error": "Coś poszło nie tak. Spróbuj ponownie lub napisz do mnie bezpośrednio."
+	}
+}

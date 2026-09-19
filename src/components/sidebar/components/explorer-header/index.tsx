@@ -1,9 +1,10 @@
 import { Box, styled, Typography, useTheme } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const ExplorerHeaderRoot = styled(Box)(({ theme }) => ({
 	display: "flex",
 	alignItems: "center",
-	background:theme.palette.mode === 'dark' ? '#13171d' : 'white',
+	background: theme.palette.mode === "dark" ? "#13171d" : "white",
 	justifyContent: "space-between",
 	minHeight: "34px",
 	padding: "0 14px",
@@ -36,6 +37,7 @@ const ExplorerTitle = styled(Typography)(({ theme }) => ({
 
 export function ExplorerHeader() {
 	const theme = useTheme();
+	const { t } = useTranslation();
 
 	return (
 		<ExplorerHeaderRoot>
@@ -44,7 +46,7 @@ export function ExplorerHeader() {
 				<Dot sx={{ bgcolor: theme.palette.warning.main }} />
 				<Dot sx={{ bgcolor: theme.palette.success.main }} />
 			</TerminalDots>
-			<ExplorerTitle>explorer</ExplorerTitle>
+			<ExplorerTitle>{t("sidebar::explorer")}</ExplorerTitle>
 		</ExplorerHeaderRoot>
 	);
 }

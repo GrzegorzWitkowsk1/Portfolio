@@ -1,4 +1,5 @@
 import {
+	alpha,
 	Box,
 	ButtonBase,
 	Collapse,
@@ -6,8 +7,10 @@ import {
 	Typography,
 	useTheme,
 } from "@mui/material";
-import { FormatQuote, Terminal } from "@mui/icons-material";
+import { FormatQuote } from "@mui/icons-material";
+import {Terminal} from 'lucide-react'
 import { ReactNode, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { BranchInfo } from "./components/branch-info";
 import { ExplorerHeader } from "./components/explorer-header";
 import { AvailabilityDot } from "components/availability-dot";
@@ -177,6 +180,7 @@ function FolderItem({
 
 export function Sidebar() {
 	const theme = useTheme();
+	const { t } = useTranslation();
 	const openFile = useNavigationStore((s) => s.openFile);
 	const setOpenFolder = useNavigationStore((s) => s.setOpenFolder);
 
@@ -202,7 +206,7 @@ export function Sidebar() {
 					onClick={() => handleFileClick("about-me.tsx")}
 				/>
 				<FolderItem
-					label={"projects"}
+					label={t("common::projects")}
 					sublabels={projects.map((project) => project.sidebarName)}
 					itemIcon={(index) => (
 						<FileBraces size={16} color={theme.palette.warning.main} />
@@ -211,7 +215,7 @@ export function Sidebar() {
 					onOpenFile={(sublabel) => handleFileClick(sublabel, "projects")}
 				/>
 				<FolderItem
-					label={"work-experience"}
+					label={t("common::workExperience")}
 					sublabels={workExperience.map((entry) => entry.sidebarName)}
 					itemIcon={() => <Briefcase size={16} color="#a87eeb" />}
 					onOpenFolder={() => handleFolderClick("work-experience")}
@@ -227,14 +231,14 @@ export function Sidebar() {
 			</ExplorerBody>
 			<SidebarFooterRoot>
 				<RowBase>
-					<Terminal sx={{ fontSize: "16px", color: "text.secondary" }} />
+					<Terminal size="16px"/>
 					<Typography
 						sx={{
 							fontSize: "14px",
 							color: "inherit",
 						}}
 					>
-						open terminal
+						{t("sidebar::openTerminal")}
 					</Typography>
 					<Box sx={{ flex: 1 }} />
 					<Box
@@ -253,10 +257,7 @@ export function Sidebar() {
 							borderRadius: "4px",
 							color: "text.primary",
 							width: "100%",
-							background:
-								theme.palette.mode === "dark"
-									? theme.palette.grey[500]
-									: theme.palette.grey[300],
+							backgroundColor: alpha(theme.palette.success.main, 0.15),
 							padding: "6px 12px",
 							display: "flex",
 							alignItems: "center",
@@ -270,7 +271,7 @@ export function Sidebar() {
 								color: "inherit",
 							}}
 						>
-							Available for work
+							{t("sidebar::availableForWork")}
 						</Typography>
 					</Box>
 				</RowBase>

@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { ArrowUpRight } from "lucide-react";
 import { ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 
 type ItemCardProps = {
 	icon: ReactNode;
@@ -105,6 +106,7 @@ export function ItemCard({
 	onClick,
 }: ItemCardProps) {
 	const theme = useTheme();
+	const { t } = useTranslation();
 	const visibleTech = technologies?.slice(0, MAX_VISIBLE_TECH) ?? [];
 	const restCount = Math.max((technologies?.length ?? 0) - MAX_VISIBLE_TECH, 0);
 
@@ -156,7 +158,11 @@ export function ItemCard({
 							{tech}
 						</Box>
 					))}
-					{restCount > 0 && <Box sx={badgeSx(theme)}>+{restCount}</Box>}
+					{restCount > 0 && (
+						<Box sx={badgeSx(theme)}>
+							{t("common::itemMore", { count: restCount })}
+						</Box>
+					)}
 				</Box>
 			)}
 		</CardRoot>

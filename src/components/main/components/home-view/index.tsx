@@ -16,13 +16,13 @@ import {
 	User,
 } from "lucide-react";
 import { ReactNode } from "react";
+import { useTranslation } from "react-i18next";
+import { TFunction } from "i18next";
 import { projects, workExperience } from "consts";
-import { formatHomeEntry, homeContent } from "config/home-content";
+import { homeContent, HomeFileEntry } from "config/home-content";
 import { getFileIcon } from "config/file-icon";
 import { FolderName, useNavigationStore } from "store/navigation-store";
 import { ItemCard } from "./components/item-card";
-
-const HOME_LABEL = "portfolio";
 
 type HomeItem = {
 	id: string;
@@ -36,26 +36,47 @@ type HomeItem = {
 type BuildItemsArgs = {
 	openFolder: FolderName | null;
 	theme: Theme;
+	t: TFunction;
 	onOpenFile: (label: string, folder: FolderName | undefined) => void;
 	onOpenFolder: (folder: FolderName) => void;
 };
 
+function getSecondaryText({
+	t,
+	id,
+	entry,
+}: {
+	t: TFunction;
+	id: string;
+	entry?: HomeFileEntry;
+}): string {
+	const description = t(`homeFiles::${id}`);
+	const start = entry?.dateStart?.trim();
+	if (start) {
+		return `${start} · ${description}`;
+	}
+	return description;
+}
+
 function buildHomeItems({
 	openFolder,
 	theme,
+	t,
 	onOpenFile,
 	onOpenFolder,
 }: BuildItemsArgs): HomeItem[] {
 	if (openFolder === "projects") {
 		return projects.map((project) => {
-			const entry = homeContent[`projects/${project.sidebarName}`];
+			const id = `projects/${project.sidebarName}`;
 			return {
-				id: `projects/${project.sidebarName}`,
+				id,
 				name: project.sidebarName,
 				icon: <FileBraces size={20} color={theme.palette.warning.main} />,
-				secondary: entry
-					? formatHomeEntry(entry)
-					: project.description["en-EN"],
+				secondary: getSecondaryText({
+					t,
+					id,
+					entry: homeContent[id],
+				}),
 				technologies: project.technologies,
 				onClick: () => onOpenFile(project.sidebarName, "projects"),
 			};
@@ -64,14 +85,16 @@ function buildHomeItems({
 
 	if (openFolder === "work-experience") {
 		return workExperience.map((workEntry) => {
-			const entry = homeContent[`work-experience/${workEntry.sidebarName}`];
+			const id = `work-experience/${workEntry.sidebarName}`;
 			return {
-				id: `work-experience/${workEntry.sidebarName}`,
+				id,
 				name: workEntry.sidebarName,
 				icon: <Briefcase size={20} color="#a87eeb" />,
-				secondary: entry
-					? formatHomeEntry(entry)
-					: workEntry.translations["en-EN"].description,
+				secondary: getSecondaryText({
+					t,
+					id,
+					entry: homeContent[id],
+				}),
 				onClick: () => onOpenFile(workEntry.sidebarName, "work-experience"),
 			};
 		});
@@ -81,23 +104,23 @@ function buildHomeItems({
 		id: "about-me.tsx",
 		name: "about-me.tsx",
 		icon: <User size={20} color={theme.palette.success.main} />,
-		secondary: formatHomeEntry(homeContent["about-me.tsx"]),
+		secondary: getSecondaryText({ t, id: "about-me.tsx" }),
 		onClick: () => onOpenFile("about-me.tsx", undefined),
 	};
 
 	const folderItems: HomeItem[] = [
 		{
 			id: "work-experience",
-			name: "work-experience",
+			name: t("common::workExperience"),
 			icon: <Folder size={20} color={theme.palette.primary.main} />,
-			secondary: `${workExperience.length} items`,
+			secondary: t("home::itemsCount", { count: workExperience.length }),
 			onClick: () => onOpenFolder("work-experience"),
 		},
 		{
 			id: "projects",
-			name: "projects",
+			name: t("common::projects"),
 			icon: <Folder size={20} color={theme.palette.primary.main} />,
-			secondary: `${projects.length} items`,
+			secondary: t("home::itemsCount", { count: projects.length }),
 			onClick: () => onOpenFolder("projects"),
 		},
 	];
@@ -106,7 +129,7 @@ function buildHomeItems({
 		id: "new-message.tsx",
 		name: "new-message.tsx",
 		icon: <Mail size={20} color={theme.palette.error.main} />,
-		secondary: formatHomeEntry(homeContent["new-message.tsx"]),
+		secondary: getSecondaryText({ t, id: "new-message.tsx" }),
 		onClick: () => onOpenFile("new-message.tsx", undefined),
 	};
 
@@ -143,6 +166,7 @@ const BackButton = styled(ButtonBase)(({ theme }) => ({
 
 export function HomeView() {
 	const theme = useTheme();
+	const { t } = useTranslation();
 	const openFolder = useNavigationStore((s) => s.openFolder);
 	const closeFolder = useNavigationStore((s) => s.closeFolder);
 	const openFile = useNavigationStore((s) => s.openFile);
@@ -156,6 +180,7 @@ export function HomeView() {
 	const items = buildHomeItems({
 		openFolder,
 		theme,
+		t,
 		onOpenFile: handleOpenFile,
 		onOpenFolder: setOpenFolder,
 	});
@@ -190,7 +215,7 @@ export function HomeView() {
 					<BackButton onClick={closeFolder}>
 						<CornerLeftUpIcon size={16} />
 						<Typography sx={{ fontSize: "13px", color: "inherit" }}>
-							{HOME_LABEL}
+							{t("common::portfolio")}
 						</Typography>
 					</BackButton>
 				)}
@@ -205,7 +230,7 @@ export function HomeView() {
 							: theme.palette.grey[600],
 				}}
 			>
-				{items.length} items · click to open
+				{t("home::itemsClickToOpen", { count: items.length })}
 			</Typography>
 			<Box
 				sx={{

@@ -6,11 +6,19 @@ import {
 	Typography,
 	useTheme,
 } from "@mui/material";
-import { ChevronLeft, ChevronRight, Code, Key, SquareArrowOutUpRight } from "lucide-react";
+import {
+	ChevronLeft,
+	ChevronRight,
+	Code,
+	Key,
+	SquareArrowOutUpRight,
+} from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { ProjectType } from "consts";
 import { badgeSx } from "config/badge-style";
 import { SectionLabel } from "components/section-label";
+import { useLanguage } from "config/language/language-config";
 
 type ProjectViewProps = {
 	project: ProjectType;
@@ -18,10 +26,16 @@ type ProjectViewProps = {
 
 export function ProjectView({ project }: ProjectViewProps) {
 	const theme = useTheme();
+	const { t } = useTranslation();
+	const { lang } = useLanguage();
 	const [imageIndex, setImageIndex] = useState(0);
 
 	const images = project.images;
-	const features = project.keyFeatures["en-EN"] ?? [];
+	const features =
+		project.keyFeatures[lang] ?? project.keyFeatures["en-EN"] ?? [];
+	const description = project.description[lang] ?? project.description["en-EN"];
+	const longDescription =
+		project.longDescription[lang] ?? project.longDescription["en-EN"];
 	const showCarouselArrows = images.length > 1;
 
 	const handlePrev = () => {
@@ -65,7 +79,7 @@ export function ProjectView({ project }: ProjectViewProps) {
 				<Box
 					component="img"
 					src={images[imageIndex]}
-					alt={`${project.title} preview`}
+					alt={t("project::previewAlt", { title: project.title })}
 					sx={{
 						width: "100%",
 						height: "100%",
@@ -76,7 +90,7 @@ export function ProjectView({ project }: ProjectViewProps) {
 				{showCarouselArrows && (
 					<>
 						<IconButton
-							aria-label="Previous image"
+							aria-label={t("project::previousImage")}
 							className="carousel-arrow"
 							onClick={handlePrev}
 							sx={{
@@ -96,7 +110,7 @@ export function ProjectView({ project }: ProjectViewProps) {
 							<ChevronLeft size={22} />
 						</IconButton>
 						<IconButton
-							aria-label="Next image"
+							aria-label={t("project::nextImage")}
 							className="carousel-arrow"
 							onClick={handleNext}
 							sx={{
@@ -152,7 +166,7 @@ export function ProjectView({ project }: ProjectViewProps) {
 							color: theme.palette.primary.main,
 						}}
 					>
-						{project.description["en-EN"]}
+						{description}
 					</Typography>
 				</Box>
 				<Box
@@ -192,7 +206,7 @@ export function ProjectView({ project }: ProjectViewProps) {
 							},
 						}}
 					>
-						Code
+						{t("project::code")}
 					</Button>
 					<Button
 						component="a"
@@ -216,7 +230,7 @@ export function ProjectView({ project }: ProjectViewProps) {
 							},
 						}}
 					>
-						Demo
+						{t("project::demo")}
 					</Button>
 				</Box>
 			</Box>
@@ -239,7 +253,7 @@ export function ProjectView({ project }: ProjectViewProps) {
 					color: theme.palette.text.secondary,
 				}}
 			>
-				{project.longDescription["en-EN"]}
+				{longDescription}
 			</Typography>
 
 			<Box
@@ -249,7 +263,7 @@ export function ProjectView({ project }: ProjectViewProps) {
 					gap: "16px",
 				}}
 			>
-				<SectionLabel>// STACK</SectionLabel>
+				<SectionLabel>{t("project::stack")}</SectionLabel>
 				<Box sx={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
 					{project.technologies.map((tech) => (
 						<Box key={tech} sx={badgeSx(theme)}>
@@ -267,7 +281,7 @@ export function ProjectView({ project }: ProjectViewProps) {
 						gap: "16px",
 					}}
 				>
-					<SectionLabel>// KEY FEATURES</SectionLabel>
+					<SectionLabel>{t("project::keyFeatures")}</SectionLabel>
 					<Box
 						sx={{
 							display: "flex",
@@ -296,10 +310,7 @@ export function ProjectView({ project }: ProjectViewProps) {
 										backgroundColor: alpha(theme.palette.primary.main, 0.12),
 									}}
 								>
-									<Key
-										size={16}
-										color={theme.palette.primary.main}
-									/>
+									<Key size={16} color={theme.palette.primary.main} />
 								</Box>
 								<Typography
 									sx={{

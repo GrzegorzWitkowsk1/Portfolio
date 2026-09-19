@@ -1,5 +1,6 @@
 import { Box, ButtonBase, styled, Typography, useTheme } from "@mui/material";
 import { House, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { useNavigationStore } from "store/navigation-store";
 
 const TabBarRoot = styled(Box)(({ theme }) => ({
@@ -99,6 +100,7 @@ const CloseButton = styled(ButtonBase)(({ theme }) => ({
 
 export function TabBar() {
 	const theme = useTheme();
+	const { t } = useTranslation();
 	const tabs = useNavigationStore((s) => s.tabs);
 	const activeTabId = useNavigationStore((s) => s.activeTabId);
 	const closeTab = useNavigationStore((s) => s.closeTab);
@@ -118,7 +120,7 @@ export function TabBar() {
 					}
 				/>
 				<Typography sx={{ fontSize: "13px", color: "inherit" }}>
-					home
+					{t("common::home")}
 				</Typography>
 			</HomeTab>
 			{tabs.map((tab) => (

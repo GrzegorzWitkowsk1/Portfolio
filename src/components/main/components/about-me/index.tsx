@@ -1,5 +1,6 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { Clock, MapPin, Target, type LucideIcon } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import polyMyImage from "assets/images/poly-my-image.jpeg";
 import cv from "assets/files/Grzegorz Witkowski - Frontend Developer.pdf";
 import { badgeSx } from "config/badge-style";
@@ -14,24 +15,15 @@ type InfoCardType = {
 	icon: LucideIcon;
 };
 
-const infoCards: InfoCardType[] = [
-	{ title: "LOCATION", value: "Lublin, Poland (or remote)", icon: MapPin },
-	{ title: "EXPERIENCE", value: "5+ years", icon: Clock },
-	{
-		title: "FOCUS",
-		value: "Frontend engineering & design systems",
-		icon: Target,
-	},
-];
+const linkLabelKey: Record<string, string> = {
+	Github: "aboutMe::links::github",
+	Linkedin: "aboutMe::links::linkedin",
+	CV: "aboutMe::links::cv",
+	Email: "aboutMe::links::email",
+};
 
 const about = {
 	name: "Grzegorz Witkowski",
-	availability: "Available for work",
-	role: "Frontend developer",
-	description:
-		"I'm a frontend developer focused on building fast, accessible and well-structured web applications. I care about clean code, good UX and delivering value through simple, maintainable solutions.",
-	beyondTheCode:
-		"Outside of work you can find me working on my private projects, reading books and watching fight sports - Shortly, enjoying my life.",
 	technologies: [
 		"React",
 		"TypeScript",
@@ -56,8 +48,7 @@ const about = {
 		"Mongoose",
 		"Manifest v2/v3",
 	],
-	infoCards,
-links: [
+	links: [
 		{
 			label: "Github",
 			handle: "/GrzegorzWitkowsk1",
@@ -87,6 +78,25 @@ links: [
 
 export function AboutMe() {
 	const theme = useTheme();
+	const { t } = useTranslation();
+
+	const infoCards: InfoCardType[] = [
+		{
+			title: t("aboutMe::info::location::title"),
+			value: t("aboutMe::info::location::value"),
+			icon: MapPin,
+		},
+		{
+			title: t("aboutMe::info::experience::title"),
+			value: t("aboutMe::info::experience::value"),
+			icon: Clock,
+		},
+		{
+			title: t("aboutMe::info::focus::title"),
+			value: t("aboutMe::info::focus::value"),
+			icon: Target,
+		},
+	];
 
 	return (
 		<Box
@@ -105,15 +115,15 @@ export function AboutMe() {
 				sx={{
 					display: "flex",
 					flexDirection: { xs: "column", md: "row" },
-					alignItems: {xs:'flex-start', md:'center'},
+					alignItems: { xs: "flex-start", md: "center" },
 					gap: "18px",
-					textAlign: 'left',
+					textAlign: "left",
 				}}
 			>
 				<Box
 					component="img"
 					src={polyMyImage}
-					alt="My photo"
+					alt={t("aboutMe::altPhoto")}
 					sx={{
 						width: { xs: "95px", md: "120px" },
 						height: { xs: "95px", md: "120px" },
@@ -133,7 +143,7 @@ export function AboutMe() {
 						sx={{
 							display: "flex",
 							alignItems: "center",
-							justifyContent: 'flex-start',
+							justifyContent: "flex-start",
 							gap: "6px",
 						}}
 					>
@@ -145,7 +155,7 @@ export function AboutMe() {
 								fontWeight: 500,
 							}}
 						>
-							{about.availability}
+							{t("aboutMe::availability")}
 						</Typography>
 					</Box>
 					<Typography
@@ -165,7 +175,7 @@ export function AboutMe() {
 							color: theme.palette.primary.main,
 						}}
 					>
-						{about.role}
+						{t("aboutMe::role")}
 					</Typography>
 				</Box>
 			</Box>
@@ -177,7 +187,7 @@ export function AboutMe() {
 					color: "text.secondary",
 				}}
 			>
-				{about.description}
+				{t("aboutMe::description")}
 			</Typography>
 
 			<Box
@@ -187,7 +197,7 @@ export function AboutMe() {
 					gap: "16px",
 				}}
 			>
-				{about.infoCards.map((card) => {
+				{infoCards.map((card) => {
 					const Icon = card.icon;
 					return (
 						<InfoCard
@@ -207,7 +217,7 @@ export function AboutMe() {
 					gap: "16px",
 				}}
 			>
-				<SectionLabel>// TECHNOLOGIES</SectionLabel>
+				<SectionLabel>{t("aboutMe::sections::technologies")}</SectionLabel>
 				<Box sx={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
 					{about.technologies.map((tech) => (
 						<Box key={tech} sx={badgeSx(theme)}>
@@ -224,7 +234,7 @@ export function AboutMe() {
 					gap: "16px",
 				}}
 			>
-				<SectionLabel>// Beyond the code</SectionLabel>
+				<SectionLabel>{t("aboutMe::sections::beyondTheCode")}</SectionLabel>
 				<Typography
 					sx={{
 						fontSize: "15px",
@@ -232,7 +242,7 @@ export function AboutMe() {
 						color: "text.secondary",
 					}}
 				>
-					{about.beyondTheCode}
+					{t("aboutMe::beyondTheCode")}
 				</Typography>
 			</Box>
 
@@ -243,7 +253,7 @@ export function AboutMe() {
 					gap: "16px",
 				}}
 			>
-				<SectionLabel>// Links</SectionLabel>
+				<SectionLabel>{t("aboutMe::sections::links")}</SectionLabel>
 				<Box
 					sx={{
 						display: "grid",
@@ -254,7 +264,7 @@ export function AboutMe() {
 					{about.links.map((link) => (
 						<LinkCard
 							key={link.label}
-							label={link.label}
+							label={t(linkLabelKey[link.label])}
 							handle={link.handle}
 							href={link.href}
 							download={link.download}

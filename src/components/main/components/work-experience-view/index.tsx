@@ -1,8 +1,10 @@
 import { alpha, Box, Typography, useTheme } from "@mui/material";
 import { Check, MapPin, Trophy } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { WorkExperienceEntryType } from "consts";
 import { badgeSx } from "config/badge-style";
 import { SectionLabel } from "components/section-label";
+import { useLanguage } from "config/language/language-config";
 
 type WorkExperienceViewProps = {
 	entry: WorkExperienceEntryType;
@@ -10,10 +12,12 @@ type WorkExperienceViewProps = {
 
 export function WorkExperienceView({ entry }: WorkExperienceViewProps) {
 	const theme = useTheme();
-	const translation = entry.translations["en-EN"];
+	const { t } = useTranslation();
+	const { lang } = useLanguage();
+	const translation = entry.translations[lang] ?? entry.translations["en-EN"];
 
 	const dates = entry.isCurrent
-		? `${entry.dateStart} - Present`
+		? `${entry.dateStart} - ${t("workView::present")}`
 		: entry.dateEnd
 			? `${entry.dateStart} - ${entry.dateEnd}`
 			: entry.dateStart;
@@ -31,7 +35,7 @@ export function WorkExperienceView({ entry }: WorkExperienceViewProps) {
 				padding: "0 24px 32px",
 			}}
 		>
-			<Box sx={{display:'flex', flexDirection:'column', gap:'10px'}}>
+			<Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>
 				{entry.isCurrent && (
 					<Box
 						sx={{
@@ -55,7 +59,7 @@ export function WorkExperienceView({ entry }: WorkExperienceViewProps) {
 								backgroundColor: theme.palette.success.main,
 							}}
 						/>
-						Current role
+						{t("workView::currentRole")}
 					</Box>
 				)}
 
@@ -89,7 +93,7 @@ export function WorkExperienceView({ entry }: WorkExperienceViewProps) {
 				>
 					<Typography sx={{ fontSize: "14px", color: "text.secondary" }}>
 						{dates}
-						{entry.wasInternship && " (internship)"}
+						{entry.wasInternship && ` ${t("workView::internship")}`}
 					</Typography>
 					<MapPin size={14} color={theme.palette.text.secondary} />
 					<Typography sx={{ fontSize: "14px", color: "text.secondary" }}>
@@ -115,7 +119,7 @@ export function WorkExperienceView({ entry }: WorkExperienceViewProps) {
 					gap: "16px",
 				}}
 			>
-				<SectionLabel>// RESPONSIBILITIES</SectionLabel>
+				<SectionLabel>{t("workView::responsibilities")}</SectionLabel>
 				<Box
 					sx={{
 						display: "flex",
@@ -158,7 +162,7 @@ export function WorkExperienceView({ entry }: WorkExperienceViewProps) {
 					gap: "16px",
 				}}
 			>
-				<SectionLabel>// ACHIEVEMENTS</SectionLabel>
+				<SectionLabel>{t("workView::achievements")}</SectionLabel>
 				<Box
 					sx={{
 						display: "flex",
@@ -212,7 +216,7 @@ export function WorkExperienceView({ entry }: WorkExperienceViewProps) {
 					gap: "16px",
 				}}
 			>
-				<SectionLabel>// STACK & WORKING AREAS</SectionLabel>
+				<SectionLabel>{t("workView::stackAreas")}</SectionLabel>
 				<Box sx={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
 					{entry.stack.map((tech) => (
 						<Box key={tech} sx={badgeSx(theme)}>

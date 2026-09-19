@@ -19,6 +19,8 @@ i18n.use(initReactI18next).init({
 	resources,
 	lng: settings.defaultLang,
 	fallbackLng: settings.fallbackLang,
+	keySeparator: "::",
+	nsSeparator: false,
 	interpolation: {
 		escapeValue: false,
 	},

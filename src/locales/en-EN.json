@@ -1,1 +1,109 @@
-{}
+{
+	"common": {
+		"home": "home",
+		"portfolio": "portfolio",
+		"projects": "projects",
+		"workExperience": "work-experience",
+		"itemMore": "+{{count}}"
+	},
+	"header": {
+		"role": "Frontend Developer",
+		"toggleTheme": "toggle theme",
+		"toggleNavigation": "toggle navigation",
+		"language": "Language"
+	},
+	"sidebar": {
+		"explorer": "explorer",
+		"openTerminal": "open terminal",
+		"availableForWork": "available for work"
+	},
+	"home": {
+		"itemsCount": "{{count}} items",
+		"itemsClickToOpen": "{{count}} items · click to open"
+	},
+	"homeFiles": {
+		"aboutMe": "Short introduction to who I am and what I do.",
+		"newMessage": "Contact form — drop me a message.",
+		"projects/motorro.md": "App for the automotive industry — comparing and ordering parts from wholesalers.",
+		"projects/rezerwik.md": "Restaurant and services app managing reservations and orders.",
+		"projects/moviemark.md": "Personal movie and TV series tracking app built on TMDB.",
+		"projects/filbruk.md": "Business portfolio app showcasing company info, services and contact.",
+		"projects/portfolio.md": "This portfolio app — experience, projects and contact.",
+		"projects/extensions.md": "Browser extensions for scraping, redirects and automation.",
+		"projects/statistics-app.md": "React app fetching data and rendering charts with ApexCharts.",
+		"work-experience/power-technology.md": "Senior Frontend Developer — maintaining and developing a React app.",
+		"work-experience/motorro.md": "Mid/Senior Frontend Developer — React app and web extensions from scratch.",
+		"work-experience/mca-ware.md": "Mid/Senior Frontend Developer — React JS app.",
+		"work-experience/memogadget.md": "Erasmus internship in an e-commerce company.",
+		"work-experience/liquid-systems.md": "Service technician — optical fiber internet and TV services."
+	},
+	"aboutMe": {
+		"role": "Frontend developer",
+		"availability": "Available for work",
+		"description": "I'm a frontend developer focused on building fast, accessible and well-structured web applications. I care about clean code, good UX and delivering value through simple, maintainable solutions.",
+		"beyondTheCode": "Outside of work you can find me working on my private projects, reading books and watching fight sports — shortly, enjoying my life.",
+		"sections": {
+			"technologies": "// TECHNOLOGIES",
+			"beyondTheCode": "// Beyond the code",
+			"links": "// Links"
+		},
+		"info": {
+			"location": {
+				"title": "LOCATION",
+				"value": "Lublin, Poland (or remote)"
+			},
+			"experience": {
+				"title": "EXPERIENCE",
+				"value": "5+ years"
+			},
+			"focus": {
+				"title": "FOCUS",
+				"value": "Frontend engineering & design systems"
+			}
+		},
+		"links": {
+			"github": "Github",
+			"linkedin": "Linkedin",
+			"cv": "CV",
+			"email": "Email"
+		},
+		"altPhoto": "My photo"
+	},
+	"project": {
+		"code": "Code",
+		"demo": "Demo",
+		"stack": "// STACK",
+		"keyFeatures": "// KEY FEATURES",
+		"previewAlt": "{{title}} preview",
+		"previousImage": "Previous image",
+		"nextImage": "Next image"
+	},
+	"workView": {
+		"currentRole": "Current role",
+		"present": "Present",
+		"internship": "(internship)",
+		"responsibilities": "// RESPONSIBILITIES",
+		"achievements": "// ACHIEVEMENTS",
+		"stackAreas": "// STACK & WORKING AREAS",
+		"stack": "// STACK"
+	},
+	"contact": {
+		"title": "Get in touch",
+		"subtitleBefore": "Have a project in mind or just want to say hi? Drop a message below or reach me at ",
+		"subtitleAfter": ".",
+		"name": "Name",
+		"namePlaceholder": "Your name",
+		"email": "Email",
+		"emailPlaceholder": "Your email",
+		"message": "Message",
+		"messagePlaceholder": "Tell me about your project and how can I help you...",
+		"send": "Send message",
+		"sending": "Sending...",
+		"nameRequired": "Name is required.",
+		"emailRequired": "Email is required.",
+		"emailInvalid": "Please enter a valid email address.",
+		"messageRequired": "Message is required.",
+		"success": "Your message has been sent. Thanks for reaching out!",
+		"error": "Something went wrong. Please try again or email me directly."
+	}
+}

@@ -3,13 +3,26 @@ import {
 	Avatar,
 	Box,
 	IconButton,
+	Menu,
+	MenuItem,
 	styled,
 	Typography,
 	useMediaQuery,
 	useTheme,
 } from "@mui/material";
-import { PanelLeft } from "lucide-react";
+import { Check, ChevronDown, PanelLeft } from "lucide-react";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useThemeMode } from "config/theme/theme-config";
+import { useLanguage } from "config/language/language-config";
+import { locales } from "consts";
+import enFlag from "assets/flags/en-EN.svg";
+import plFlag from "assets/flags/pl-PL.svg";
+
+const LANGUAGE_FLAGS: Record<string, string> = {
+	"en-EN": enFlag,
+	"pl-PL": plFlag,
+};
 
 const HeaderRoot = styled(Box)(({ theme }) => ({
 	display: "flex",
@@ -38,8 +51,27 @@ type HeaderProps = {
 
 export function Header({ onToggleNavigation }: HeaderProps) {
 	const { mode, toggleMode } = useThemeMode();
+	const { lang, setLang } = useLanguage();
+	const { t } = useTranslation();
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+	const [languageMenuAnchor, setLanguageMenuAnchor] =
+		useState<null | HTMLElement>(null);
+
+	const handleLanguageMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+		setLanguageMenuAnchor(event.currentTarget);
+	};
+
+	const handleLanguageMenuClose = () => {
+		setLanguageMenuAnchor(null);
+	};
+
+	const handleLanguageSelect = (prefix: string) => {
+		if (prefix !== lang) {
+			setLang(prefix as typeof lang);
+		}
+		handleLanguageMenuClose();
+	};
 
 	return (
 		<HeaderRoot>
@@ -47,12 +79,13 @@ export function Header({ onToggleNavigation }: HeaderProps) {
 				{isMobile && onToggleNavigation && (
 					<IconButton
 						onClick={onToggleNavigation}
-						aria-label="toggle navigation"
-						sx={{
-				
-						}}
+						aria-label={t("header::toggleNavigation")}
+						sx={{}}
 					>
-						<PanelLeft color={theme.palette.mode === 'dark' ? 'white' : 'black'} size={22} />
+						<PanelLeft
+							color={theme.palette.mode === "dark" ? "white" : "black"}
+							size={22}
+						/>
 					</IconButton>
 				)}
 				<Avatar
@@ -88,25 +121,95 @@ export function Header({ onToggleNavigation }: HeaderProps) {
 								fontWeight: 400,
 							}}
 						>
-							{" - Frontend Developer"}
+							{" - " + t("header::role")}
 						</Box>
 					</Typography>
 				)}
 			</NameSection>
-			<IconButton
-				onClick={toggleMode}
-				aria-label="toggle theme"
-				sx={{
-					height: "16px",
-					width: "16px",
-					color: (theme) =>
-						theme.palette.mode === "light"
-							? theme.palette.grey[800]
-							: theme.palette.grey[100],
-				}}
-			>
-				{mode === "dark" ? <LightMode /> : <DarkMode />}
-			</IconButton>
+			<Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
+				<IconButton
+					onClick={handleLanguageMenuOpen}
+					title={t("header::language")}
+					aria-label={t("header::language")}
+					aria-haspopup="menu"
+					aria-expanded={Boolean(languageMenuAnchor)}
+					sx={{
+						height: "24px",
+						width: "38px",
+						padding: "2px",
+						gap: "2px",
+					}}
+				>
+					<Box
+						component="img"
+						src={LANGUAGE_FLAGS[lang]}
+						alt=""
+						sx={{
+							width: "18px",
+							height: "18px",
+							borderRadius: "4px",
+							display: "block",
+						}}
+					/>
+					<ChevronDown size={13} color={theme.palette.text.secondary} />
+				</IconButton>
+				<Menu
+					anchorEl={languageMenuAnchor}
+					open={Boolean(languageMenuAnchor)}
+					onClose={handleLanguageMenuClose}
+				>
+					{locales.map((locale) => {
+						const isActive = locale.prefix === lang;
+						return (
+							<MenuItem
+								key={locale.prefix}
+								selected={isActive}
+								onClick={() => handleLanguageSelect(locale.prefix)}
+								sx={{
+									gap: "10px",
+								}}
+							>
+								<Box
+									component="img"
+									src={LANGUAGE_FLAGS[locale.prefix]}
+									alt=""
+									sx={{
+										width: "18px",
+										height: "18px",
+										borderRadius: "4px",
+										display: "block",
+									}}
+								/>
+								<Typography
+									sx={{
+										fontSize: "14px",
+										flex: 1,
+									}}
+								>
+									{locale.name}
+								</Typography>
+								{isActive && (
+									<Check size={16} color={theme.palette.primary.main} />
+								)}
+							</MenuItem>
+						);
+					})}
+				</Menu>
+				<IconButton
+					onClick={toggleMode}
+					aria-label={t("header::toggleTheme")}
+					sx={{
+						height: "16px",
+						width: "16px",
+						color: (theme) =>
+							theme.palette.mode === "light"
+								? theme.palette.grey[800]
+								: theme.palette.grey[100],
+					}}
+				>
+					{mode === "dark" ? <LightMode /> : <DarkMode />}
+				</IconButton>
+			</Box>
 		</HeaderRoot>
 	);
 }

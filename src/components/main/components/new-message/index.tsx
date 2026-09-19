@@ -10,8 +10,11 @@ import {
 } from "@mui/material";
 import { Send } from "lucide-react";
 import { FormEvent, useState } from "react";
+import { useTranslation } from "react-i18next";
 
-const FORM_SUBMIT_URL = "https://formsubmit.co/ajax/grzegorz.witkowski999@gmail.com";
+const FORM_SUBMIT_URL =
+	"https://formsubmit.co/ajax/grzegorz.witkowski999@gmail.com";
+const CONTACT_EMAIL = "grzegorz.witkowski999@gmail.com";
 
 type FieldName = "name" | "email" | "message";
 
@@ -21,6 +24,7 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function NewMessage() {
 	const theme = useTheme();
+	const { t } = useTranslation();
 
 	const [values, setValues] = useState<Record<FieldName, string>>({
 		name: "",
@@ -75,15 +79,15 @@ export function NewMessage() {
 	const validate = (): boolean => {
 		const next: Partial<Record<FieldName, string>> = {};
 		if (!values.name.trim()) {
-			next.name = "Name is required.";
+			next.name = t("contact::nameRequired");
 		}
 		if (!values.email.trim()) {
-			next.email = "Email is required.";
+			next.email = t("contact::emailRequired");
 		} else if (!EMAIL_REGEX.test(values.email.trim())) {
-			next.email = "Please enter a valid email address.";
+			next.email = t("contact::emailInvalid");
 		}
 		if (!values.message.trim()) {
-			next.message = "Message is required.";
+			next.message = t("contact::messageRequired");
 		}
 		setErrors(next);
 		return Object.keys(next).length === 0;
@@ -161,7 +165,7 @@ export function NewMessage() {
 							color: theme.palette.mode === "light" ? "black" : "white",
 						}}
 					>
-						Get in touch
+						{t("contact::title")}
 					</Typography>
 					<Typography
 						sx={{
@@ -170,22 +174,21 @@ export function NewMessage() {
 							color: "text.secondary",
 						}}
 					>
-						Have a project in mind or just want to say hi? Drop a message below
-						or reach me at{" "}
+						{t("contact::subtitleBefore")}
 						<Box
 							component="a"
-							href="mailto:grzegorz.witkowski999@gmail.com"
+							href={`mailto:${CONTACT_EMAIL}`}
 							sx={{
 								textDecoration: "none",
 								color: theme.palette.primary.main,
-								'&:hover':{  
-									textDecoration:'underline'
-								}
+								"&:hover": {
+									textDecoration: "underline",
+								},
 							}}
 						>
-							grzegorz.witkowski999@gmail.com
+							{CONTACT_EMAIL}
 						</Box>
-						.
+						{t("contact::subtitleAfter")}
 					</Typography>
 				</Box>
 
@@ -198,56 +201,50 @@ export function NewMessage() {
 				>
 					<FormControl fullWidth required error={Boolean(errors.name)}>
 						<InputLabel htmlFor="contact-name" shrink sx={labelSx}>
-							Name
+							{t("contact::name")}
 						</InputLabel>
 						<OutlinedInput
 							id="contact-name"
 							notched={false}
-							placeholder="Your name"
+							placeholder={t("contact::namePlaceholder")}
 							value={values.name}
 							onChange={handleChange("name")}
 							sx={outlinedInputSx}
 						/>
-						{errors.name && (
-							<FormHelperText>{errors.name}</FormHelperText>
-						)}
+						{errors.name && <FormHelperText>{errors.name}</FormHelperText>}
 					</FormControl>
 					<FormControl fullWidth required error={Boolean(errors.email)}>
 						<InputLabel htmlFor="contact-email" shrink sx={labelSx}>
-							Email
+							{t("contact::email")}
 						</InputLabel>
 						<OutlinedInput
 							id="contact-email"
 							notched={false}
 							type="email"
-							placeholder="Your email"
+							placeholder={t("contact::emailPlaceholder")}
 							value={values.email}
 							onChange={handleChange("email")}
 							sx={outlinedInputSx}
 						/>
-						{errors.email && (
-							<FormHelperText>{errors.email}</FormHelperText>
-						)}
+						{errors.email && <FormHelperText>{errors.email}</FormHelperText>}
 					</FormControl>
 				</Box>
 
 				<FormControl fullWidth required error={Boolean(errors.message)}>
 					<InputLabel htmlFor="contact-message" shrink sx={labelSx}>
-						Message
+						{t("contact::message")}
 					</InputLabel>
 					<OutlinedInput
 						id="contact-message"
 						notched={false}
 						multiline
 						minRows={4}
-						placeholder="Tell me about your project and how can I help you..."
+						placeholder={t("contact::messagePlaceholder")}
 						value={values.message}
 						onChange={handleChange("message")}
 						sx={outlinedInputSx}
 					/>
-					{errors.message && (
-						<FormHelperText>{errors.message}</FormHelperText>
-					)}
+					{errors.message && <FormHelperText>{errors.message}</FormHelperText>}
 				</FormControl>
 
 				<Button
@@ -269,7 +266,7 @@ export function NewMessage() {
 						},
 					}}
 				>
-					{status === "sending" ? "Sending..." : "Send message"}
+					{status === "sending" ? t("contact::sending") : t("contact::send")}
 				</Button>
 
 				{status === "success" && (
@@ -279,7 +276,7 @@ export function NewMessage() {
 							color: theme.palette.success.main,
 						}}
 					>
-						Your message has been sent. Thanks for reaching out!
+						{t("contact::success")}
 					</Typography>
 				)}
 				{status === "error" && (
@@ -289,7 +286,7 @@ export function NewMessage() {
 							color: theme.palette.error.main,
 						}}
 					>
-						Something went wrong. Please try again or email me directly.
+						{t("contact::error")}
 					</Typography>
 				)}
 			</Box>

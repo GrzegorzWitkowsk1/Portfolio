@@ -1,5 +1,14 @@
-import { alpha, Box, ButtonBase, Collapse, styled, Typography, useTheme } from "@mui/material";
+import {
+	alpha,
+	Box,
+	ButtonBase,
+	Collapse,
+	styled,
+	Typography,
+	useTheme,
+} from "@mui/material";
 import { ChevronRight, House } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { useNavigationStore } from "store/navigation-store";
 
 const BreadcrumbsBarRoot = styled(Box)(({ theme }) => ({
@@ -13,8 +22,7 @@ const BreadcrumbsBarRoot = styled(Box)(({ theme }) => ({
 			? theme.palette.grey[400]
 			: theme.palette.grey[300]
 	}`,
-	backgroundColor:
-		theme.palette.mode === "light" ? "white" : '#13171d',
+	backgroundColor: theme.palette.mode === "light" ? "white" : "#13171d",
 }));
 
 const BreadcrumbItem = styled(ButtonBase)(({ theme }) => ({
@@ -38,14 +46,17 @@ const Separator = styled(Box)(({ theme }) => ({
 	opacity: 0.5,
 }));
 
-const HOME_LABEL = "portfolio";
-
 export function BreadcrumbsBar() {
 	const theme = useTheme();
+	const { t } = useTranslation();
 	const openFolder = useNavigationStore((s) => s.openFolder);
 	const closeFolder = useNavigationStore((s) => s.closeFolder);
 
-	const folderLabel = openFolder === "projects" ? "projects" : "work-experience";
+	const homeLabel = t("common::portfolio");
+	const folderLabel =
+		openFolder === "projects"
+			? t("common::projects")
+			: t("common::workExperience");
 
 	return (
 		<Collapse in unmountOnExit>
@@ -55,7 +66,7 @@ export function BreadcrumbsBar() {
 					<>
 						<BreadcrumbItem onClick={closeFolder}>
 							<Typography sx={{ fontSize: "13px", color: "inherit" }}>
-								{HOME_LABEL}
+								{homeLabel}
 							</Typography>
 						</BreadcrumbItem>
 						<Separator>
@@ -79,7 +90,7 @@ export function BreadcrumbsBar() {
 							fontWeight: 500,
 						}}
 					>
-						{HOME_LABEL}
+						{homeLabel}
 					</Typography>
 				)}
 			</BreadcrumbsBarRoot>
