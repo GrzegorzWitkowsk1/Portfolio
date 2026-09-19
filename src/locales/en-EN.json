@@ -17,6 +17,12 @@
 		"openTerminal": "open terminal",
 		"availableForWork": "available for work"
 	},
+	"terminal": {
+		"title": "cmd - portfolio",
+		"greeting": "Grzegorz Witkowski - portfolio shell. Type 'help' to begin",
+		"close": "Close terminal",
+		"commandInput": "Type a command"
+	},
 	"home": {
 		"itemsCount": "{{count}} items",
 		"itemsClickToOpen": "{{count}} items · click to open"

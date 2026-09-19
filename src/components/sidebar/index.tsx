@@ -16,6 +16,7 @@ import { ExplorerHeader } from "./components/explorer-header";
 import { AvailabilityDot } from "components/availability-dot";
 import { projects, workExperience } from "consts";
 import { useNavigationStore, FolderName } from "store/navigation-store";
+import { useTerminalStore } from "store/terminal-store";
 import { getFileIcon } from "config/file-icon";
 import {
 	ArrowDown,
@@ -183,6 +184,8 @@ export function Sidebar() {
 	const { t } = useTranslation();
 	const openFile = useNavigationStore((s) => s.openFile);
 	const setOpenFolder = useNavigationStore((s) => s.setOpenFolder);
+	const terminalOpen = useTerminalStore((s) => s.isOpen);
+	const toggleTerminal = useTerminalStore((s) => s.toggle);
 
 	const handleFileClick = (label: string, folder?: FolderName) => {
 		const { id, icon } = getFileIcon(label, folder, theme);
@@ -230,12 +233,14 @@ export function Sidebar() {
 				/>
 			</ExplorerBody>
 			<SidebarFooterRoot>
-				<RowBase>
-					<Terminal size="16px"/>
+				<RowBase onClick={toggleTerminal}>
+					<Terminal size="16px" />
 					<Typography
 						sx={{
 							fontSize: "14px",
-							color: "inherit",
+							color: terminalOpen
+								? theme.palette.primary.main
+								: "inherit",
 						}}
 					>
 						{t("sidebar::openTerminal")}

@@ -1,6 +1,7 @@
 import { Box, styled } from "@mui/material";
 import { useNavigationStore } from "store/navigation-store";
 import { projects, workExperience } from "consts";
+import { Terminal } from "components/terminal";
 import { BreadcrumbsBar } from "./components/breadcrumbs-bar";
 import { TabBar } from "./components/tab-bar";
 import { FileView } from "./components/file-view";
@@ -18,6 +19,7 @@ const MainRoot = styled(Box, {
 	display: "flex",
 	flexDirection: "column",
 	minHeight: 0,
+	position: "relative",
 	backgroundColor: theme.palette.background.default,
 	...((withDots ?? false) && {
 		backgroundImage: `radial-gradient(circle, ${
@@ -75,6 +77,7 @@ export function Main() {
 					))
 				)}
 			</ContentArea>
+			<Terminal />
 		</MainRoot>
 	);
 }

@@ -12,10 +12,16 @@
 		"toggleNavigation": "przełącz nawigację",
 		"language": "Język"
 	},
-	"sidebar": {
+"sidebar": {
 		"explorer": "eksplorator",
 		"openTerminal": "otwórz terminal",
-		"availableForWork": "dostępny do projektu"
+		"availableForWork": "dostępny do pracy"
+	},
+	"terminal": {
+		"title": "cmd - portfolio",
+		"greeting": "Grzegorz Witkowski - portfolio shell. Wpisz 'help', aby rozpocząć",
+		"close": "Zamknij terminal",
+		"commandInput": "Wpisz komendę"
 	},
 	"home": {
 		"itemsCount": "{{count}} elementów",
