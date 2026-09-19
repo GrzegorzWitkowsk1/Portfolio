@@ -1,10 +1,4 @@
-import {
-	Box,
-	ButtonBase,
-	styled,
-	Typography,
-	useTheme,
-} from "@mui/material";
+import { Box, ButtonBase, styled, Typography, useTheme } from "@mui/material";
 import { House, X } from "lucide-react";
 import { useNavigationStore } from "store/navigation-store";
 
@@ -29,28 +23,30 @@ const TabBarRoot = styled(Box)(({ theme }) => ({
 	},
 }));
 
-const HomeTab = styled(ButtonBase)<{ active: boolean }>(({ theme, active }) => ({
-	display: "flex",
-	alignItems: "center",
-	gap: "6px",
-	padding: "0 14px",
-	fontSize: "13px",
-	color: active
-		? theme.palette.text.primary
-		: theme.palette.text.secondary,
-	borderRight: `1px solid ${
-		theme.palette.mode === "dark"
-			? theme.palette.grey[400]
-			: theme.palette.grey[300]
-	}`,
-	backgroundColor: active
-		? theme.palette.mode === "dark"
-			? theme.palette.background.default
-			: "white"
-		: "transparent",
-	borderBottom: active ? `2px solid ${theme.palette.primary.main}` : "2px solid transparent",
-	whiteSpace: "nowrap",
-}));
+const HomeTab = styled(ButtonBase)<{ active: boolean }>(
+	({ theme, active }) => ({
+		display: "flex",
+		alignItems: "center",
+		gap: "6px",
+		padding: "0 14px",
+		fontSize: "13px",
+		color: active ? theme.palette.text.primary : theme.palette.text.secondary,
+		borderRight: `1px solid ${
+			theme.palette.mode === "dark"
+				? theme.palette.grey[400]
+				: theme.palette.grey[300]
+		}`,
+		backgroundColor: active
+			? theme.palette.mode === "dark"
+				? theme.palette.background.default
+				: "white"
+			: "transparent",
+		borderBottom: active
+			? `2px solid ${theme.palette.primary.main}`
+			: "2px solid transparent",
+		whiteSpace: "nowrap",
+	}),
+);
 
 const FileTab = styled(Box)<{ active: boolean }>(({ theme, active }) => ({
 	display: "flex",
@@ -58,9 +54,7 @@ const FileTab = styled(Box)<{ active: boolean }>(({ theme, active }) => ({
 	gap: "6px",
 	padding: "0 10px 0 14px",
 	fontSize: "13px",
-	color: active
-		? theme.palette.text.primary
-		: theme.palette.text.secondary,
+	color: active ? theme.palette.text.primary : theme.palette.text.secondary,
 	borderRight: `1px solid ${
 		theme.palette.mode === "dark"
 			? theme.palette.grey[400]
@@ -71,7 +65,9 @@ const FileTab = styled(Box)<{ active: boolean }>(({ theme, active }) => ({
 			? theme.palette.background.default
 			: "white"
 		: "transparent",
-	borderBottom: active ? `2px solid ${theme.palette.primary.main}` : "2px solid transparent",
+	borderBottom: active
+		? `2px solid ${theme.palette.primary.main}`
+		: "2px solid transparent",
 	whiteSpace: "nowrap",
 	cursor: "pointer",
 	"&:hover": {
@@ -82,8 +78,11 @@ const FileTab = styled(Box)<{ active: boolean }>(({ theme, active }) => ({
 			: theme.palette.action.hover,
 	},
 	"& .close-btn": {
-		opacity: 0,
+		opacity: 1,
 		transition: "opacity 0.2s ease",
+		[theme.breakpoints.up("md")]: {
+			opacity: 0,
+		},
 	},
 	"&:hover .close-btn": {
 		opacity: 1,
@@ -115,11 +114,15 @@ export function TabBar() {
 
 	return (
 		<TabBarRoot>
-			<HomeTab
-				active={isHomeActive}
-				onClick={() => setActiveTab(null)}
-			>
-				<House size={14} color={isHomeActive ? theme.palette.text.primary : theme.palette.text.secondary} />
+			<HomeTab active={isHomeActive} onClick={() => setActiveTab(null)}>
+				<House
+					size={14}
+					color={
+						isHomeActive
+							? theme.palette.text.primary
+							: theme.palette.text.secondary
+					}
+				/>
 				<Typography sx={{ fontSize: "13px", color: "inherit" }}>
 					home
 				</Typography>

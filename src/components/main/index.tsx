@@ -3,6 +3,7 @@ import { useNavigationStore } from "store/navigation-store";
 import { BreadcrumbsBar } from "./components/breadcrumbs-bar";
 import { TabBar } from "./components/tab-bar";
 import { FileView } from "./components/file-view";
+import { HomeView } from "./components/home-view";
 
 const MainRoot = styled(Box)(({ theme }) => ({
 	flex: 1,
@@ -38,8 +39,12 @@ export function Main() {
 			<TabBar />
 			{activeTabId === null && <BreadcrumbsBar />}
 			<ContentArea>
-				{activeTab && (
-					<FileView icon={activeTab.icon} label={activeTab.label} />
+				{activeTabId === null ? (
+					<HomeView />
+				) : (
+					activeTab && (
+						<FileView icon={activeTab.icon} label={activeTab.label} />
+					)
 				)}
 			</ContentArea>
 		</MainRoot>
