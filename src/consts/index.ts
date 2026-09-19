@@ -1,4 +1,11 @@
-import filbrukBackground from "assets/images/project-filbruk-background.png";
+import filbruk1 from "assets/images/filbruk/filbruk_1.png";
+import filbruk2 from "assets/images/filbruk/filbruk_2.png";
+import filbruk3 from "assets/images/filbruk/filbruk_3.png";
+import portfolio from "assets/images/portfolio/portfolio.png"
+import moviemark1 from "assets/images/moviemark/moviemark_1.png";
+import moviemark2 from "assets/images/moviemark/moviemark_2.png";
+import moviemark3 from "assets/images/moviemark/moviemark_3.png";
+import moviemark4 from "assets/images/moviemark/moviemark_4.png";
 import portfolioBackground from "assets/images/banner_linkedIn.png";
 
 export type WorkExperienceEntryType = {
@@ -285,7 +292,9 @@ export const projects: ProjectType[] = [
 				"Motorro to aplikacja biznesowa dla branży motoryzacyjnej, łącząca warsztaty z hurtowniami części zamiennych. Agreguje katalogi części od wielu dostawców, umożliwiając porównywanie cen i dostępności oraz składanie zamówień bezpośrednio w aplikacji. Dzięki połączeniu w czasie rzeczywistym aplikacja pozostaje zsynchronizowana ze stanami magazynowymi i statusami zamówień bez ręcznego odświeżania.",
 		},
 		images: [
-			"https://cdn.pracahandlowiec.pl/uploads/image/motorro-logo-e32036fd-e336-46fa-8851-d2534e845247.png",
+			"https://motorro.pl/wp-content/uploads/2024/04/Motorro-dostepne-produkty.png",
+			"https://i.ytimg.com/vi/wnC--SWXGhw/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGEogXihlMA8=&rs=AOn4CLC7kdDZdsPdXX4qcbovpcayjoOjBw",
+			"https://motorro.pl/wp-content/uploads/2023/06/Motorro-funkcje-stany-magazynowe.jpg",
 		],
 		keyFeatures: {
 			"en-EN": [
@@ -306,10 +315,13 @@ export const projects: ProjectType[] = [
 		technologies: [
 			"React JS",
 			"Typescript",
-			"Material UI",
 			"React Query",
-			"Websockets",
-			"Refactor",
+			"React Context",
+			"React Router",
+			"Material UI",
+			"Styled components",
+			"Real-time communication",
+			"SockJS",
 		],
 		startDate: "2021",
 		demoUrl: "https://app.motorro.eu/",
@@ -353,10 +365,12 @@ export const projects: ProjectType[] = [
 			"Typescript",
 			"Material UI",
 			"React Query",
-			"Stripe",
+			"React Context",
 			"Open Street Maps",
+			"Leaflet",
+			"Stripe",
 		],
-		startDate: "2023",
+		startDate: "2024",
 	},
 	{
 		title: "MovieMark",
@@ -373,9 +387,7 @@ export const projects: ProjectType[] = [
 			"pl-PL":
 				"MovieMark to osobista aplikacja internetowa do śledzenia filmów i seriali, zbudowana wokół katalogu TMDB. Użytkownik może przeglądać tytuły, oznaczać filmy i programy jako obejrzane, prowadzić listę „chcę obejrzeć” oraz śledzić odcinki sezon po sezonie. Aplikacja jest zorganizowana jako monorepo Turborepo zarządzane przez Bun, łączące frontend React 19, API REST Fastify i bazę MongoDB, pokryte kompleksowo testami jednostkowymi, integracyjnymi i e2e.",
 		},
-		images: [
-			"https://www.plex.tv/wp-content/uploads/2025/03/Watch-Free-Hero-2048x1152-1.png",
-		],
+		images: [moviemark1, moviemark2, moviemark3, moviemark4],
 		keyFeatures: {
 			"en-EN": [
 				"Browse content from the TMDB API",
@@ -414,7 +426,7 @@ export const projects: ProjectType[] = [
 			"Render",
 			"Cloudflare Pages",
 		],
-		startDate: "2025",
+		startDate: "2026",
 		codeUrl: "https://github.com/GrzegorzWitkowsk1/moviemark",
 		demoUrl: "https://moviemark.grzegorz-witkowski.workers.dev",
 	},
@@ -433,7 +445,7 @@ export const projects: ProjectType[] = [
 			"pl-PL":
 				"Filbruk to firmowa aplikacja portfolio prezentująca ofertę firmy i dane kontaktowe w czytelnym układzie nastawionym na konwersję. W jasny sposób komunikuje usługi, prowadzi odwiedzających do danych kontaktowych i jest wdrożona na Cloudflare Pages.",
 		},
-		images: [filbrukBackground],
+		images: [filbruk1, filbruk2, filbruk3],
 		keyFeatures: {
 			"en-EN": [
 				"Company services showcase",
@@ -454,8 +466,9 @@ export const projects: ProjectType[] = [
 			"TailWind CSS",
 			"Lovable",
 			"Cloudflare Pages",
+			"Opencode",
 		],
-		startDate: "2024",
+		startDate: "2026",
 		demoUrl: "https://filbruk.pl/",
 	},
 	{
@@ -473,7 +486,7 @@ export const projects: ProjectType[] = [
 			"pl-PL":
 				"Moja osobista aplikacja portfolio w stylu inspirowanym terminalem i IDE. Prezentuje doświadczenie zawodowe, projekty i dane kontaktowe w interfejsie nawiązującym do edytora kodu — z nawigacją plików w panelu bocznym, otwartymi zakładkami i ekranem głównym workspace.",
 		},
-		images: [portfolioBackground],
+		images: [portfolio],
 		keyFeatures: {
 			"en-EN": [
 				"IDE-style interface with sidebar and tabs",
@@ -495,8 +508,10 @@ export const projects: ProjectType[] = [
 			"react-i18next",
 			"Create React App",
 			"GitHub Pages",
+			"Opencode",
+			"v0",
 		],
-		startDate: "2025",
+		startDate: "2026",
 		demoUrl: "https://grzegorzwitkowsk1.github.io/Portfolio/",
 		codeUrl: "https://github.com/GrzegorzWitkowsk1/Portfolio",
 	},
@@ -542,7 +557,7 @@ export const projects: ProjectType[] = [
 			"Firefox API",
 			"Browsers development panels",
 		],
-		startDate: "2022",
+		startDate: "2021",
 	},
 	{
 		title: "Statistics App",
@@ -580,7 +595,7 @@ export const projects: ProjectType[] = [
 			"Material UI",
 			"React Apex Charts",
 		],
-		startDate: "2020",
+		startDate: "2022",
 	},
 ];
 
