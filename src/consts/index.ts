@@ -35,6 +35,7 @@ export type ProjectType = {
 		[key: string]: string[];
 	};
 	technologies: string[];
+	startDate?: string;
 	codeUrl?: string;
 	demoUrl?: string;
 };
@@ -310,6 +311,7 @@ export const projects: ProjectType[] = [
 			"Websockets",
 			"Refactor",
 		],
+		startDate: "2021",
 		demoUrl: "https://app.motorro.eu/",
 	},
 	{
@@ -354,6 +356,7 @@ export const projects: ProjectType[] = [
 			"Stripe",
 			"Open Street Maps",
 		],
+		startDate: "2023",
 	},
 	{
 		title: "MovieMark",
@@ -411,6 +414,7 @@ export const projects: ProjectType[] = [
 			"Render",
 			"Cloudflare Pages",
 		],
+		startDate: "2025",
 		codeUrl: "https://github.com/GrzegorzWitkowsk1/moviemark",
 		demoUrl: "https://moviemark.grzegorz-witkowski.workers.dev",
 	},
@@ -451,6 +455,7 @@ export const projects: ProjectType[] = [
 			"Lovable",
 			"Cloudflare Pages",
 		],
+		startDate: "2024",
 		demoUrl: "https://filbruk.pl/",
 	},
 	{
@@ -491,6 +496,7 @@ export const projects: ProjectType[] = [
 			"Create React App",
 			"GitHub Pages",
 		],
+		startDate: "2025",
 		demoUrl: "https://grzegorzwitkowsk1.github.io/Portfolio/",
 		codeUrl: "https://github.com/GrzegorzWitkowsk1/Portfolio",
 	},
@@ -536,6 +542,7 @@ export const projects: ProjectType[] = [
 			"Firefox API",
 			"Browsers development panels",
 		],
+		startDate: "2022",
 	},
 	{
 		title: "Statistics App",
@@ -573,6 +580,7 @@ export const projects: ProjectType[] = [
 			"Material UI",
 			"React Apex Charts",
 		],
+		startDate: "2020",
 	},
 ];
 

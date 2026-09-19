@@ -1,8 +1,9 @@
-import { Box, styled, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { Clock, MapPin, Target, type LucideIcon } from "lucide-react";
 import polyMyImage from "assets/images/poly-my-image.jpeg";
 import cv from "assets/files/Grzegorz Witkowski - Frontend Developer.pdf";
 import { badgeSx } from "config/badge-style";
+import { SectionLabel } from "components/section-label";
 import { AvailabilityDot } from "components/availability-dot";
 import { InfoCard } from "./components/info-card";
 import { LinkCard } from "./components/link-card";
@@ -83,17 +84,6 @@ links: [
 		},
 	],
 };
-
-const SectionLabel = styled(Typography)(({ theme }) => ({
-	fontSize: "17px",
-	fontWeight: 600,
-	letterSpacing: "0.5px",
-	textTransform: "uppercase",
-	color:
-		theme.palette.mode === "light"
-			? theme.palette.grey[500]
-			: theme.palette.grey[100],
-}));
 
 export function AboutMe() {
 	const theme = useTheme();

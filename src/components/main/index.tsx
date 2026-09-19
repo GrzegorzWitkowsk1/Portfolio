@@ -1,11 +1,13 @@
 import { Box, styled } from "@mui/material";
 import { useNavigationStore } from "store/navigation-store";
+import { projects } from "consts";
 import { BreadcrumbsBar } from "./components/breadcrumbs-bar";
 import { TabBar } from "./components/tab-bar";
 import { FileView } from "./components/file-view";
 import { HomeView } from "./components/home-view";
 import { AboutMe } from "./components/about-me";
 import { NewMessage } from "./components/new-message";
+import { ProjectView } from "./components/project-view";
 
 const MainRoot = styled(Box, {
 	shouldForwardProp: (prop) => prop !== "withDots",
@@ -40,6 +42,10 @@ export function Main() {
 
 	const activeTab = tabs.find((t) => t.id === activeTabId);
 
+	const project = activeTab
+		? projects.find((p) => activeTab.id === `projects/${p.sidebarName}`)
+		: undefined;
+
 	return (
 		<MainRoot withDots={activeTabId === null}>
 			<TabBar />
@@ -53,6 +59,8 @@ export function Main() {
 						<AboutMe />
 					) : activeTab.label === "new-message.tsx" ? (
 						<NewMessage />
+					) : project ? (
+						<ProjectView project={project} />
 					) : (
 						<FileView icon={activeTab.icon} label={activeTab.label} />
 					))
