@@ -15,12 +15,6 @@ const TabBarRoot = styled(Box)(({ theme }) => ({
 	}`,
 	backgroundColor:
 		theme.palette.mode === "light" ? "white" : theme.palette.grey[600],
-	"&::-webkit-scrollbar": {
-		height: "2px",
-	},
-	"&::-webkit-scrollbar-thumb": {
-		backgroundColor: theme.palette.grey[400],
-	},
 }));
 
 const HomeTab = styled(ButtonBase)<{ active: boolean }>(

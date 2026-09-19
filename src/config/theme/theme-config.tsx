@@ -1,6 +1,7 @@
 import {
 	createTheme,
 	CssBaseline,
+	GlobalStyles,
 	StyledEngineProvider,
 	ThemeProvider,
 } from "@mui/material";
@@ -71,6 +72,30 @@ export function ThemeConfig({ children }: ThemeConfigProps) {
 		<StyledEngineProvider injectFirst>
 			<ThemeProvider theme={theme}>
 				<CssBaseline />
+				<GlobalStyles
+					styles={{
+						"*::-webkit-scrollbar": {
+							width: "14px",
+							height: "14px",
+						},
+						"*::-webkit-scrollbar-track": {
+							backgroundColor: "transparent",
+						},
+						"*::-webkit-scrollbar-thumb": {
+							backgroundColor: theme.palette.primary.main,
+							borderRadius: "8px",
+							border: "3px solid transparent",
+							backgroundClip: "content-box",
+							"&:hover": {
+								backgroundColor: theme.palette.primary.dark,
+							},
+						},
+						"*, *::before, *::after": {
+							scrollbarWidth: "auto",
+							scrollbarColor: `${theme.palette.primary.main} transparent`,
+						},
+					}}
+				/>
 				<ThemeModeContext.Provider value={value}>
 					{children}
 				</ThemeModeContext.Provider>
