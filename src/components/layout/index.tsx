@@ -10,13 +10,15 @@ const NAV_WIDTH = 280;
 const LayoutRoot = styled(Box)({
 	display: "flex",
 	flexDirection: "column",
-	minHeight: "100vh",
+	height: "100vh",
+	overflow: "hidden",
 });
 
 const Body = styled(Box)({
 	display: "flex",
 	flex: 1,
 	minHeight: 0,
+	overflow: "hidden",
 });
 
 const NavArea = styled(Box)(({ theme }) => ({

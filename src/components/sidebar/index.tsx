@@ -6,10 +6,11 @@ import {
 	Typography,
 	useTheme,
 } from "@mui/material";
-import { FiberManualRecord, FormatQuote, Terminal } from "@mui/icons-material";
+import { FormatQuote, Terminal } from "@mui/icons-material";
 import { ReactNode, useState } from "react";
 import { BranchInfo } from "./components/branch-info";
 import { ExplorerHeader } from "./components/explorer-header";
+import { AvailabilityDot } from "components/availability-dot";
 import { projects, workExperience } from "consts";
 import { useNavigationStore, FolderName } from "store/navigation-store";
 import { getFileIcon } from "config/file-icon";
@@ -262,9 +263,7 @@ export function Sidebar() {
 							gap: "4px",
 						}}
 					>
-						<FiberManualRecord
-							sx={{ fontSize: "12px", color: "success.main" }}
-						/>
+						<AvailabilityDot />
 						<Typography
 							sx={{
 								fontSize: "12px",

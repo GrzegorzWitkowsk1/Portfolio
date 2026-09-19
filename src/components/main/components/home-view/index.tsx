@@ -196,7 +196,14 @@ export function HomeView() {
 				)}
 			</Box>
 			<Typography
-				sx={{ fontSize: "13px", mb: "16px", color: theme.palette.mode === 'dark' ? theme.palette.grey[300] : theme.palette.grey[500] }}
+				sx={{
+					fontSize: "13px",
+					mb: "16px",
+					color:
+						theme.palette.mode === "dark"
+							? theme.palette.grey[100]
+							: theme.palette.grey[600],
+				}}
 			>
 				{items.length} items · click to open
 			</Typography>

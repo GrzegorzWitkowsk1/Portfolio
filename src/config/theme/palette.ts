@@ -183,7 +183,7 @@ function palette(mode: ThemeMode) {
 
 	const text = {
 		primary: isLight ? "#020203" : "#BDC8D4",
-		secondary: isLight ? "#202429" : "#404751",
+		secondary: isLight ? "#202429" : "#7F8893",
 		disabled: grey[500],
 	};
 
