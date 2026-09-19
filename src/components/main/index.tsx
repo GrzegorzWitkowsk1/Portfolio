@@ -5,6 +5,7 @@ import { TabBar } from "./components/tab-bar";
 import { FileView } from "./components/file-view";
 import { HomeView } from "./components/home-view";
 import { AboutMe } from "./components/about-me";
+import { NewMessage } from "./components/new-message";
 
 const MainRoot = styled(Box, {
 	shouldForwardProp: (prop) => prop !== "withDots",
@@ -50,6 +51,8 @@ export function Main() {
 					activeTab &&
 					(activeTab.label === "about-me.tsx" ? (
 						<AboutMe />
+					) : activeTab.label === "new-message.tsx" ? (
+						<NewMessage />
 					) : (
 						<FileView icon={activeTab.icon} label={activeTab.label} />
 					))
