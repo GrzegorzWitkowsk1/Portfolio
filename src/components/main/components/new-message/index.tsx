@@ -178,6 +178,9 @@ export function NewMessage() {
 							sx={{
 								textDecoration: "none",
 								color: theme.palette.primary.main,
+								'&:hover':{  
+									textDecoration:'underline'
+								}
 							}}
 						>
 							grzegorz.witkowski999@gmail.com
