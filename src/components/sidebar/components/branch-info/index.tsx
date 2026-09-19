@@ -5,7 +5,7 @@ import { Typography } from "@mui/material";
 const BranchInfoRoot = styled(Box)(({ theme }) => ({
 	display: "flex",
 	alignItems: "center",
-	backgroundColor:'#13171d',
+	backgroundColor:theme.palette.mode === 'dark' ? '#13171d' :'white',
 	justifyContent: "space-between",
 	height: "30px",
 	padding: "0 14px",
