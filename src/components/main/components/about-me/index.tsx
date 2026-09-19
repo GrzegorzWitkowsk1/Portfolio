@@ -67,7 +67,7 @@ export function AboutMe() {
 				marginRight: "auto",
 				display: "flex",
 				flexDirection: "column",
-				gap: "40px",
+				gap: "35px",
 				padding: "0 24px 32px",
 			}}
 		>
@@ -75,9 +75,9 @@ export function AboutMe() {
 				sx={{
 					display: "flex",
 					flexDirection: { xs: "column", md: "row" },
-					alignItems: "center",
+					alignItems: {xs:'flex-start', md:'center'},
 					gap: "18px",
-					textAlign: { xs: "center", md: "left" },
+					textAlign: 'left',
 				}}
 			>
 				<Box
@@ -103,7 +103,7 @@ export function AboutMe() {
 						sx={{
 							display: "flex",
 							alignItems: "center",
-							justifyContent: { xs: "center", md: "flex-start" },
+							justifyContent: 'flex-start',
 							gap: "6px",
 						}}
 					>
