@@ -15,6 +15,7 @@ import { useTranslation } from "react-i18next";
 const FORM_SUBMIT_URL =
 	"https://formsubmit.co/ajax/grzegorz.witkowski999@gmail.com";
 const CONTACT_EMAIL = "grzegorz.witkowski999@gmail.com";
+const TRUST_TIMEOUT_MS = 3000;
 
 type FieldName = "name" | "email" | "message";
 
@@ -112,18 +113,46 @@ export function NewMessage() {
 		formData.append("_subject", "New message from portfolio");
 		formData.append("_captcha", "false");
 
+		const request = fetch(FORM_SUBMIT_URL, {
+			method: "POST",
+			body: formData,
+		}).then((response) => response.ok);
+
+		let timeoutId = 0;
+		const timer = new Promise<"timeout">((resolve) => {
+			timeoutId = window.setTimeout(() => resolve("timeout"), TRUST_TIMEOUT_MS);
+		});
+
 		try {
-			const response = await fetch(FORM_SUBMIT_URL, {
-				method: "POST",
-				body: formData,
-			});
-			if (response.ok) {
-				setStatus("success");
-				setValues({ name: "", email: "", message: "" });
-			} else {
-				setStatus("error");
+			const winner = await Promise.race([
+				request.then(() => "request" as const),
+				timer,
+			]);
+
+			if (winner === "request") {
+				window.clearTimeout(timeoutId);
+				const ok = await request;
+				if (ok) {
+					setStatus("success");
+					setValues({ name: "", email: "", message: "" });
+				} else {
+					setStatus("error");
+				}
+				return;
 			}
+
+			setStatus("success");
+			request
+				.then((ok) => {
+					if (ok) {
+						setValues({ name: "", email: "", message: "" });
+					} else {
+						setStatus("error");
+					}
+				})
+				.catch(() => setStatus("error"));
 		} catch {
+			window.clearTimeout(timeoutId);
 			setStatus("error");
 		}
 	};
