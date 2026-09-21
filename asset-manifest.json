@@ -1,14 +1,31 @@
 {
   "files": {
-    "main.js": "/Portfolio/static/js/main.a2acdf6d.js",
-    "static/media/banner_linkedIn.png": "/Portfolio/static/media/banner_linkedIn.8c8d394277948725cff3.png",
-    "static/media/project-filbruk-background.png": "/Portfolio/static/media/project-filbruk-background.9297379ca27b3cac834e.png",
+    "main.css": "/Portfolio/static/css/main.946a120b.css",
+    "main.js": "/Portfolio/static/js/main.6d165791.js",
+    "static/media/filbruk_1.png": "/Portfolio/static/media/filbruk_1.b3a6dc9e9bdbbd3fde07.png",
+    "static/media/moviemark_1.png": "/Portfolio/static/media/moviemark_1.4afa5d137f6049d4e595.png",
+    "static/media/filbruk_3.png": "/Portfolio/static/media/filbruk_3.475246eb64365625a67a.png",
+    "static/media/poly-my-image.jpeg": "/Portfolio/static/media/poly-my-image.aac29de13a656d6ecb82.jpeg",
+    "static/media/Grzegorz Witkowski - Frontend Developer.pdf": "/Portfolio/static/media/Grzegorz Witkowski - Frontend Developer.d20fb8497d13ee687f75.pdf",
+    "static/media/filbruk_2.png": "/Portfolio/static/media/filbruk_2.5aa6e22a010310b69480.png",
+    "static/media/portfolio.png": "/Portfolio/static/media/portfolio.7c5df08eb314057f6bed.png",
+    "static/media/moviemark_3.png": "/Portfolio/static/media/moviemark_3.63d48dfb8405b3edc945.png",
+    "static/media/moviemark_4.png": "/Portfolio/static/media/moviemark_4.8c75df362fb76cf6cc0e.png",
+    "static/media/moviemark_2.png": "/Portfolio/static/media/moviemark_2.177b47dcc73165aa4318.png",
+    "static/media/geist-mono-latin-wght-normal.woff2": "/Portfolio/static/media/geist-mono-latin-wght-normal.8915f32bc9d51b44d11a.woff2",
+    "static/media/geist-mono-latin-ext-wght-normal.woff2": "/Portfolio/static/media/geist-mono-latin-ext-wght-normal.62a3bc4f669903381d47.woff2",
+    "static/media/geist-mono-cyrillic-wght-normal.woff2": "/Portfolio/static/media/geist-mono-cyrillic-wght-normal.3f8363306daa9a51bc69.woff2",
+    "static/media/geist-mono-vietnamese-wght-normal.woff2": "/Portfolio/static/media/geist-mono-vietnamese-wght-normal.7da6d79fa235f24f2930.woff2",
+    "static/media/geist-mono-cyrillic-ext-wght-normal.woff2": "/Portfolio/static/media/geist-mono-cyrillic-ext-wght-normal.69fc1fa0544d8241186e.woff2",
+    "static/media/geist-mono-symbols2-wght-normal.woff2": "/Portfolio/static/media/geist-mono-symbols2-wght-normal.2d848fc9308af046051c.woff2",
     "static/media/en-EN.svg": "/Portfolio/static/media/en-EN.50bbb94ac2cc518c90b9010d6f05bd06.svg",
     "index.html": "/Portfolio/index.html",
     "static/media/pl-PL.svg": "/Portfolio/static/media/pl-PL.65476fc3b4b755126b9919d8344279c8.svg",
-    "main.a2acdf6d.js.map": "/Portfolio/static/js/main.a2acdf6d.js.map"
+    "main.946a120b.css.map": "/Portfolio/static/css/main.946a120b.css.map",
+    "main.6d165791.js.map": "/Portfolio/static/js/main.6d165791.js.map"
   },
   "entrypoints": [
-    "static/js/main.a2acdf6d.js"
+    "static/css/main.946a120b.css",
+    "static/js/main.6d165791.js"
   ]
 }
