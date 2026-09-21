@@ -17,6 +17,13 @@
 		"openTerminal": "open terminal",
 		"availableForWork": "available for work"
 	},
+	"search": {
+		"triggerPlaceholder": "search files...",
+		"modalPlaceholder": "search files, projects, tech...",
+		"esc": "ESC",
+		"open": "open search",
+		"noResults": "no results found"
+	},
 	"terminal": {
 		"title": "cmd - portfolio",
 		"greeting": "Grzegorz Witkowski - portfolio shell. Type 'help' to begin",

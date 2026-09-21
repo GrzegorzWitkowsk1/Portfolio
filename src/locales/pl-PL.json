@@ -17,6 +17,13 @@
 		"openTerminal": "otwórz terminal",
 		"availableForWork": "dostępny do pracy"
 	},
+	"search": {
+		"triggerPlaceholder": "szukaj plików...",
+		"modalPlaceholder": "szukaj plików, projektów, technologii...",
+		"esc": "ESC",
+		"open": "otwórz wyszukiwarkę",
+		"noResults": "brak wyników"
+	},
 	"terminal": {
 		"title": "cmd - portfolio",
 		"greeting": "Grzegorz Witkowski - portfolio shell. Wpisz 'help', aby rozpocząć",
@@ -42,7 +49,7 @@
 		"itemsCount": "{{count}} elementów",
 		"itemsClickToOpen": "{{count}} elementów · kliknij, aby otworzyć"
 	},
-"homeFiles": {
+	"homeFiles": {
 		"about-me.tsx": "Krótkie wprowadzenie — kim jestem i czym się zajmuję.",
 		"new-message.tsx": "Formularz kontaktowy — wyślij mi wiadomość.",
 		"projects/motorro.md": "Aplikacja dla branży motoryzacyjnej — porównywanie i zamawianie części od dystrybutorów.",

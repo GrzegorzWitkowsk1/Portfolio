@@ -18,6 +18,7 @@ import { useLanguage } from "config/language/language-config";
 import { locales } from "consts";
 import enFlag from "assets/flags/en-EN.svg";
 import plFlag from "assets/flags/pl-PL.svg";
+import { SearchCommand } from "./components/search-command";
 
 const LANGUAGE_FLAGS: Record<string, string> = {
 	"en-EN": enFlag,
@@ -127,6 +128,7 @@ export function Header({ onToggleNavigation }: HeaderProps) {
 				)}
 			</NameSection>
 			<Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
+				<SearchCommand />
 				<IconButton
 					onClick={handleLanguageMenuOpen}
 					title={t("header::language")}
