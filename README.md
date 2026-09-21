@@ -19,7 +19,6 @@ An interactive, IDE-inspired portfolio application that presents work experience
 - react-i18next — localization (EN / PL)
 - lucide-react — icons
 - Geist Mono variable font
-- Testing Library (`@testing-library/react`, `@testing-library/jest-dom`, `@testing-library/user-event`)
 - Prettier — code formatting
 - gh-pages — deployment
 
@@ -35,7 +34,6 @@ npm start            # or: yarn start   → http://localhost:3000
 Other scripts:
 
 ```bash
-npm test             # or: yarn test       — run tests
 npm run build        # or: yarn build      — production build
 npm run format       # or: yarn format     — Prettier write + check
 npx tsc --noEmit     # or: yarn tsc        — typecheck
