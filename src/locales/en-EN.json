@@ -21,15 +21,30 @@
 		"title": "cmd - portfolio",
 		"greeting": "Grzegorz Witkowski - portfolio shell. Type 'help' to begin",
 		"close": "Close terminal",
-		"commandInput": "Type a command"
+		"commandInput": "Type a command",
+		"availableCommands": "available commands",
+		"commandNotFound": "command not found: {{command}} - try 'help'",
+		"openUsage": "usage: open <file>",
+		"openNoSuchFile": "open: no such file: {{file}}",
+		"themeSwitched": "theme: {{mode}}",
+		"commands": {
+			"help": "show available commands",
+			"ls": "list files & folders",
+			"whoami": "about the developer",
+			"socials": "links socials",
+			"open": "open a file in the editor",
+			"theme": "toggle dark/light theme",
+			"clear": "clear the terminal",
+			"exit": "close the terminal"
+		}
 	},
 	"home": {
 		"itemsCount": "{{count}} items",
 		"itemsClickToOpen": "{{count}} items · click to open"
 	},
 	"homeFiles": {
-		"aboutMe": "Short introduction to who I am and what I do.",
-		"newMessage": "Contact form — drop me a message.",
+		"about-me.tsx": "Short introduction to who I am and what I do.",
+		"new-message.tsx": "Contact form — drop me a message.",
 		"projects/motorro.md": "App for the automotive industry — comparing and ordering parts from wholesalers.",
 		"projects/rezerwik.md": "Restaurant and services app managing reservations and orders.",
 		"projects/moviemark.md": "Personal movie and TV series tracking app built on TMDB.",

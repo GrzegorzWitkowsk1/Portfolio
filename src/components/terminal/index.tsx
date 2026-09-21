@@ -11,6 +11,7 @@ import { DollarSign, Terminal as TerminalIcon, X } from "lucide-react";
 import { KeyboardEvent, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useTerminalStore } from "store/terminal-store";
+import { TerminalLine, useTerminalRunner } from "./commands";
 
 const TERMINAL_HEIGHT = 256;
 
@@ -75,20 +76,78 @@ export function Terminal() {
 	const close = useTerminalStore((s) => s.close);
 	const markGreetingShown = useTerminalStore((s) => s.markGreetingShown);
 
-	const [showGreeting, setShowGreeting] = useState(false);
+	const { run } = useTerminalRunner();
+
+	const [lines, setLines] = useState<TerminalLine[]>([]);
 	const [command, setCommand] = useState("");
+	const [submittedCommands, setSubmittedCommands] = useState<string[]>([]);
+	const [historyIndex, setHistoryIndex] = useState(-1);
 	const inputRef = useRef<HTMLInputElement>(null);
+	const outputRef = useRef<HTMLDivElement>(null);
+
+	const greeting = t("terminal::greeting");
 
 	useEffect(() => {
 		if (isOpen && !greetingShown) {
-			setShowGreeting(true);
+			setLines([{ kind: "out", text: greeting }]);
 			markGreetingShown();
 		}
-	}, [isOpen, greetingShown, markGreetingShown]);
+	}, [isOpen, greetingShown, markGreetingShown, greeting]);
+
+	useEffect(() => {
+		if (outputRef.current) {
+			outputRef.current.scrollTop = outputRef.current.scrollHeight;
+		}
+	}, [lines]);
+
+	const runCommand = (raw: string) => {
+		setLines((prev) => [...prev, { kind: "in", text: `$ ${raw}` }]);
+
+		const result = run(raw);
+
+		if (result.type === "output") {
+			setLines((prev) => [...prev, ...result.lines]);
+		} else if (result.type === "clear") {
+			setLines([{ kind: "out", text: greeting }]);
+		} else if (result.type === "exit") {
+			close();
+		}
+
+		setSubmittedCommands((prev) => [...prev, raw]);
+		setHistoryIndex(-1);
+		setCommand("");
+	};
 
 	const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
 		if (event.key === "Enter") {
-			setCommand("");
+			const trimmed = command.trim();
+			if (trimmed) {
+				runCommand(command);
+			}
+		} else if (event.key === "ArrowUp") {
+			event.preventDefault();
+			if (submittedCommands.length === 0) {
+				return;
+			}
+			const nextIndex =
+				historyIndex === -1
+					? submittedCommands.length - 1
+					: Math.max(0, historyIndex - 1);
+			setHistoryIndex(nextIndex);
+			setCommand(submittedCommands[nextIndex]);
+		} else if (event.key === "ArrowDown") {
+			event.preventDefault();
+			if (historyIndex === -1) {
+				return;
+			}
+			const nextIndex = historyIndex + 1;
+			if (nextIndex >= submittedCommands.length) {
+				setHistoryIndex(-1);
+				setCommand("");
+			} else {
+				setHistoryIndex(nextIndex);
+				setCommand(submittedCommands[nextIndex]);
+			}
 		}
 	};
 
@@ -124,18 +183,27 @@ export function Terminal() {
 					</IconButton>
 				</TitleBar>
 				<BodyRoot>
-					<OutputArea>
-						{showGreeting && (
+					<OutputArea ref={outputRef}>
+						{lines.map((line, index) => (
 							<Typography
+								key={index}
 								sx={{
 									fontSize: "14px",
 									lineHeight: 1.6,
-									color: theme.palette.text.primary,
+									whiteSpace: "pre-wrap",
+									wordBreak: "break-word",
+									userSelect: "text",
+									color:
+										line.kind === "err"
+											? theme.palette.error.main
+											: line.kind === "in"
+												? theme.palette.text.secondary
+												: theme.palette.text.primary,
 								}}
 							>
-								{t("terminal::greeting")}
+								{line.text}
 							</Typography>
-						)}
+						))}
 					</OutputArea>
 					<PromptRow>
 						<DollarSign size={16} color={theme.palette.primary.main} />

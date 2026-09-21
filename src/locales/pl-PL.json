@@ -12,7 +12,7 @@
 		"toggleNavigation": "przełącz nawigację",
 		"language": "Język"
 	},
-"sidebar": {
+	"sidebar": {
 		"explorer": "eksplorator",
 		"openTerminal": "otwórz terminal",
 		"availableForWork": "dostępny do pracy"
@@ -21,15 +21,30 @@
 		"title": "cmd - portfolio",
 		"greeting": "Grzegorz Witkowski - portfolio shell. Wpisz 'help', aby rozpocząć",
 		"close": "Zamknij terminal",
-		"commandInput": "Wpisz komendę"
+		"commandInput": "Wpisz komendę",
+		"availableCommands": "dostępne komendy",
+		"commandNotFound": "komenda nie znaleziona: {{command}} - spróbuj 'help'",
+		"openUsage": "użycie: open <plik>",
+		"openNoSuchFile": "open: brak takiego pliku: {{file}}",
+		"themeSwitched": "motyw: {{mode}}",
+		"commands": {
+			"help": "pokaż dostępne komendy",
+			"ls": "wypisz pliki i foldery",
+			"whoami": "informacje o autorze",
+			"socials": "linki do social mediów",
+			"open": "otwórz plik w edytorze",
+			"theme": "przełącz motyw jasny/ciemny",
+			"clear": "wyczyść terminal",
+			"exit": "zamknij terminal"
+		}
 	},
 	"home": {
 		"itemsCount": "{{count}} elementów",
 		"itemsClickToOpen": "{{count}} elementów · kliknij, aby otworzyć"
 	},
-	"homeFiles": {
-		"aboutMe": "Krótkie wprowadzenie — kim jestem i czym się zajmuję.",
-		"newMessage": "Formularz kontaktowy — wyślij mi wiadomość.",
+"homeFiles": {
+		"about-me.tsx": "Krótkie wprowadzenie — kim jestem i czym się zajmuję.",
+		"new-message.tsx": "Formularz kontaktowy — wyślij mi wiadomość.",
 		"projects/motorro.md": "Aplikacja dla branży motoryzacyjnej — porównywanie i zamawianie części od dystrybutorów.",
 		"projects/rezerwik.md": "Aplikacja dla restauracji i usług do zarządzania rezerwacjami i zamówieniami.",
 		"projects/moviemark.md": "Osobista aplikacja do śledzenia filmów i seriali zbudowana na TMDB.",

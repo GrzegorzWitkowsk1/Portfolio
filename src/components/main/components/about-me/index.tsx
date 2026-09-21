@@ -2,7 +2,7 @@ import { Box, Typography, useTheme } from "@mui/material";
 import { Clock, MapPin, Target, type LucideIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import polyMyImage from "assets/images/poly-my-image.jpeg";
-import cv from "assets/files/Grzegorz Witkowski - Frontend Developer.pdf";
+import { about } from "config/about-data";
 import { badgeSx } from "config/badge-style";
 import { SectionLabel } from "components/section-label";
 import { AvailabilityDot } from "components/availability-dot";
@@ -20,60 +20,6 @@ const linkLabelKey: Record<string, string> = {
 	Linkedin: "aboutMe::links::linkedin",
 	CV: "aboutMe::links::cv",
 	Email: "aboutMe::links::email",
-};
-
-const about = {
-	name: "Grzegorz Witkowski",
-	technologies: [
-		"React",
-		"TypeScript",
-		"Next JS",
-		"Tailwind CSS",
-		"Monorepo",
-		"CI/CD",
-		"Material UI",
-		"React Query",
-		"React Context",
-		"React Router",
-		"Git",
-		"Github",
-		"Github Actions",
-		"Copilot",
-		"Claude",
-		"Opencode",
-		"Jest",
-		"Vitest",
-		"Playwright",
-		"Fastify",
-		"Mongoose",
-		"Manifest v2/v3",
-	],
-	links: [
-		{
-			label: "Github",
-			handle: "/GrzegorzWitkowsk1",
-			href: "https://github.com/GrzegorzWitkowsk1",
-			download: false,
-		},
-		{
-			label: "Linkedin",
-			handle: "/in/grzegorz-witkowski-b0b11a234",
-			href: "https://www.linkedin.com/in/grzegorz-witkowski-b0b11a234/",
-			download: false,
-		},
-		{
-			label: "CV",
-			handle: "Grzegorz Witkowski",
-			href: cv,
-			download: true,
-		},
-		{
-			label: "Email",
-			handle: "grzegorz.witkowski999@gmail.com",
-			href: "mailto:grzegorz.witkowski999@gmail.com",
-			download: false,
-		},
-	],
 };
 
 export function AboutMe() {
