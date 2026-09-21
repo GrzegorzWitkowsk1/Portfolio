@@ -36,8 +36,8 @@
 		"themeSwitched": "motyw: {{mode}}",
 		"commands": {
 			"help": "pokaż dostępne komendy",
-			"ls": "wypisz pliki i foldery",
-			"whoami": "informacje o autorze",
+			"ls": "wylistuj pliki i foldery",
+			"whoami": "informacje o mnie",
 			"socials": "linki do social mediów",
 			"open": "otwórz plik w edytorze",
 			"theme": "przełącz motyw jasny/ciemny",
@@ -117,7 +117,7 @@
 	},
 	"contact": {
 		"title": "Napisz do mnie",
-		"subtitleBefore": "Masz projekt na myśli albo po prostu chcesz się przywitać? Napisz wiadomość poniżej albo skontaktuj się ze mną: ",
+		"subtitleBefore": "Masz projekt na myśli albo po prostu chcesz nawiązać kontakt? Napisz wiadomość poniżej albo skontaktuj się ze mną: ",
 		"subtitleAfter": ".",
 		"name": "Imię",
 		"namePlaceholder": "Twoje imię",
