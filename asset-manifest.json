@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Portfolio/static/css/main.946a120b.css",
-    "main.js": "/Portfolio/static/js/main.b617aab0.js",
+    "main.js": "/Portfolio/static/js/main.2adc0196.js",
     "static/media/filbruk_1.png": "/Portfolio/static/media/filbruk_1.b3a6dc9e9bdbbd3fde07.png",
     "static/media/moviemark_1.png": "/Portfolio/static/media/moviemark_1.4afa5d137f6049d4e595.png",
     "static/media/filbruk_3.png": "/Portfolio/static/media/filbruk_3.475246eb64365625a67a.png",
     "static/media/poly-my-image.jpeg": "/Portfolio/static/media/poly-my-image.aac29de13a656d6ecb82.jpeg",
-    "static/media/Grzegorz Witkowski - Frontend Developer.pdf": "/Portfolio/static/media/Grzegorz Witkowski - Frontend Developer.d20fb8497d13ee687f75.pdf",
     "static/media/filbruk_2.png": "/Portfolio/static/media/filbruk_2.5aa6e22a010310b69480.png",
+    "static/media/Grzegorz Witkowski - Frontend Developer.pdf": "/Portfolio/static/media/Grzegorz Witkowski - Frontend Developer.c5663ef77dc8f5071b9e.pdf",
     "static/media/portfolio.png": "/Portfolio/static/media/portfolio.7c5df08eb314057f6bed.png",
     "static/media/moviemark_3.png": "/Portfolio/static/media/moviemark_3.63d48dfb8405b3edc945.png",
     "static/media/moviemark_4.png": "/Portfolio/static/media/moviemark_4.8c75df362fb76cf6cc0e.png",
@@ -22,10 +22,10 @@
     "index.html": "/Portfolio/index.html",
     "static/media/pl-PL.svg": "/Portfolio/static/media/pl-PL.65476fc3b4b755126b9919d8344279c8.svg",
     "main.946a120b.css.map": "/Portfolio/static/css/main.946a120b.css.map",
-    "main.b617aab0.js.map": "/Portfolio/static/js/main.b617aab0.js.map"
+    "main.2adc0196.js.map": "/Portfolio/static/js/main.2adc0196.js.map"
   },
   "entrypoints": [
     "static/css/main.946a120b.css",
-    "static/js/main.b617aab0.js"
+    "static/js/main.2adc0196.js"
   ]
 }
